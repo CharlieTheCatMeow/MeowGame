@@ -14,7 +14,7 @@ size = Vector2(1152, 64)
 size = Vector2(292, 32)
 
 [sub_resource type="Animation" id="Animation_o6yob"]
-length = 0.001
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

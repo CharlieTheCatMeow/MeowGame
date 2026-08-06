@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ctt0l16sax8j"]
 
-[ext_resource type="Texture2D" uid="uid://bkuqkx67p30xo" path="res://Assets/Background/Nature.jpg" id="1_4geyq"]
 [ext_resource type="Script" uid="uid://dpa6gt0g8rda6" path="res://Scenes/settings.gd" id="1_i44u3"]
+[ext_resource type="Texture2D" uid="uid://dvnqr27mfe47k" path="res://Assets/Background/MeowGame Menu Background.png" id="2_i44u3"]
 
 [node name="Settings" type="Node2D" unique_id=1173759484]
 script = ExtResource("1_i44u3")
@@ -9,7 +9,7 @@ script = ExtResource("1_i44u3")
 [node name="SettingsBackground" type="TextureRect" parent="." unique_id=605952857]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_4geyq")
+texture = ExtResource("2_i44u3")
 expand_mode = 2
 
 [node name="TitleScreenTitle" type="RichTextLabel" parent="." unique_id=776190687]

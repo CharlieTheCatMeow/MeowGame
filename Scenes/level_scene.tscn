@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bx0valwk32eel"]
 
 [ext_resource type="Script" uid="uid://cqcwjtrda0cqt" path="res://Scenes/timer_screen.gd" id="1_cn3xy"]
-[ext_resource type="Texture2D" uid="uid://bkuqkx67p30xo" path="res://Assets/Background/Nature.jpg" id="2_c7xwe"]
+[ext_resource type="Texture2D" uid="uid://dvnqr27mfe47k" path="res://Assets/Background/MeowGame Menu Background.png" id="2_c7xwe"]
 [ext_resource type="Texture2D" uid="uid://b7v8voldwvnl4" path="res://Assets/Icons/MeowGame Life Icon.png" id="3_c7xwe"]
 
 [node name="LevelScene" type="Node2D" unique_id=46321951]

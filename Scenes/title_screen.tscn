@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7760gfdhev6g"]
 
-[ext_resource type="Texture2D" uid="uid://bkuqkx67p30xo" path="res://Assets/Background/Nature.jpg" id="1_klylv"]
 [ext_resource type="Script" uid="uid://vo12nscfjv10" path="res://Scenes/title_screen.gd" id="1_p3fck"]
+[ext_resource type="Texture2D" uid="uid://dvnqr27mfe47k" path="res://Assets/Background/MeowGame Menu Background.png" id="2_p3fck"]
 
 [node name="TitleScreen" type="Node2D" unique_id=413198438]
 script = ExtResource("1_p3fck")
@@ -10,7 +10,7 @@ script = ExtResource("1_p3fck")
 offset_right = 39.814816
 offset_bottom = 40.0
 scale = Vector2(28.8, 16.2)
-texture = ExtResource("1_klylv")
+texture = ExtResource("2_p3fck")
 expand_mode = 2
 
 [node name="TitleScreenTitle" type="RichTextLabel" parent="." unique_id=1411677269]
@@ -20,9 +20,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 216.0
-offset_top = 24.0
+offset_top = 64.0
 offset_right = 935.0
-offset_bottom = 172.0
+offset_bottom = 212.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 40
@@ -37,6 +37,7 @@ offset_left = 368.0
 offset_top = 176.0
 offset_right = 784.0
 offset_bottom = 436.0
+alignment = 1
 
 [node name="Begin" type="Button" parent="VBoxContainer" unique_id=638375823]
 layout_mode = 2

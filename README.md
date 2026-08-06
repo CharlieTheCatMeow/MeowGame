@@ -21,4 +21,5 @@ The game is ridiculously easy.
 ![Minigame example](Screenshots/Screenshot_MeowGame_minigame_1.png)
 
 ## Credits
-Background is 25th by Louis Coyle, everything else is made by me.
+Art by me (I have no artistic talent. I apologise in advance)
+BGM: Audio from opengameart.org by mrpoly
