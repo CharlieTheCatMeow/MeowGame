@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ctt0l16sax8j"]
+
+[ext_resource type="Texture2D" uid="uid://bkuqkx67p30xo" path="res://Assets/Background/Nature.jpg" id="1_4geyq"]
+
+[node name="Settings" type="Node2D" unique_id=1173759484]
+
+[node name="SettingsBackground" type="TextureRect" parent="." unique_id=605952857]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_4geyq")
+expand_mode = 2

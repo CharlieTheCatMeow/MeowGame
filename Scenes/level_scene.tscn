@@ -1,3 +1,66 @@
 [gd_scene format=3 uid="uid://bx0valwk32eel"]
 
+[ext_resource type="Script" uid="uid://cqcwjtrda0cqt" path="res://Scenes/timer_screen.gd" id="1_cn3xy"]
+[ext_resource type="Texture2D" uid="uid://bkuqkx67p30xo" path="res://Assets/Background/Nature.jpg" id="2_c7xwe"]
+[ext_resource type="Texture2D" uid="uid://cqss3x62iprag" path="res://icon.svg" id="3_c7xwe"]
+
 [node name="LevelScene" type="Node2D" unique_id=46321951]
+script = ExtResource("1_cn3xy")
+
+[node name="LevelSceneBackground" type="TextureRect" parent="." unique_id=785050440]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_c7xwe")
+expand_mode = 2
+
+[node name="LivesContainer" type="HBoxContainer" parent="." unique_id=1383584770]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 1088.0
+offset_bottom = 232.0
+alignment = 1
+
+[node name="Life" type="TextureRect" parent="LivesContainer" unique_id=248168246]
+layout_mode = 2
+texture = ExtResource("3_c7xwe")
+expand_mode = 2
+
+[node name="Life2" type="TextureRect" parent="LivesContainer" unique_id=397992808]
+layout_mode = 2
+texture = ExtResource("3_c7xwe")
+expand_mode = 2
+
+[node name="Life3" type="TextureRect" parent="LivesContainer" unique_id=1974311643]
+layout_mode = 2
+texture = ExtResource("3_c7xwe")
+expand_mode = 2
+
+[node name="Life4" type="TextureRect" parent="LivesContainer" unique_id=1343622738]
+layout_mode = 2
+texture = ExtResource("3_c7xwe")
+expand_mode = 2
+
+[node name="Life5" type="TextureRect" parent="LivesContainer" unique_id=1689692913]
+layout_mode = 2
+texture = ExtResource("3_c7xwe")
+expand_mode = 2
+
+[node name="Timer" type="RichTextLabel" parent="." unique_id=1367258306]
+offset_left = 448.0
+offset_top = 352.0
+offset_right = 704.0
+offset_bottom = 416.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]0.0[/center]"
+
+[node name="Level" type="RichTextLabel" parent="." unique_id=155379426]
+offset_left = 448.0
+offset_top = 272.0
+offset_right = 704.0
+offset_bottom = 336.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]Level #[/center]"
