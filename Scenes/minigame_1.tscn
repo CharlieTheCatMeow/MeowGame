@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://xm2abbik6652"]
+
+[ext_resource type="Script" uid="uid://noeauos678uy" path="res://Scenes/minigame_1.gd" id="1_5txvl"]
+[ext_resource type="Texture2D" uid="uid://p6jwfvil742t" path="res://Assets/Background/MeowGame Sky Background.png" id="1_enoba"]
+[ext_resource type="PackedScene" uid="uid://bhu38d1noxcb3" path="res://Scenes/player.tscn" id="2_11mgy"]
+[ext_resource type="Texture2D" uid="uid://dyc2hn6c4n0dx" path="res://Assets/Icons/MeowGame Rune.png" id="3_f6tb2"]
+[ext_resource type="Script" uid="uid://buec0di6kybdh" path="res://Scenes/rune.gd" id="4_0uv5o"]
+[ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="6_0uv5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11mgy"]
+size = Vector2(1152, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
+size = Vector2(292, 32)
+
+[sub_resource type="Animation" id="Animation_o6yob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RuneTexture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5txvl"]
+resource_name = "floating"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RuneTexture:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0uv5o"]
+_data = {
+&"RESET": SubResource("Animation_o6yob"),
+&"floating": SubResource("Animation_5txvl")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6p6qw"]
+radius = 40.0
+
+[node name="Minigame 1" type="Node2D" unique_id=1813012965]
+script = ExtResource("1_5txvl")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=457981938]
+repeat_size = Vector2(1150, 0)
+autoscroll = Vector2(10, 0)
+
+[node name="Background" type="TextureRect" parent="Parallax2D" unique_id=1424606793]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_enoba")
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=1568142151]
+position = Vector2(0, 584)
+
+[node name="ColorRect" type="ColorRect" parent="Platform" unique_id=429428285]
+offset_right = 57.416267
+offset_bottom = 43.243244
+scale = Vector2(20.064001, 1.48)
+color = Color(0.1254902, 0.6431373, 0.11372549, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=459721361]
+position = Vector2(576, 32)
+shape = SubResource("RectangleShape2D_11mgy")
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=1787317148]
+position = Vector2(304, 488)
+
+[node name="ColorRect" type="ColorRect" parent="Platform2" unique_id=1926617461]
+offset_right = 14.75279
+offset_bottom = 21.621628
+scale = Vector2(20.064001, 1.48)
+color = Color(0.1254902, 0.6431373, 0.11372549, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1980872311]
+position = Vector2(148, 16)
+shape = SubResource("RectangleShape2D_6p6qw")
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=1905112995]
+position = Vector2(568, 384)
+
+[node name="ColorRect" type="ColorRect" parent="Platform3" unique_id=1157820651]
+offset_right = 14.75279
+offset_bottom = 21.621628
+scale = Vector2(20.064001, 1.48)
+color = Color(0.1254902, 0.6431373, 0.11372549, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1223198370]
+position = Vector2(148, 16)
+shape = SubResource("RectangleShape2D_6p6qw")
+
+[node name="Platform4" type="StaticBody2D" parent="." unique_id=1740492779]
+position = Vector2(856, 272)
+
+[node name="ColorRect" type="ColorRect" parent="Platform4" unique_id=1699137357]
+offset_right = 14.75279
+offset_bottom = 21.621628
+scale = Vector2(20.064001, 1.48)
+color = Color(0.1254902, 0.6431373, 0.11372549, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=1497190217]
+position = Vector2(148, 16)
+shape = SubResource("RectangleShape2D_6p6qw")
+
+[node name="Player" parent="." unique_id=1395390089 instance=ExtResource("2_11mgy")]
+position = Vector2(88, 536)
+
+[node name="Rune" type="Node2D" parent="." unique_id=520859927]
+position = Vector2(416, 408)
+script = ExtResource("4_0uv5o")
+
+[node name="RuneTexture" type="TextureRect" parent="Rune" unique_id=588686333]
+offset_right = 72.0
+offset_bottom = 72.0
+texture = ExtResource("3_f6tb2")
+
+[node name="RuneAnimation" type="AnimationPlayer" parent="Rune" unique_id=88577561]
+libraries/ = SubResource("AnimationLibrary_0uv5o")
+autoplay = &"floating"
+
+[node name="Area2D" type="Area2D" parent="Rune" unique_id=166607106]
+position = Vector2(32, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rune/Area2D" unique_id=590848708]
+shape = SubResource("CircleShape2D_6p6qw")
+
+[node name="Rune2" type="Node2D" parent="." unique_id=762582265]
+position = Vector2(680, 296)
+script = ExtResource("4_0uv5o")
+
+[node name="RuneTexture" type="TextureRect" parent="Rune2" unique_id=1567747474]
+offset_right = 72.0
+offset_bottom = 72.0
+texture = ExtResource("3_f6tb2")
+
+[node name="RuneAnimation" type="AnimationPlayer" parent="Rune2" unique_id=562758236]
+libraries/ = SubResource("AnimationLibrary_0uv5o")
+autoplay = &"floating"
+
+[node name="Area2D" type="Area2D" parent="Rune2" unique_id=1389567297]
+position = Vector2(32, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rune2/Area2D" unique_id=1307456354]
+shape = SubResource("CircleShape2D_6p6qw")
+
+[node name="Rune3" type="Node2D" parent="." unique_id=1203052764]
+position = Vector2(976, 184)
+script = ExtResource("4_0uv5o")
+
+[node name="RuneTexture" type="TextureRect" parent="Rune3" unique_id=785000258]
+offset_right = 72.0
+offset_bottom = 72.0
+texture = ExtResource("3_f6tb2")
+
+[node name="RuneAnimation" type="AnimationPlayer" parent="Rune3" unique_id=217222863]
+libraries/ = SubResource("AnimationLibrary_0uv5o")
+autoplay = &"floating"
+
+[node name="Area2D" type="Area2D" parent="Rune3" unique_id=1640406933]
+position = Vector2(32, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rune3/Area2D" unique_id=340910603]
+shape = SubResource("CircleShape2D_6p6qw")
+
+[node name="timer" parent="." unique_id=844459433 instance=ExtResource("6_0uv5o")]
+position = Vector2(960, 0)
+
+[connection signal="runes_collected" from="Rune" to="." method="_on_rune_runes_collected"]
+[connection signal="runes_collected" from="Rune2" to="." method="_on_rune_runes_collected"]
+[connection signal="runes_collected" from="Rune3" to="." method="_on_rune_runes_collected"]

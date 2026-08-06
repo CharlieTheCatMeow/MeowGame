@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://ci6ws1gfqa8wf"]
+
+[ext_resource type="Script" uid="uid://bsnc21eyg0370" path="res://Scenes/done_screen.gd" id="1_3rr80"]
+[ext_resource type="Texture2D" uid="uid://bkuqkx67p30xo" path="res://Assets/Background/Nature.jpg" id="2_1q1k2"]
+[ext_resource type="Texture2D" uid="uid://bjoeerloi00v7" path="res://Assets/Icons/MeowGame Cat thumbs up.png" id="3_8rpo2"]
+[ext_resource type="Texture2D" uid="uid://dyc2hn6c4n0dx" path="res://Assets/Icons/MeowGame Rune.png" id="4_5u8ma"]
+
+[node name="Done Screen" type="Node2D" unique_id=790361240]
+script = ExtResource("1_3rr80")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1505730876]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_1q1k2")
+expand_mode = 2
+
+[node name="TitleScreenTitle" type="RichTextLabel" parent="." unique_id=1180929029]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 216.0
+offset_top = 16.0
+offset_right = 935.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/normal_font_size = 108
+bbcode_enabled = true
+text = "[center]You Win![/center]"
+fit_content = true
+scroll_active = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1346733935]
+offset_left = 368.0
+offset_top = 176.0
+offset_right = 784.0
+offset_bottom = 436.0
+
+[node name="Play Again" type="Button" parent="VBoxContainer" unique_id=1525502131]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Play again"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1417194738]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Quit"
+
+[node name="Cat Thumbs Up" type="TextureRect" parent="." unique_id=1717226374]
+offset_left = 48.0
+offset_top = 280.0
+offset_right = 336.0
+offset_bottom = 560.0
+texture = ExtResource("3_8rpo2")
+
+[node name="Rune" type="TextureRect" parent="." unique_id=552779496]
+offset_left = 784.0
+offset_top = 376.0
+offset_right = 952.0
+offset_bottom = 520.0
+texture = ExtResource("4_5u8ma")
+
+[connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

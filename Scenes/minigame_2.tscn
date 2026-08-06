@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://b34nx3o0useum"]
+
+[ext_resource type="Texture2D" uid="uid://p6jwfvil742t" path="res://Assets/Background/MeowGame Sky Background.png" id="1_dfb65"]
+[ext_resource type="Script" uid="uid://dp24qejc7qxga" path="res://Scenes/minigame_2.gd" id="1_rfxq2"]
+[ext_resource type="Texture2D" uid="uid://dyc2hn6c4n0dx" path="res://Assets/Icons/MeowGame Rune.png" id="2_rfxq2"]
+[ext_resource type="Script" uid="uid://b5yst0b4gc6j2" path="res://Scenes/button.gd" id="3_mmgun"]
+[ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="4_h684j"]
+
+[node name="Minigame 2" type="Node2D" unique_id=1124162610]
+script = ExtResource("1_rfxq2")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=453469398]
+repeat_size = Vector2(1150, 0)
+autoscroll = Vector2(10, 0)
+
+[node name="Background" type="TextureRect" parent="Parallax2D" unique_id=1628132335]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_dfb65")
+
+[node name="Button" type="TextureButton" parent="." unique_id=722561134]
+offset_left = 88.0
+offset_top = 88.0
+offset_right = 104.0
+offset_bottom = 104.0
+scale = Vector2(7, 7)
+texture_normal = ExtResource("2_rfxq2")
+script = ExtResource("3_mmgun")
+
+[node name="Button2" type="TextureButton" parent="." unique_id=503830791]
+offset_left = 184.0
+offset_top = 407.99997
+offset_right = 200.0
+offset_bottom = 423.99997
+scale = Vector2(7, 7)
+texture_normal = ExtResource("2_rfxq2")
+script = ExtResource("3_mmgun")
+
+[node name="Button3" type="TextureButton" parent="." unique_id=2083331512]
+offset_left = 479.99997
+offset_top = 144.00003
+offset_right = 495.99997
+offset_bottom = 160.00003
+scale = Vector2(7, 7)
+texture_normal = ExtResource("2_rfxq2")
+script = ExtResource("3_mmgun")
+
+[node name="Button4" type="TextureButton" parent="." unique_id=639506041]
+offset_left = 560.0
+offset_top = 432.0
+offset_right = 576.0
+offset_bottom = 448.0
+scale = Vector2(7, 7)
+texture_normal = ExtResource("2_rfxq2")
+script = ExtResource("3_mmgun")
+
+[node name="Button5" type="TextureButton" parent="." unique_id=1365658767]
+offset_left = 296.0
+offset_top = 264.0
+offset_right = 312.0
+offset_bottom = 280.0
+scale = Vector2(7, 7)
+texture_normal = ExtResource("2_rfxq2")
+script = ExtResource("3_mmgun")
+
+[node name="Button6" type="TextureButton" parent="." unique_id=1950857448]
+offset_left = 704.0
+offset_top = 64.000015
+offset_right = 720.0
+offset_bottom = 80.000015
+scale = Vector2(7, 7)
+texture_normal = ExtResource("2_rfxq2")
+script = ExtResource("3_mmgun")
+
+[node name="Button7" type="TextureButton" parent="." unique_id=1388544387]
+offset_left = 688.00006
+offset_top = 264.0
+offset_right = 704.00006
+offset_bottom = 280.0
+scale = Vector2(7, 7)
+texture_normal = ExtResource("2_rfxq2")
+script = ExtResource("3_mmgun")
+
+[node name="Button8" type="TextureButton" parent="." unique_id=83773139]
+offset_left = 856.00006
+offset_top = 496.0
+offset_right = 872.00006
+offset_bottom = 512.0
+scale = Vector2(7, 7)
+texture_normal = ExtResource("2_rfxq2")
+script = ExtResource("3_mmgun")
+
+[node name="Button9" type="TextureButton" parent="." unique_id=1260538983]
+offset_left = 928.0
+offset_top = 264.0
+offset_right = 944.0
+offset_bottom = 280.0
+scale = Vector2(7, 7)
+texture_normal = ExtResource("2_rfxq2")
+script = ExtResource("3_mmgun")
+
+[node name="Button10" type="TextureButton" parent="." unique_id=365878984]
+offset_left = 928.00006
+offset_top = 56.000015
+offset_right = 944.00006
+offset_bottom = 72.000015
+scale = Vector2(7, 7)
+texture_normal = ExtResource("2_rfxq2")
+script = ExtResource("3_mmgun")
+
+[node name="timer" parent="." unique_id=844459433 instance=ExtResource("4_h684j")]
+position = Vector2(960, 0)
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
+[connection signal="pressed" from="Button4" to="Button4" method="_on_pressed"]
+[connection signal="pressed" from="Button5" to="Button5" method="_on_pressed"]
+[connection signal="pressed" from="Button6" to="Button6" method="_on_pressed"]
+[connection signal="pressed" from="Button7" to="Button7" method="_on_pressed"]
+[connection signal="pressed" from="Button8" to="Button8" method="_on_pressed"]
+[connection signal="pressed" from="Button9" to="Button9" method="_on_pressed"]
+[connection signal="pressed" from="Button10" to="Button10" method="_on_pressed"]

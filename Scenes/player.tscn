@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bhu38d1noxcb3"]
+
+[ext_resource type="Script" uid="uid://ce1nrosxgobv5" path="res://Scenes/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://6mwi6x10nxjw" path="res://Assets/Player/MeowGame player sprite.png" id="1_v0iea"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f6tb2"]
+radius = 5.3333335
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o6yob"]
+radius = 5.3333335
+height = 20.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1395390089]
+scale = Vector2(6, 6)
+script = ExtResource("1_cvnsp")
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=2130057493]
+texture = ExtResource("1_v0iea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803579138]
+position = Vector2(-1, -2)
+shape = SubResource("CapsuleShape2D_f6tb2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1777337088]
+position = Vector2(-1, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1565084785]
+shape = SubResource("CapsuleShape2D_o6yob")
