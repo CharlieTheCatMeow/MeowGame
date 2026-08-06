@@ -18,6 +18,7 @@ This Stardance mission was perfect for that.
 ## Some notes
 The game is ridiculously easy.
 
+![Minigame example](Screenshots/Screenshot_MeowGame_minigame_1.png)
 
 ## Credits
 Background is 25th by Louis Coyle, everything else is made by me.
