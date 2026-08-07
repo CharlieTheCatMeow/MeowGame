@@ -4,14 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://p6jwfvil742t" path="res://Assets/Background/MeowGame Sky Background.png" id="1_enoba"]
 [ext_resource type="PackedScene" uid="uid://bhu38d1noxcb3" path="res://Scenes/player_platformer.tscn" id="2_11mgy"]
 [ext_resource type="Texture2D" uid="uid://dyc2hn6c4n0dx" path="res://Assets/Icons/MeowGame Rune.png" id="3_f6tb2"]
+[ext_resource type="Texture2D" uid="uid://pnq1j7k5or3m" path="res://Assets/Objects/MeowGame Platformer Ground.png" id="3_ojqsy"]
 [ext_resource type="Script" uid="uid://buec0di6kybdh" path="res://Scenes/rune.gd" id="4_0uv5o"]
+[ext_resource type="Texture2D" uid="uid://bqt8wb12qqvp6" path="res://Assets/Objects/MeowGame Platformer Platform.png" id="4_jmcek"]
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="6_0uv5o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11mgy"]
 size = Vector2(1152, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
-size = Vector2(292, 32)
+size = Vector2(296, 32)
 
 [sub_resource type="Animation" id="Animation_o6yob"]
 loop_mode = 2
@@ -68,24 +70,26 @@ texture = ExtResource("1_enoba")
 [node name="Platform" type="StaticBody2D" parent="." unique_id=1568142151]
 position = Vector2(0, 584)
 
-[node name="ColorRect" type="ColorRect" parent="Platform" unique_id=429428285]
-offset_right = 57.416267
-offset_bottom = 43.243244
-scale = Vector2(20.064001, 1.48)
-color = Color(0.1254902, 0.6431373, 0.11372549, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=459721361]
 position = Vector2(576, 32)
 shape = SubResource("RectangleShape2D_11mgy")
 
+[node name="GroundTexture" type="TextureRect" parent="Platform" unique_id=1658532702]
+offset_top = -26.0
+offset_right = 1152.0
+offset_bottom = 64.0
+texture = ExtResource("3_ojqsy")
+stretch_mode = 4
+
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=1787317148]
 position = Vector2(304, 488)
 
-[node name="ColorRect" type="ColorRect" parent="Platform2" unique_id=1926617461]
-offset_right = 14.75279
-offset_bottom = 21.621628
-scale = Vector2(20.064001, 1.48)
-color = Color(0.1254902, 0.6431373, 0.11372549, 1)
+[node name="Platform Texture" type="TextureRect" parent="Platform2" unique_id=1622297619]
+offset_top = -13.0
+offset_right = 296.0
+offset_bottom = 51.0
+texture = ExtResource("4_jmcek")
+stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1980872311]
 position = Vector2(148, 16)
@@ -94,11 +98,12 @@ shape = SubResource("RectangleShape2D_6p6qw")
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=1905112995]
 position = Vector2(568, 384)
 
-[node name="ColorRect" type="ColorRect" parent="Platform3" unique_id=1157820651]
-offset_right = 14.75279
-offset_bottom = 21.621628
-scale = Vector2(20.064001, 1.48)
-color = Color(0.1254902, 0.6431373, 0.11372549, 1)
+[node name="Platform Texture" type="TextureRect" parent="Platform3" unique_id=1444458610]
+offset_top = -13.0
+offset_right = 296.0
+offset_bottom = 51.0
+texture = ExtResource("4_jmcek")
+stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1223198370]
 position = Vector2(148, 16)
@@ -107,11 +112,12 @@ shape = SubResource("RectangleShape2D_6p6qw")
 [node name="Platform4" type="StaticBody2D" parent="." unique_id=1740492779]
 position = Vector2(856, 272)
 
-[node name="ColorRect" type="ColorRect" parent="Platform4" unique_id=1699137357]
-offset_right = 14.75279
-offset_bottom = 21.621628
-scale = Vector2(20.064001, 1.48)
-color = Color(0.1254902, 0.6431373, 0.11372549, 1)
+[node name="Platform Texture" type="TextureRect" parent="Platform4" unique_id=111890573]
+offset_top = -13.0
+offset_right = 296.0
+offset_bottom = 51.0
+texture = ExtResource("4_jmcek")
+stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=1497190217]
 position = Vector2(148, 16)

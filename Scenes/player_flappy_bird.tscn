@@ -1,18 +1,13 @@
 [gd_scene format=3 uid="uid://dwxwnb2rl1prj"]
 
 [ext_resource type="Script" uid="uid://b8tv0bfd5pg6p" path="res://Scenes/player_flappy_bird.gd" id="1_scgws"]
+[ext_resource type="Texture2D" uid="uid://cgymrwblob37v" path="res://Assets/Player/MeowGame Flappy Bird Player.png" id="2_svlbe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6p6qw"]
 radius = 31.06445
 
 [node name="Player Flappy Bird" type="CharacterBody2D" unique_id=651461736]
 script = ExtResource("1_scgws")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1470792671]
-offset_left = -31.0
-offset_top = -31.0
-offset_right = 31.0
-offset_bottom = 31.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=360043448]
 shape = SubResource("CircleShape2D_6p6qw")
@@ -21,3 +16,11 @@ shape = SubResource("CircleShape2D_6p6qw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1857351360]
 shape = SubResource("CircleShape2D_6p6qw")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1068937335]
+offset_left = -35.0
+offset_top = -45.0
+offset_right = 36.0
+offset_bottom = 50.0
+texture = ExtResource("2_svlbe")
+stretch_mode = 4
