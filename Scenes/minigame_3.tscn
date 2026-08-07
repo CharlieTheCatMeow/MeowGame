@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://cpg0lji8d8ov0"]
+
+[ext_resource type="Script" uid="uid://bjetlbeis1dps" path="res://Scenes/minigame_3.gd" id="1_asmx3"]
+[ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="2_h40nw"]
+[ext_resource type="Script" uid="uid://dop3ct8fxjhdm" path="res://Scenes/obstacle_group.gd" id="2_ihkhm"]
+[ext_resource type="PackedScene" uid="uid://dwxwnb2rl1prj" path="res://Scenes/player_flappy_bird.tscn" id="6_lr4ld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
+size = Vector2(96, 912)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a627d"]
+size = Vector2(96, 849)
+
+[node name="Minigame 3" type="Node2D" unique_id=1679984557]
+script = ExtResource("1_asmx3")
+
+[node name="ObstacleGroup" type="Marker2D" parent="." unique_id=1050549337]
+position = Vector2(2038, 322)
+script = ExtResource("2_ihkhm")
+
+[node name="Obstacle" type="StaticBody2D" parent="ObstacleGroup" unique_id=1250583437 groups=["obstacles"]]
+position = Vector2(2, 126)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleGroup/Obstacle" unique_id=208792437]
+offset_right = 96.0
+offset_bottom = 912.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleGroup/Obstacle" unique_id=933632320]
+position = Vector2(48, 456)
+shape = SubResource("RectangleShape2D_6p6qw")
+
+[node name="Obstacle2" type="StaticBody2D" parent="ObstacleGroup" unique_id=1290749348 groups=["obstacles"]]
+position = Vector2(2, -130)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleGroup/Obstacle2" unique_id=1360227422]
+offset_top = -848.0
+offset_right = 96.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleGroup/Obstacle2" unique_id=1419220868]
+position = Vector2(48, -424.5)
+shape = SubResource("RectangleShape2D_a627d")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ObstacleGroup" unique_id=74289390]
+position = Vector2(0, -320)
+rect = Rect2(2, 190, 94, 256)
+
+[node name="ObstacleGroup2" type="Marker2D" parent="." unique_id=2132089769]
+position = Vector2(1612, 322)
+script = ExtResource("2_ihkhm")
+
+[node name="Obstacle" type="StaticBody2D" parent="ObstacleGroup2" unique_id=1224249298 groups=["obstacles"]]
+position = Vector2(-4, 126)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleGroup2/Obstacle" unique_id=1329104969]
+offset_right = 96.0
+offset_bottom = 912.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleGroup2/Obstacle" unique_id=216769790]
+position = Vector2(48, 456)
+shape = SubResource("RectangleShape2D_6p6qw")
+
+[node name="Obstacle2" type="StaticBody2D" parent="ObstacleGroup2" unique_id=1603712477 groups=["obstacles"]]
+position = Vector2(-4, -130)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleGroup2/Obstacle2" unique_id=54000497]
+offset_top = -848.0
+offset_right = 96.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleGroup2/Obstacle2" unique_id=1619161183]
+position = Vector2(48, -424.5)
+shape = SubResource("RectangleShape2D_a627d")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ObstacleGroup2" unique_id=1863293899]
+position = Vector2(0, -320)
+rect = Rect2(-4, 190, 96, 256)
+
+[node name="ObstacleGroup3" type="Marker2D" parent="." unique_id=687517839]
+position = Vector2(1162, 322)
+script = ExtResource("2_ihkhm")
+
+[node name="Obstacle" type="StaticBody2D" parent="ObstacleGroup3" unique_id=1951072013 groups=["obstacles"]]
+position = Vector2(-2, 126)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleGroup3/Obstacle" unique_id=840286069]
+offset_right = 96.0
+offset_bottom = 912.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleGroup3/Obstacle" unique_id=1006599806]
+position = Vector2(48, 456)
+shape = SubResource("RectangleShape2D_6p6qw")
+
+[node name="Obstacle2" type="StaticBody2D" parent="ObstacleGroup3" unique_id=1115688756 groups=["obstacles"]]
+position = Vector2(-2, -130)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleGroup3/Obstacle2" unique_id=836661740]
+offset_top = -848.0
+offset_right = 96.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleGroup3/Obstacle2" unique_id=870321078]
+position = Vector2(48, -424.5)
+shape = SubResource("RectangleShape2D_a627d")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ObstacleGroup3" unique_id=1805972822]
+position = Vector2(0, -320)
+rect = Rect2(-2, 190, 96, 256)
+
+[node name="timer" parent="." unique_id=844459433 instance=ExtResource("2_h40nw")]
+position = Vector2(960, 0)
+
+[node name="PlayerFlappyBird" parent="." unique_id=651461736 instance=ExtResource("6_lr4ld")]
+position = Vector2(72, 296)
+
+[connection signal="screen_exited" from="ObstacleGroup/VisibleOnScreenNotifier2D" to="ObstacleGroup" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="ObstacleGroup2/VisibleOnScreenNotifier2D" to="ObstacleGroup2" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="ObstacleGroup3/VisibleOnScreenNotifier2D" to="ObstacleGroup3" method="_on_visible_on_screen_notifier_2d_screen_exited"]

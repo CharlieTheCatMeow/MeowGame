@@ -13,7 +13,7 @@ var time
 func _ready() -> void:
 	await Timer(2.0) # using the function created
 	
-	if Global.minigames_done < 3: # if you havent completed 3 minigames yet 
+	if Global.minigames_done < 4: # if you havent completed 3 minigames yet 
 		Global.minigames_done = Global.minigames_done +1
 		get_tree().change_scene_to_file("res://Scenes/minigame_" + str(Global.minigames_done) + ".tscn") # changes your scene by arranging this frankenstein path. 
 # Above, your script is being told to go to the next minigame. If the 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://noeauos678uy" path="res://Scenes/minigame_1.gd" id="1_5txvl"]
 [ext_resource type="Texture2D" uid="uid://p6jwfvil742t" path="res://Assets/Background/MeowGame Sky Background.png" id="1_enoba"]
-[ext_resource type="PackedScene" uid="uid://bhu38d1noxcb3" path="res://Scenes/player.tscn" id="2_11mgy"]
+[ext_resource type="PackedScene" uid="uid://bhu38d1noxcb3" path="res://Scenes/player_platformer.tscn" id="2_11mgy"]
 [ext_resource type="Texture2D" uid="uid://dyc2hn6c4n0dx" path="res://Assets/Icons/MeowGame Rune.png" id="3_f6tb2"]
 [ext_resource type="Script" uid="uid://buec0di6kybdh" path="res://Scenes/rune.gd" id="4_0uv5o"]
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="6_0uv5o"]
