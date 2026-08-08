@@ -1,5 +1,6 @@
 extends Node2D
 @onready var themed_timer: Node2D = $timer
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 # ^^^ You dragged this in the scene by the way 
 
 
@@ -14,6 +15,7 @@ func _ready() -> void:
 		# tell the script to wait for a signal, or for when a function finshes
 
 
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	await themed_timer.Timer(10.0) #accessing a function from this node
 	#after this is compeleted...
 	timer_end = true # now we're saying "oh ye you ran out of time"
@@ -21,7 +23,7 @@ func _ready() -> void:
 func _process(delta: float) -> void: # running every frame brochacho
 	
 	if runes_collected == 3: # the double equals is just an argument asking if it's the same, with "=" it'll give an error
-		if Global.minigames_done >= 3: # we access a global script and see how many minigames have been compeleted
+		if Global.minigames_done >= Global.minigames_amount: # we access a global script and see how many minigames have been compeleted
 			get_tree().change_scene_to_file("res://Scenes/done_screen.tscn") # change current play scene into another, but you make your own finish screen in a later challenge, dont worry abt this rn
 		else:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn") # go back to the intermission scene
@@ -36,4 +38,5 @@ func _process(delta: float) -> void: # running every frame brochacho
 
 func _on_rune_runes_collected() -> void:
 	runes_collected = runes_collected +1
+	audio_player.play()
 	return

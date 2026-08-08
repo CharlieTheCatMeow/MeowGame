@@ -11,6 +11,7 @@ extends Node2D
 var time
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	await Timer(2.0) # using the function created
 	
 	if Global.minigames_done < 4: # if you havent completed 3 minigames yet 

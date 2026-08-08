@@ -4,17 +4,25 @@
 extends Node2D
 @onready var player: CharacterBody2D = $"../Player" # grabs the parent node
 @onready var self_area = $Area2D
+@onready var texture = $RuneTexture
+@onready var area_collision_shape = $Area2D/CollisionShape2D
 @onready var player_area = $"../Player/Area2D"
+@onready var particles = $CPUParticles2D
 
 # make a signal
 signal runes_collected
 
+var is_collected = false
+
 func _process(delta: float) -> void: # this runs EVERY FRAME! 
 	
 	if player_area.overlaps_area(self_area): # checks if overlapping
-		if self.visible:
+		if not is_collected and self.visible:
+			is_collected = true
+			area_collision_shape.set_deferred("disabled", true)
 			emit_signal("runes_collected") #signal broadcast
-			self.hide() #removed from player sight; collected
+			texture.hide()
+			particles.emitting = true
 		
 
 # Because you're emitting a signal here, you need to connect that signal to 

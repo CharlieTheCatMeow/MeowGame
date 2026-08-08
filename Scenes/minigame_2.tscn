@@ -5,6 +5,25 @@
 [ext_resource type="Texture2D" uid="uid://dyc2hn6c4n0dx" path="res://Assets/Icons/MeowGame Rune.png" id="2_rfxq2"]
 [ext_resource type="Script" uid="uid://b5yst0b4gc6j2" path="res://Scenes/button.gd" id="3_mmgun"]
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="4_h684j"]
+[ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="5_mmgun"]
+
+[sub_resource type="Curve" id="Curve_xh5le"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 119.101135), 0.0, 0.0, 0, 0, Vector2(0.98936176, -15.730316), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_jmcek"]
+_data = [Vector2(0, 1), 0.0, -0.2888696, 0, 0, Vector2(0.5, 0.8764045), -1.0881852, -1.0881852, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ne1wf"]
+offsets = PackedFloat32Array(0.61728394, 1)
+colors = PackedColorArray(0.9490196, 0.9490196, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_7o8v6"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.9550562), 0.0, 0.0, 0, 0, Vector2(0.9946809, 0.8202247), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Minigame 2" type="Node2D" unique_id=1124162610]
 script = ExtResource("1_rfxq2")
@@ -27,6 +46,35 @@ scale = Vector2(7, 7)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button" unique_id=156477453]
+position = Vector2(7.999998, 7.999998)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.1
+initial_velocity_max = 79.71
+linear_accel_min = 99.0
+linear_accel_max = 99.0
+linear_accel_curve = SubResource("Curve_xh5le")
+scale_amount_min = 25.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_jmcek")
+color = Color(0.947918, 0.9479181, 1.540184e-06, 1)
+color_ramp = SubResource("Gradient_ne1wf")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_7o8v6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button" unique_id=189539486]
+stream = ExtResource("5_mmgun")
+
 [node name="Button2" type="TextureButton" parent="." unique_id=503830791]
 offset_left = 184.0
 offset_top = 407.99997
@@ -35,6 +83,35 @@ offset_bottom = 423.99997
 scale = Vector2(7, 7)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button2" unique_id=2121816265]
+position = Vector2(7.999998, 7.999998)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.1
+initial_velocity_max = 79.71
+linear_accel_min = 99.0
+linear_accel_max = 99.0
+linear_accel_curve = SubResource("Curve_xh5le")
+scale_amount_min = 25.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_jmcek")
+color = Color(0.947918, 0.9479181, 1.540184e-06, 1)
+color_ramp = SubResource("Gradient_ne1wf")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_7o8v6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button2" unique_id=2051330345]
+stream = ExtResource("5_mmgun")
 
 [node name="Button3" type="TextureButton" parent="." unique_id=2083331512]
 offset_left = 479.99997
@@ -45,6 +122,35 @@ scale = Vector2(7, 7)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button3" unique_id=1166940935]
+position = Vector2(7.999998, 7.999998)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.1
+initial_velocity_max = 79.71
+linear_accel_min = 99.0
+linear_accel_max = 99.0
+linear_accel_curve = SubResource("Curve_xh5le")
+scale_amount_min = 25.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_jmcek")
+color = Color(0.947918, 0.9479181, 1.540184e-06, 1)
+color_ramp = SubResource("Gradient_ne1wf")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_7o8v6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button3" unique_id=9132001]
+stream = ExtResource("5_mmgun")
+
 [node name="Button4" type="TextureButton" parent="." unique_id=639506041]
 offset_left = 560.0
 offset_top = 432.0
@@ -53,6 +159,35 @@ offset_bottom = 448.0
 scale = Vector2(7, 7)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button4" unique_id=716758562]
+position = Vector2(7.999998, 7.999998)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.1
+initial_velocity_max = 79.71
+linear_accel_min = 99.0
+linear_accel_max = 99.0
+linear_accel_curve = SubResource("Curve_xh5le")
+scale_amount_min = 25.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_jmcek")
+color = Color(0.947918, 0.9479181, 1.540184e-06, 1)
+color_ramp = SubResource("Gradient_ne1wf")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_7o8v6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button4" unique_id=281599955]
+stream = ExtResource("5_mmgun")
 
 [node name="Button5" type="TextureButton" parent="." unique_id=1365658767]
 offset_left = 296.0
@@ -63,6 +198,35 @@ scale = Vector2(7, 7)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button5" unique_id=2070376318]
+position = Vector2(7.999998, 7.999998)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.1
+initial_velocity_max = 79.71
+linear_accel_min = 99.0
+linear_accel_max = 99.0
+linear_accel_curve = SubResource("Curve_xh5le")
+scale_amount_min = 25.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_jmcek")
+color = Color(0.947918, 0.9479181, 1.540184e-06, 1)
+color_ramp = SubResource("Gradient_ne1wf")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_7o8v6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button5" unique_id=212287085]
+stream = ExtResource("5_mmgun")
+
 [node name="Button6" type="TextureButton" parent="." unique_id=1950857448]
 offset_left = 704.0
 offset_top = 64.000015
@@ -71,6 +235,35 @@ offset_bottom = 80.000015
 scale = Vector2(7, 7)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button6" unique_id=769383704]
+position = Vector2(7.999998, 7.999998)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.1
+initial_velocity_max = 79.71
+linear_accel_min = 99.0
+linear_accel_max = 99.0
+linear_accel_curve = SubResource("Curve_xh5le")
+scale_amount_min = 25.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_jmcek")
+color = Color(0.947918, 0.9479181, 1.540184e-06, 1)
+color_ramp = SubResource("Gradient_ne1wf")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_7o8v6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button6" unique_id=1779787183]
+stream = ExtResource("5_mmgun")
 
 [node name="Button7" type="TextureButton" parent="." unique_id=1388544387]
 offset_left = 688.00006
@@ -81,6 +274,35 @@ scale = Vector2(7, 7)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button7" unique_id=1177891375]
+position = Vector2(7.999998, 7.999998)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.1
+initial_velocity_max = 79.71
+linear_accel_min = 99.0
+linear_accel_max = 99.0
+linear_accel_curve = SubResource("Curve_xh5le")
+scale_amount_min = 25.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_jmcek")
+color = Color(0.947918, 0.9479181, 1.540184e-06, 1)
+color_ramp = SubResource("Gradient_ne1wf")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_7o8v6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button7" unique_id=1955679078]
+stream = ExtResource("5_mmgun")
+
 [node name="Button8" type="TextureButton" parent="." unique_id=83773139]
 offset_left = 856.00006
 offset_top = 496.0
@@ -89,6 +311,35 @@ offset_bottom = 512.0
 scale = Vector2(7, 7)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button8" unique_id=465380014]
+position = Vector2(7.999998, 7.999998)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.1
+initial_velocity_max = 79.71
+linear_accel_min = 99.0
+linear_accel_max = 99.0
+linear_accel_curve = SubResource("Curve_xh5le")
+scale_amount_min = 25.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_jmcek")
+color = Color(0.947918, 0.9479181, 1.540184e-06, 1)
+color_ramp = SubResource("Gradient_ne1wf")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_7o8v6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button8" unique_id=1600219383]
+stream = ExtResource("5_mmgun")
 
 [node name="Button9" type="TextureButton" parent="." unique_id=1260538983]
 offset_left = 928.0
@@ -99,6 +350,35 @@ scale = Vector2(7, 7)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button9" unique_id=1909490417]
+position = Vector2(7.999998, 7.999998)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.1
+initial_velocity_max = 79.71
+linear_accel_min = 99.0
+linear_accel_max = 99.0
+linear_accel_curve = SubResource("Curve_xh5le")
+scale_amount_min = 25.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_jmcek")
+color = Color(0.947918, 0.9479181, 1.540184e-06, 1)
+color_ramp = SubResource("Gradient_ne1wf")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_7o8v6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button9" unique_id=485884578]
+stream = ExtResource("5_mmgun")
+
 [node name="Button10" type="TextureButton" parent="." unique_id=365878984]
 offset_left = 928.00006
 offset_top = 56.000015
@@ -107,6 +387,35 @@ offset_bottom = 72.000015
 scale = Vector2(7, 7)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button10" unique_id=244975931]
+position = Vector2(7.999998, 7.999998)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.1
+initial_velocity_max = 79.71
+linear_accel_min = 99.0
+linear_accel_max = 99.0
+linear_accel_curve = SubResource("Curve_xh5le")
+scale_amount_min = 25.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_jmcek")
+color = Color(0.947918, 0.9479181, 1.540184e-06, 1)
+color_ramp = SubResource("Gradient_ne1wf")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_7o8v6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button10" unique_id=166978021]
+stream = ExtResource("5_mmgun")
 
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("4_h684j")]
 position = Vector2(960, 0)

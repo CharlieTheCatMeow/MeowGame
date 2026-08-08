@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bid0levlanj0u"]
+
+[ext_resource type="Script" uid="uid://r5k8uxavobcg" path="res://Scenes/player_pong.gd" id="1_j0dia"]
+[ext_resource type="Texture2D" uid="uid://bkcmqgx0c5xwb" path="res://Assets/Player/MeowGame Pong Player.png" id="2_s1re3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
+size = Vector2(192, 40)
+
+[node name="Player Pong" type="StaticBody2D" unique_id=375440504]
+script = ExtResource("1_j0dia")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=663387463]
+offset_right = 192.0
+offset_bottom = 40.0
+texture = ExtResource("2_s1re3")
+stretch_mode = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=883269759]
+position = Vector2(96, 20)
+shape = SubResource("RectangleShape2D_6p6qw")

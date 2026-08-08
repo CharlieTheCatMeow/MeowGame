@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dpc7sdwud1rsj"]
+
+[ext_resource type="PackedScene" uid="uid://bid0levlanj0u" path="res://Scenes/player_pong.tscn" id="1_4ashd"]
+[ext_resource type="Script" uid="uid://57bwnt6ayww6" path="res://Scenes/minigame_4.gd" id="1_e1srr"]
+[ext_resource type="Texture2D" uid="uid://3y3ct7rpspus" path="res://Assets/Background/MeowGame Flappy Bird Background Stars.png" id="2_lrixb"]
+[ext_resource type="Script" uid="uid://dncxbngppwl0p" path="res://Scenes/pong_ball.gd" id="3_wcvdo"]
+[ext_resource type="Texture2D" uid="uid://bkcmqgx0c5xwb" path="res://Assets/Player/MeowGame Pong Player.png" id="4_ake4f"]
+[ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="5_xea2i"]
+[ext_resource type="Texture2D" uid="uid://ct2kkuw3apwxy" path="res://Assets/Objects/MeowGame Pong Ball.png" id="6_57wpc"]
+
+[sub_resource type="GDScript" id="GDScript_4ashd"]
+script/source = "extends StaticBody2D
+@onready var pong_ball = $PongBall
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
+size = Vector2(192, 40)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e1srr"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6p6qw"]
+radius = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8373"]
+size = Vector2(24, 636)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o8v6"]
+size = Vector2(1176, 16)
+
+[node name="Minigame 4" type="Node2D" unique_id=629613376]
+script = ExtResource("1_e1srr")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=393253722]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_lrixb")
+
+[node name="PlayerPong" parent="." unique_id=375440504 instance=ExtResource("1_4ashd")]
+position = Vector2(0, 600)
+
+[node name="EnemyPong" type="StaticBody2D" parent="." unique_id=131047409]
+position = Vector2(0, 8)
+script = SubResource("GDScript_4ashd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPong" unique_id=576273099]
+position = Vector2(96, 20)
+shape = SubResource("RectangleShape2D_6p6qw")
+
+[node name="TextureRect" type="TextureRect" parent="EnemyPong" unique_id=702384634]
+offset_right = 192.0
+offset_bottom = 40.0
+texture = ExtResource("4_ake4f")
+flip_h = true
+flip_v = true
+
+[node name="PongBall" type="RigidBody2D" parent="." unique_id=905628760]
+position = Vector2(576, 320)
+physics_material_override = SubResource("PhysicsMaterial_e1srr")
+gravity_scale = 0.0
+linear_velocity = Vector2(-500, -350)
+linear_damp = -1.0
+script = ExtResource("3_wcvdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PongBall" unique_id=1178570236]
+shape = SubResource("CircleShape2D_6p6qw")
+
+[node name="TextureRect" type="TextureRect" parent="PongBall" unique_id=1618702221]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+texture = ExtResource("6_57wpc")
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=46800771]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=505494481]
+position = Vector2(-12, 320)
+shape = SubResource("RectangleShape2D_e8373")
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=404615202]
+position = Vector2(1176, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=1130127001]
+position = Vector2(-12, 322)
+shape = SubResource("RectangleShape2D_e8373")
+
+[node name="CheckLoss" type="Area2D" parent="." unique_id=1574511934]
+position = Vector2(0, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckLoss" unique_id=281959673]
+position = Vector2(588, 8)
+shape = SubResource("RectangleShape2D_7o8v6")
+
+[node name="timer" parent="." unique_id=844459433 instance=ExtResource("5_xea2i")]
+position = Vector2(960, 0)
+
+[node name="timer" parent="timer" index="0" unique_id=151355501]
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+
+[connection signal="body_entered" from="CheckLoss" to="." method="_on_check_loss_body_entered"]
+
+[editable path="timer"]

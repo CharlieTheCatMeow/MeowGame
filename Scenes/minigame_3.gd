@@ -10,6 +10,7 @@ var player_died = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	player.died.connect(on_player_died)
 	await themed_timer.Timer(10.0)
 	timer_end = true
@@ -31,7 +32,7 @@ func _process(delta: float) -> void:
 	obstacle_group_3.position += Vector2(-5, 0)
 	
 	if timer_end:
-		if Global.minigames_done >= 3:
+		if Global.minigames_done >= Global.minigames_amount:
 			get_tree().change_scene_to_file("res://Scenes/done_screen.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
