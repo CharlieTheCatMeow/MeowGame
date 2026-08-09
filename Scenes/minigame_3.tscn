@@ -15,6 +15,7 @@ size = Vector2(96, 849)
 
 [node name="Minigame 3" type="Node2D" unique_id=1679984557]
 script = ExtResource("1_asmx3")
+obstacle_speed = 400.0
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1854872036]
 repeat_size = Vector2(1000, 0)

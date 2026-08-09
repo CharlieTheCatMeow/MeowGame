@@ -5,6 +5,8 @@ extends Node2D
 @onready var themed_timer: Node2D = $timer
 @onready var player = $PlayerFlappyBird
 
+@export var obstacle_speed: float = 300.0
+
 var timer_end = false
 var player_died = false
 
@@ -27,6 +29,7 @@ func on_player_died() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var movement_vector = Vector2(-obstacle_speed * delta, 0)
 	obstacle_group.position += Vector2(-5, 0)
 	obstacle_group_2.position += Vector2(-5, 0)
 	obstacle_group_3.position += Vector2(-5, 0)

@@ -27,6 +27,7 @@ BgmPlayer="*uid://vgcn25ap61q8"
 [display]
 
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 
 [input]
 
