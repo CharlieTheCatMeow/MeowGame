@@ -30,9 +30,9 @@ func on_player_died() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var movement_vector = Vector2(-obstacle_speed * delta, 0)
-	obstacle_group.position += Vector2(-5, 0)
-	obstacle_group_2.position += Vector2(-5, 0)
-	obstacle_group_3.position += Vector2(-5, 0)
+	obstacle_group.position += movement_vector
+	obstacle_group_2.position += movement_vector
+	obstacle_group_3.position += movement_vector
 	
 	if timer_end:
 		if Global.minigames_done >= Global.minigames_amount:
