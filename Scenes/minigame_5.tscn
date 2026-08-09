@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://c3sr70ee7rhy3"]
+
+[ext_resource type="Script" uid="uid://bqjbrhq4kfxdn" path="res://Scenes/minigame_5.gd" id="1_6fijl"]
+[ext_resource type="Texture2D" uid="uid://y78f4uv1w8al" path="res://Assets/Background/MeowGame Race track.png" id="1_bgv4i"]
+[ext_resource type="PackedScene" uid="uid://cqvs6tdq6153s" path="res://Scenes/player_car.tscn" id="1_rngjv"]
+[ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="4_28s5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8373"]
+size = Vector2(140.95697, 30.310669)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgv4i"]
+size = Vector2(177.56737, 30.310669)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fijl"]
+size = Vector2(152.74382, 29.789856)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28s5m"]
+size = Vector2(192.68253, 30.310669)
+
+[node name="Minigame 5" type="Node2D" unique_id=1731774065]
+script = ExtResource("1_6fijl")
+
+[node name="Background" type="TextureRect" parent="." unique_id=111825591]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_bgv4i")
+stretch_mode = 4
+
+[node name="Player car" parent="." unique_id=1309054244 groups=["player car"] instance=ExtResource("1_rngjv")]
+position = Vector2(456, 536)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1984375365]
+position = Vector2(984, 448)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=643199016]
+polygon = PackedVector2Array(-8, 0, 8, 0, 8, 24, 8, 40, -72, 88, -208, 80, -416, 0, -424, 40, -664, 40, -792, -8, -784, -24, -592, -64, -608, -264, -704, -304, -520, -328, -368, -320, -152, -280, -112, -272, -112, -264, -264, -264, -432, -304, -552, -264, -552, -64, -376, -40, -216, 24, -168, 64, -80, 64)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls" unique_id=1201828621]
+position = Vector2(-549.7356, 140.22241)
+polygon = PackedVector2Array(21.735596, -4.222412, 413.7356, 35.777588, 645.7356, 27.777588, 725.7356, -68.22241, 717.7356, -268.2224, 509.7356, -276.2224, 453.7356, -236.22241, 381.7356, -284.2224, 197.7356, -292.2224, 197.7356, -308.2224, 701.7356, -284.2224, 709.7356, -556.2224, 517.7356, -532.2224, 317.7356, -548.2224, 189.7356, -596.2224, -330.2644, -548.2224, -386.2644, -468.2224, -210.2644, -332.2224, -218.2644, -276.2224, -362.2644, -244.22241, -402.2644, -172.22241, -338.2644, -52.222412, -218.2644, -4.222412, -34.264404, -4.222412, -34.264404, 19.777588, -34.264404, 51.777588, -434.2644, 59.777588, -434.2644, -588.2224, 253.7356, -660.2224, 717.7356, -588.2224, 773.7356, -116.22241, 717.7356, 59.777588, -26.264404, 59.777588)
+
+[node name="Checkpoint" type="Area2D" parent="." unique_id=1246188469]
+position = Vector2(544, 520)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint" unique_id=70173397]
+position = Vector2(0, 24)
+rotation = -1.5949163
+shape = SubResource("RectangleShape2D_e8373")
+
+[node name="Checkpoint2" type="Area2D" parent="." unique_id=1366124861]
+position = Vector2(241.05055, 345.01193)
+rotation = -0.43335423
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint2" unique_id=611690127]
+position = Vector2(3.3726432, 9.260302)
+rotation = -1.5949163
+shape = SubResource("RectangleShape2D_e8373")
+
+[node name="Checkpoint3" type="Area2D" parent="." unique_id=1860916099]
+position = Vector2(176.0658, 124.48683)
+rotation = -1.7633904
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint3" unique_id=1613087176]
+position = Vector2(-15.768997, -6.7237244)
+rotation = -1.5949163
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_bgv4i")
+
+[node name="Checkpoint4" type="Area2D" parent="." unique_id=1476551981]
+position = Vector2(881, 119)
+rotation = -0.116196446
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint4" unique_id=1808748187]
+position = Vector2(-42.229492, -25.77414)
+rotation = -1.5949163
+shape = SubResource("RectangleShape2D_6fijl")
+
+[node name="Checkpoint5" type="Area2D" parent="." unique_id=756568638]
+position = Vector2(608, 229)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint5" unique_id=1607728588]
+position = Vector2(0, -21)
+rotation = -1.5949163
+shape = SubResource("RectangleShape2D_e8373")
+
+[node name="Checkpoint6" type="Area2D" parent="." unique_id=457415530]
+position = Vector2(858, 455)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint6" unique_id=1720431607]
+position = Vector2(1.3825684, -39.1532)
+rotation = -1.5228672
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_28s5m")
+
+[node name="timer" parent="." unique_id=844459433 instance=ExtResource("4_28s5m")]
+position = Vector2(960, 0)
