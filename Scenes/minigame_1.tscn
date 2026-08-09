@@ -78,6 +78,9 @@ _limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0.010638304, 200), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8373"]
+size = Vector2(32, 648)
+
 [node name="Minigame 1" type="Node2D" unique_id=1813012965]
 script = ExtResource("1_5txvl")
 
@@ -289,6 +292,20 @@ position = Vector2(960, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1368753795]
 stream = ExtResource("9_ne1wf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1210152428]
+position = Vector2(-32, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=485141500]
+position = Vector2(16, 324)
+shape = SubResource("RectangleShape2D_e8373")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1750307786]
+position = Vector2(1152, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=635732411]
+position = Vector2(16, 324)
+shape = SubResource("RectangleShape2D_e8373")
 
 [connection signal="runes_collected" from="Rune" to="." method="_on_rune_runes_collected"]
 [connection signal="runes_collected" from="Rune2" to="." method="_on_rune_runes_collected"]

@@ -8,20 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="5_xea2i"]
 [ext_resource type="Texture2D" uid="uid://ct2kkuw3apwxy" path="res://Assets/Objects/MeowGame Pong Ball.png" id="6_57wpc"]
 
-[sub_resource type="GDScript" id="GDScript_4ashd"]
-script/source = "extends StaticBody2D
-@onready var pong_ball = $PongBall
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
 size = Vector2(192, 40)
 
@@ -51,7 +37,6 @@ position = Vector2(0, 600)
 
 [node name="EnemyPong" type="StaticBody2D" parent="." unique_id=131047409]
 position = Vector2(0, 8)
-script = SubResource("GDScript_4ashd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPong" unique_id=576273099]
 position = Vector2(96, 20)

@@ -41,13 +41,7 @@ offset_bottom = 436.0
 layout_mode = 2
 theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 26
-text = "Meow"
-
-[node name="Eh" type="Button" parent="VBoxContainer" unique_id=1937078416]
-layout_mode = 2
-theme_override_constants/outline_size = 14
-theme_override_font_sizes/font_size = 26
-text = "Eh"
+text = "Toggle Music"
 
 [node name="Return" type="Button" parent="VBoxContainer" unique_id=1626810917]
 layout_mode = 2
@@ -56,5 +50,4 @@ theme_override_font_sizes/font_size = 26
 text = "Return"
 
 [connection signal="pressed" from="VBoxContainer/Meow" to="." method="_on_meow_pressed"]
-[connection signal="pressed" from="VBoxContainer/Eh" to="." method="_on_eh_pressed"]
 [connection signal="pressed" from="VBoxContainer/Return" to="." method="_on_return_pressed"]

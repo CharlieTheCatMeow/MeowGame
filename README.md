@@ -18,7 +18,7 @@ This Stardance mission was perfect for that.
 ## Some notes
 The game is ridiculously easy.
 
-![Minigame example](Screenshots/Screenshot_MeowGame_minigame_1.png)
+![Minigame example](Screenshots/Screenshot_Flappy_Bird.png)
 
 ## Credits
 Art by me (I have no artistic talent. I apologise in advance)

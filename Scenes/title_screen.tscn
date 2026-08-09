@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://vo12nscfjv10" path="res://Scenes/title_screen.gd" id="1_p3fck"]
 [ext_resource type="Texture2D" uid="uid://dvnqr27mfe47k" path="res://Assets/Background/MeowGame Menu Background.png" id="2_p3fck"]
+[ext_resource type="Texture2D" uid="uid://bl6kdbs3e3crm" path="res://Assets/Objects/MeowGame Title.png" id="3_4gxqj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4gxqj"]
+texture = ExtResource("3_4gxqj")
 
 [node name="TitleScreen" type="Node2D" unique_id=413198438]
 script = ExtResource("1_p3fck")
 
 [node name="TitleScreenBackground" type="TextureRect" parent="." unique_id=392086763]
-offset_right = 39.814816
+offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(28.8, 16.2)
 texture = ExtResource("2_p3fck")
@@ -20,13 +24,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 216.0
-offset_top = 64.0
-offset_right = 935.0
-offset_bottom = 212.0
+offset_top = 32.0
+offset_right = 936.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 40
 theme_override_font_sizes/normal_font_size = 108
+theme_override_styles/normal = SubResource("StyleBoxTexture_4gxqj")
 bbcode_enabled = true
 text = "[center]MeowGame![/center]"
 fit_content = true

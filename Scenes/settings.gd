@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_meow_pressed() -> void:
-	print("Meow")
+	BgmPlayer.toggle_music()
 
 
 func _on_eh_pressed() -> void:
