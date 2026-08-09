@@ -94,3 +94,9 @@ shape = SubResource("RectangleShape2D_28s5m")
 
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("4_28s5m")]
 position = Vector2(960, 0)
+
+[node name="timer" parent="timer" index="0" unique_id=151355501]
+offset_left = 64.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+
+[editable path="timer"]

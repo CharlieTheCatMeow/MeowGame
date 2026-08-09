@@ -155,6 +155,9 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 [node name="PlayerFlappyBird" parent="." unique_id=651461736 instance=ExtResource("6_lr4ld")]
 position = Vector2(192, 320)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1405525687]
+color = Color(0.9999998, 0.91141254, 0.99348146, 1)
+
 [connection signal="screen_exited" from="ObstacleGroup/VisibleOnScreenNotifier2D" to="ObstacleGroup" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_exited" from="ObstacleGroup2/VisibleOnScreenNotifier2D" to="ObstacleGroup2" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_exited" from="ObstacleGroup3/VisibleOnScreenNotifier2D" to="ObstacleGroup3" method="_on_visible_on_screen_notifier_2d_screen_exited"]

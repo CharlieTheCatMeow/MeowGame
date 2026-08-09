@@ -62,6 +62,9 @@ height = 20.0
 radius = 5.3333335
 height = 20.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tudsp"]
+polygon = PackedVector2Array(-2.5, -7, -2.5, 5, 1.5, 5, 0.5, -4, 0.5, -7)
+
 [node name="Player Platformer" type="CharacterBody2D" unique_id=1395390089]
 scale = Vector2(6, 6)
 script = ExtResource("1_cvnsp")
@@ -73,11 +76,16 @@ animation = &"jumping"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803579138]
+visible = false
 position = Vector2(-1, -2)
 shape = SubResource("CapsuleShape2D_f6tb2")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1777337088]
+visible = false
 position = Vector2(-1, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1565084785]
 shape = SubResource("CapsuleShape2D_o6yob")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=472446524]
+occluder = SubResource("OccluderPolygon2D_tudsp")

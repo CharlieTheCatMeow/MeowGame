@@ -16,6 +16,9 @@ size = Vector2(1152, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
 size = Vector2(296, 32)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6p6qw"]
+polygon = PackedVector2Array(0, 0, 296, 0, 288, 32, 8, 32)
+
 [sub_resource type="Animation" id="Animation_o6yob"]
 loop_mode = 2
 tracks/0/type = "value"
@@ -121,6 +124,9 @@ stretch_mode = 4
 position = Vector2(148, 16)
 shape = SubResource("RectangleShape2D_6p6qw")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Platform2" unique_id=1351020562]
+occluder = SubResource("OccluderPolygon2D_6p6qw")
+
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=1905112995]
 position = Vector2(568, 384)
 
@@ -135,6 +141,9 @@ stretch_mode = 4
 position = Vector2(148, 16)
 shape = SubResource("RectangleShape2D_6p6qw")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Platform3" unique_id=1414759595]
+occluder = SubResource("OccluderPolygon2D_6p6qw")
+
 [node name="Platform4" type="StaticBody2D" parent="." unique_id=1740492779]
 position = Vector2(856, 272)
 
@@ -148,6 +157,9 @@ stretch_mode = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=1497190217]
 position = Vector2(148, 16)
 shape = SubResource("RectangleShape2D_6p6qw")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Platform4" unique_id=1942961762]
+occluder = SubResource("OccluderPolygon2D_6p6qw")
 
 [node name="Player" parent="." unique_id=1395390089 instance=ExtResource("2_11mgy")]
 position = Vector2(88, 536)
@@ -306,6 +318,17 @@ position = Vector2(1152, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=635732411]
 position = Vector2(16, 324)
 shape = SubResource("RectangleShape2D_e8373")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1472832238]
+position = Vector2(-136, -112)
+rotation = -1.1007234
+energy = 0.04
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=29504645]
+color = Color(0.9019608, 0.93333334, 0.98039216, 1)
 
 [connection signal="runes_collected" from="Rune" to="." method="_on_rune_runes_collected"]
 [connection signal="runes_collected" from="Rune2" to="." method="_on_rune_runes_collected"]

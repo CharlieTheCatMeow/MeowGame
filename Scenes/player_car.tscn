@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cqvs6tdq6153s"]
 
 [ext_resource type="Script" uid="uid://c40pxhmaqknl4" path="res://Scenes/player_car.gd" id="1_ir43m"]
+[ext_resource type="Texture2D" uid="uid://btkfx0xcwr6vk" path="res://Assets/Player/MeowGame Race car.png" id="2_iwbkh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
 size = Vector2(48, 24)
@@ -8,9 +9,12 @@ size = Vector2(48, 24)
 [node name="Player car" type="CharacterBody2D" unique_id=1309054244]
 script = ExtResource("1_ir43m")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1668604030]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1051673292]
 offset_right = 48.0
 offset_bottom = 24.0
+texture = ExtResource("2_iwbkh")
+stretch_mode = 4
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1688973167]
 position = Vector2(24, 12)
