@@ -17,7 +17,7 @@ size = Vector2(1152, 64)
 size = Vector2(296, 32)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6p6qw"]
-polygon = PackedVector2Array(0, 0, 296, 0, 288, 32, 8, 32)
+polygon = PackedVector2Array(0, 0, 296, 0, 288, 32, 196.02658, 31.99997, 8, 32)
 
 [sub_resource type="Animation" id="Animation_o6yob"]
 loop_mode = 2
@@ -116,7 +116,7 @@ position = Vector2(304, 488)
 [node name="Platform Texture" type="TextureRect" parent="Platform2" unique_id=1622297619]
 offset_top = -13.0
 offset_right = 296.0
-offset_bottom = 51.0
+offset_bottom = 56.0
 texture = ExtResource("4_jmcek")
 stretch_mode = 4
 
@@ -163,6 +163,7 @@ occluder = SubResource("OccluderPolygon2D_6p6qw")
 
 [node name="Player" parent="." unique_id=1395390089 instance=ExtResource("2_11mgy")]
 position = Vector2(88, 536)
+scale = Vector2(5, 5)
 
 [node name="Rune" type="Node2D" parent="." unique_id=520859927]
 position = Vector2(416, 408)

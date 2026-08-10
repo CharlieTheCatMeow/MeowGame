@@ -1,34 +1,42 @@
 [gd_scene format=3 uid="uid://bhu38d1noxcb3"]
 
 [ext_resource type="Script" uid="uid://ce1nrosxgobv5" path="res://Scenes/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://6mwi6x10nxjw" path="res://Assets/Player/MeowGame player sprite.png" id="1_v0iea"]
-[ext_resource type="Texture2D" uid="uid://bryvf1raokfvd" path="res://Assets/Player/MeowGame player sprite running.png" id="3_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://d01wg0ccuhpqo" path="res://Assets/Player/MeowGame player sprite jump.png" id="3_vgqql"]
+[ext_resource type="Texture2D" uid="uid://crccnic2netj6" path="res://Assets/Player/MeowGamr Platformer Idle.png" id="2_bgn8b"]
+[ext_resource type="Texture2D" uid="uid://b3xtpc35h725w" path="res://Assets/Player/MeowGame Player Platformer Jumping.png" id="3_tudsp"]
+[ext_resource type="Texture2D" uid="uid://bd5rb80j3om3t" path="res://Assets/Player/MeowGame Platformer Running.png" id="4_djtre"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
-atlas = ExtResource("1_v0iea")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4utk0"]
+atlas = ExtResource("2_bgn8b")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
-atlas = ExtResource("1_v0iea")
-region = Rect2(0, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqgqh"]
+atlas = ExtResource("2_bgn8b")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
-atlas = ExtResource("3_6t5aa")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s72c"]
+atlas = ExtResource("4_djtre")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
-atlas = ExtResource("3_6t5aa")
-region = Rect2(0, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2030"]
+atlas = ExtResource("4_djtre")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqv7k"]
+atlas = ExtResource("4_djtre")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i754i"]
+atlas = ExtResource("4_djtre")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8373"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cvnsp")
+"texture": SubResource("AtlasTexture_4utk0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6t5aa")
+"texture": SubResource("AtlasTexture_wqgqh")
 }],
 "loop": 1,
 "name": &"idle",
@@ -36,56 +44,54 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_vgqql")
+"texture": ExtResource("3_tudsp")
 }],
 "loop": 0,
 "name": &"jumping",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vgqql")
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_4s72c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fkybt")
+"texture": SubResource("AtlasTexture_m2030")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqv7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i754i")
 }],
 "loop": 1,
 "name": &"running",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f6tb2"]
-radius = 5.3333335
-height = 20.0
+radius = 6.3333335
+height = 36.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o6yob"]
-radius = 5.3333335
-height = 20.0
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tudsp"]
-polygon = PackedVector2Array(-2.5, -7, -2.5, 5, 1.5, 5, 0.5, -4, 0.5, -7)
+radius = 6.3333335
+height = 36.0
 
 [node name="Player Platformer" type="CharacterBody2D" unique_id=1395390089]
 scale = Vector2(6, 6)
 script = ExtResource("1_cvnsp")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=48204629]
-position = Vector2(0.5, 0)
+position = Vector2(-1.3333334, 0)
 sprite_frames = SubResource("SpriteFrames_e8373")
 animation = &"jumping"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803579138]
-visible = false
 position = Vector2(-1, -2)
 shape = SubResource("CapsuleShape2D_f6tb2")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1777337088]
-visible = false
 position = Vector2(-1, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1565084785]
 shape = SubResource("CapsuleShape2D_o6yob")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=472446524]
-occluder = SubResource("OccluderPolygon2D_tudsp")

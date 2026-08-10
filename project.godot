@@ -26,6 +26,7 @@ BgmPlayer="*uid://vgcn25ap61q8"
 
 [display]
 
+window/hdr/request_hdr_output=true
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
@@ -52,3 +53,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+viewport/hdr_2d=true
