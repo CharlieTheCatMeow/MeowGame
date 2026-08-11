@@ -15,9 +15,9 @@ expand_mode = 2
 
 [node name="LivesContainer" type="HBoxContainer" parent="." unique_id=1383584770]
 offset_left = 64.0
-offset_top = 64.0
+offset_top = 48.0
 offset_right = 1088.0
-offset_bottom = 232.0
+offset_bottom = 216.0
 alignment = 1
 
 [node name="Life" type="TextureRect" parent="LivesContainer" unique_id=248168246]
@@ -47,9 +47,9 @@ expand_mode = 2
 
 [node name="Timer" type="RichTextLabel" parent="." unique_id=1367258306]
 offset_left = 448.0
-offset_top = 352.0
+offset_top = 400.0
 offset_right = 704.0
-offset_bottom = 416.0
+offset_bottom = 464.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
@@ -64,3 +64,13 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
 text = "[center]Level #[/center]"
+
+[node name="LevelExplanation" type="RichTextLabel" parent="." unique_id=531558981]
+offset_left = 320.0
+offset_top = 328.0
+offset_right = 832.0
+offset_bottom = 392.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Hint: [/center]"
