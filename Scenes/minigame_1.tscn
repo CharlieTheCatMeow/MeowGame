@@ -136,25 +136,6 @@ tonemap_mode = 3
 glow_enabled = true
 glow_bloom = 0.11
 
-[sub_resource type="Gradient" id="Gradient_ne1wf"]
-offsets = PackedFloat32Array(0, 0.9939759)
-colors = PackedColorArray(1, 0.34509805, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6p6qw"]
-gradient = SubResource("Gradient_ne1wf")
-width = 12
-height = 12
-fill = 1
-fill_from = Vector2(0.4869565, 0.53913045)
-fill_to = Vector2(1, 0.51304346)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e8373"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(120, 120, 10)
-gravity = Vector3(61.08, 98, 0)
-turbulence_enabled = true
-
 [node name="Minigame 1" type="Node2D" unique_id=1813012965]
 script = ExtResource("1_5txvl")
 
@@ -422,16 +403,6 @@ color = Color(0.4640289, 0.3847323, 0.59870404, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=434449649]
 environment = SubResource("Environment_6p6qw")
-
-[node name="AmbientParticles" type="GPUParticles2D" parent="." unique_id=1630760378]
-position = Vector2(576, 320)
-scale = Vector2(5.8, 3.2800002)
-amount = 36
-texture = SubResource("GradientTexture2D_6p6qw")
-lifetime = 4.0
-speed_scale = 0.37
-randomness = 1.0
-process_material = SubResource("ParticleProcessMaterial_e8373")
 
 [connection signal="runes_collected" from="Rune" to="." method="_on_rune_runes_collected"]
 [connection signal="runes_collected" from="Rune2" to="." method="_on_rune_runes_collected"]
