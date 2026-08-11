@@ -7,6 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="4_h684j"]
 [ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="5_mmgun"]
 
+[sub_resource type="Gradient" id="Gradient_mmgun"]
+colors = PackedColorArray(1, 1, 0.34509805, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6p6qw"]
+gradient = SubResource("Gradient_mmgun")
+fill = 1
+fill_from = Vector2(0.5, 0.47391304)
+fill_to = Vector2(0.8956522, 0.47826087)
+
 [sub_resource type="Curve" id="Curve_xh5le"]
 _limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 119.101135), 0.0, 0.0, 0, 0, Vector2(0.98936176, -15.730316), 0.0, 0.0, 0, 0]
@@ -18,12 +27,18 @@ point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_ne1wf"]
 offsets = PackedFloat32Array(0.61728394, 1)
-colors = PackedColorArray(0.9490196, 0.9490196, 0, 1, 1, 1, 1, 0)
+colors = PackedColorArray(0.9893486, 1, 0.6877243, 1, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_7o8v6"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.9550562), 0.0, 0.0, 0, 0, Vector2(0.9946809, 0.8202247), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Environment" id="Environment_6p6qw"]
+background_mode = 3
+tonemap_exposure = 1.35
+glow_enabled = true
+glow_bloom = 0.06
 
 [node name="Minigame 2" type="Node2D" unique_id=1124162610]
 script = ExtResource("1_rfxq2")
@@ -40,15 +55,24 @@ texture = ExtResource("1_dfb65")
 [node name="Button" type="TextureButton" parent="." unique_id=722561134]
 offset_left = 88.0
 offset_top = 88.0
-offset_right = 104.0
-offset_bottom = 104.0
-scale = Vector2(7, 7)
+offset_right = 112.0
+offset_bottom = 112.0
+scale = Vector2(5, 5)
 texture_normal = ExtResource("2_rfxq2")
+stretch_mode = 4
 script = ExtResource("3_mmgun")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button" unique_id=189539486]
+stream = ExtResource("5_mmgun")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button" unique_id=1993699824]
+position = Vector2(12.800001, 12.800001)
+scale = Vector2(0.625, 0.6)
+texture = SubResource("GradientTexture2D_6p6qw")
+
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Button" unique_id=156477453]
-position = Vector2(7.999998, 7.999998)
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(11.200001, 11.200001)
+scale = Vector2(0.9999998, 0.9999998)
 emitting = false
 amount = 16
 lifetime = 0.25
@@ -71,22 +95,27 @@ color_ramp = SubResource("Gradient_ne1wf")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_7o8v6")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button" unique_id=189539486]
-stream = ExtResource("5_mmgun")
 
 [node name="Button2" type="TextureButton" parent="." unique_id=503830791]
 offset_left = 184.0
 offset_top = 407.99997
 offset_right = 200.0
 offset_bottom = 423.99997
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Button2" unique_id=2121816265]
-position = Vector2(7.999998, 7.999998)
-scale = Vector2(0.99999994, 0.99999994)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button2" unique_id=2051330345]
+stream = ExtResource("5_mmgun")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button2" unique_id=1429788367]
+position = Vector2(12.000001, 12.800001)
+scale = Vector2(0.625, 0.6)
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button2" unique_id=1812850743]
+position = Vector2(11.200001, 11.200001)
+scale = Vector2(0.9999998, 0.9999998)
 emitting = false
 amount = 16
 lifetime = 0.25
@@ -109,22 +138,27 @@ color_ramp = SubResource("Gradient_ne1wf")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_7o8v6")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button2" unique_id=2051330345]
-stream = ExtResource("5_mmgun")
 
 [node name="Button3" type="TextureButton" parent="." unique_id=2083331512]
 offset_left = 479.99997
 offset_top = 144.00003
 offset_right = 495.99997
 offset_bottom = 160.00003
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Button3" unique_id=1166940935]
-position = Vector2(7.999998, 7.999998)
-scale = Vector2(0.99999994, 0.99999994)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button3" unique_id=9132001]
+stream = ExtResource("5_mmgun")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button3" unique_id=2142372037]
+position = Vector2(12.000001, 12.800001)
+scale = Vector2(0.625, 0.6)
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button3" unique_id=1243207180]
+position = Vector2(11.200001, 11.200001)
+scale = Vector2(0.9999998, 0.9999998)
 emitting = false
 amount = 16
 lifetime = 0.25
@@ -147,22 +181,27 @@ color_ramp = SubResource("Gradient_ne1wf")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_7o8v6")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button3" unique_id=9132001]
-stream = ExtResource("5_mmgun")
 
 [node name="Button4" type="TextureButton" parent="." unique_id=639506041]
 offset_left = 560.0
 offset_top = 432.0
 offset_right = 576.0
 offset_bottom = 448.0
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Button4" unique_id=716758562]
-position = Vector2(7.999998, 7.999998)
-scale = Vector2(0.99999994, 0.99999994)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button4" unique_id=281599955]
+stream = ExtResource("5_mmgun")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button4" unique_id=1829171421]
+position = Vector2(12.000001, 12.800001)
+scale = Vector2(0.625, 0.6)
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button4" unique_id=194388400]
+position = Vector2(11.200001, 11.200001)
+scale = Vector2(0.9999998, 0.9999998)
 emitting = false
 amount = 16
 lifetime = 0.25
@@ -185,22 +224,27 @@ color_ramp = SubResource("Gradient_ne1wf")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_7o8v6")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button4" unique_id=281599955]
-stream = ExtResource("5_mmgun")
 
 [node name="Button5" type="TextureButton" parent="." unique_id=1365658767]
 offset_left = 296.0
 offset_top = 264.0
 offset_right = 312.0
 offset_bottom = 280.0
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Button5" unique_id=2070376318]
-position = Vector2(7.999998, 7.999998)
-scale = Vector2(0.99999994, 0.99999994)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button5" unique_id=212287085]
+stream = ExtResource("5_mmgun")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button5" unique_id=506122341]
+position = Vector2(12.000001, 12.800001)
+scale = Vector2(0.625, 0.6)
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button5" unique_id=814204420]
+position = Vector2(11.200001, 11.200001)
+scale = Vector2(0.9999998, 0.9999998)
 emitting = false
 amount = 16
 lifetime = 0.25
@@ -223,22 +267,27 @@ color_ramp = SubResource("Gradient_ne1wf")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_7o8v6")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button5" unique_id=212287085]
-stream = ExtResource("5_mmgun")
 
 [node name="Button6" type="TextureButton" parent="." unique_id=1950857448]
 offset_left = 704.0
 offset_top = 64.000015
 offset_right = 720.0
 offset_bottom = 80.000015
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Button6" unique_id=769383704]
-position = Vector2(7.999998, 7.999998)
-scale = Vector2(0.99999994, 0.99999994)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button6" unique_id=1779787183]
+stream = ExtResource("5_mmgun")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button6" unique_id=511862219]
+position = Vector2(12.000001, 12.800001)
+scale = Vector2(0.625, 0.6)
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button6" unique_id=2080936246]
+position = Vector2(11.200001, 11.200001)
+scale = Vector2(0.9999998, 0.9999998)
 emitting = false
 amount = 16
 lifetime = 0.25
@@ -261,22 +310,27 @@ color_ramp = SubResource("Gradient_ne1wf")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_7o8v6")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button6" unique_id=1779787183]
-stream = ExtResource("5_mmgun")
 
 [node name="Button7" type="TextureButton" parent="." unique_id=1388544387]
 offset_left = 688.00006
 offset_top = 264.0
 offset_right = 704.00006
 offset_bottom = 280.0
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Button7" unique_id=1177891375]
-position = Vector2(7.999998, 7.999998)
-scale = Vector2(0.99999994, 0.99999994)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button7" unique_id=1955679078]
+stream = ExtResource("5_mmgun")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button7" unique_id=728565092]
+position = Vector2(12.000001, 12.800001)
+scale = Vector2(0.625, 0.6)
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button7" unique_id=625013878]
+position = Vector2(11.200001, 11.200001)
+scale = Vector2(0.9999998, 0.9999998)
 emitting = false
 amount = 16
 lifetime = 0.25
@@ -299,22 +353,27 @@ color_ramp = SubResource("Gradient_ne1wf")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_7o8v6")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button7" unique_id=1955679078]
-stream = ExtResource("5_mmgun")
 
 [node name="Button8" type="TextureButton" parent="." unique_id=83773139]
 offset_left = 856.00006
 offset_top = 496.0
 offset_right = 872.00006
 offset_bottom = 512.0
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Button8" unique_id=465380014]
-position = Vector2(7.999998, 7.999998)
-scale = Vector2(0.99999994, 0.99999994)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button8" unique_id=1600219383]
+stream = ExtResource("5_mmgun")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button8" unique_id=741813650]
+position = Vector2(12.000001, 12.800001)
+scale = Vector2(0.625, 0.6)
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button8" unique_id=345104503]
+position = Vector2(11.200001, 11.200001)
+scale = Vector2(0.9999998, 0.9999998)
 emitting = false
 amount = 16
 lifetime = 0.25
@@ -337,22 +396,27 @@ color_ramp = SubResource("Gradient_ne1wf")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_7o8v6")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button8" unique_id=1600219383]
-stream = ExtResource("5_mmgun")
 
 [node name="Button9" type="TextureButton" parent="." unique_id=1260538983]
 offset_left = 928.0
 offset_top = 264.0
 offset_right = 944.0
 offset_bottom = 280.0
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Button9" unique_id=1909490417]
-position = Vector2(7.999998, 7.999998)
-scale = Vector2(0.99999994, 0.99999994)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button9" unique_id=485884578]
+stream = ExtResource("5_mmgun")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button9" unique_id=88036672]
+position = Vector2(12.000001, 12.800001)
+scale = Vector2(0.625, 0.6)
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button9" unique_id=2101962275]
+position = Vector2(11.200001, 11.200001)
+scale = Vector2(0.9999998, 0.9999998)
 emitting = false
 amount = 16
 lifetime = 0.25
@@ -375,22 +439,27 @@ color_ramp = SubResource("Gradient_ne1wf")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_7o8v6")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button9" unique_id=485884578]
-stream = ExtResource("5_mmgun")
 
 [node name="Button10" type="TextureButton" parent="." unique_id=365878984]
 offset_left = 928.00006
 offset_top = 56.000015
 offset_right = 944.00006
 offset_bottom = 72.000015
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("2_rfxq2")
 script = ExtResource("3_mmgun")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Button10" unique_id=244975931]
-position = Vector2(7.999998, 7.999998)
-scale = Vector2(0.99999994, 0.99999994)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button10" unique_id=166978021]
+stream = ExtResource("5_mmgun")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button10" unique_id=650039072]
+position = Vector2(12.000001, 12.800001)
+scale = Vector2(0.625, 0.6)
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button10" unique_id=1276780050]
+position = Vector2(11.200001, 11.200001)
+scale = Vector2(0.9999998, 0.9999998)
 emitting = false
 amount = 16
 lifetime = 0.25
@@ -414,11 +483,14 @@ hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_7o8v6")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button10" unique_id=166978021]
-stream = ExtResource("5_mmgun")
-
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("4_h684j")]
 position = Vector2(960, 0)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1531112000]
+color = Color(0.6223741, 0.70608497, 0.9333221, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1756195166]
+environment = SubResource("Environment_6p6qw")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

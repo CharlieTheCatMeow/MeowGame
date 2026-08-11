@@ -18,6 +18,15 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6p6qw"]
 radius = 24.0
 
+[sub_resource type="Gradient" id="Gradient_57wpc"]
+colors = PackedColorArray(0, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e8373"]
+gradient = SubResource("Gradient_57wpc")
+fill = 1
+fill_from = Vector2(0.5478261, 0.49130434)
+fill_to = Vector2(1, 0.49130434)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8373"]
 size = Vector2(24, 636)
 
@@ -66,6 +75,11 @@ offset_top = -24.0
 offset_right = 24.0
 offset_bottom = 24.0
 texture = ExtResource("6_57wpc")
+
+[node name="PointLight2D" type="PointLight2D" parent="PongBall" unique_id=555689794]
+position = Vector2(-1.1444092e-05, -1.9073486e-06)
+scale = Vector2(1.5000004, 1.5)
+texture = SubResource("GradientTexture2D_e8373")
 
 [node name="Wall" type="StaticBody2D" parent="." unique_id=46800771]
 

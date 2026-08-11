@@ -5,6 +5,7 @@ extends Node2D
 @onready var player: CharacterBody2D = $"../Player" # grabs the parent node
 @onready var self_area = $Area2D
 @onready var texture = $RuneTexture
+@onready var light = $PointLight2D
 @onready var area_collision_shape = $Area2D/CollisionShape2D
 @onready var player_area = $"../Player/Area2D"
 @onready var particles = $CPUParticles2D
@@ -22,6 +23,7 @@ func _process(delta: float) -> void: # this runs EVERY FRAME!
 			area_collision_shape.set_deferred("disabled", true)
 			emit_signal("runes_collected") #signal broadcast
 			texture.hide()
+			light.hide()
 			particles.emitting = true
 		
 

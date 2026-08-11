@@ -99,4 +99,11 @@ position = Vector2(960, 0)
 offset_left = 64.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1420753747]
+offset_right = 192.0
+offset_bottom = 32.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Hint: Go Left[/center]"
+
 [editable path="timer"]

@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://bhu38d1noxcb3"]
 
 [ext_resource type="Script" uid="uid://ce1nrosxgobv5" path="res://Scenes/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://crccnic2netj6" path="res://Assets/Player/MeowGamr Platformer Idle.png" id="2_bgn8b"]
+[ext_resource type="Texture2D" uid="uid://cteb65a41da4u" path="res://Assets/Player/MeowGame Player Platformer Idle.png" id="2_bgn8b"]
 [ext_resource type="Texture2D" uid="uid://b3xtpc35h725w" path="res://Assets/Player/MeowGame Player Platformer Jumping.png" id="3_tudsp"]
 [ext_resource type="Texture2D" uid="uid://bd5rb80j3om3t" path="res://Assets/Player/MeowGame Platformer Running.png" id="4_djtre"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4utk0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tudsp"]
 atlas = ExtResource("2_bgn8b")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wqgqh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_djtre"]
 atlas = ExtResource("2_bgn8b")
 region = Rect2(32, 0, 32, 32)
 
@@ -33,10 +33,10 @@ region = Rect2(96, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4utk0")
+"texture": SubResource("AtlasTexture_tudsp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wqgqh")
+"texture": SubResource("AtlasTexture_djtre")
 }],
 "loop": 1,
 "name": &"idle",
@@ -76,6 +76,16 @@ height = 36.0
 radius = 6.3333335
 height = 36.0
 
+[sub_resource type="Gradient" id="Gradient_bgn8b"]
+offsets = PackedFloat32Array(0.22289157, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6p6qw"]
+gradient = SubResource("Gradient_bgn8b")
+fill = 1
+fill_from = Vector2(0.4826087, 0.5043478)
+fill_to = Vector2(0.04347826, 0.50869566)
+
 [node name="Player Platformer" type="CharacterBody2D" unique_id=1395390089]
 scale = Vector2(6, 6)
 script = ExtResource("1_cvnsp")
@@ -95,3 +105,7 @@ position = Vector2(-1, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1565084785]
 shape = SubResource("CapsuleShape2D_o6yob")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=673798159]
+energy = 0.3
+texture = SubResource("GradientTexture2D_6p6qw")

@@ -33,6 +33,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 41)]
+}
 
 [sub_resource type="Animation" id="Animation_5txvl"]
 resource_name = "floating"
@@ -47,7 +59,31 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -32)]
+"values": [Vector2(0, 0), Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("PointLight2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(40, 41), Vector2(40, 32)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0uv5o"]
@@ -76,6 +112,16 @@ _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.9550562), 0.0, 0.0, 0, 0, Vector2(0.9946809, 0.8202247), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Gradient" id="Gradient_bgn8b"]
+offsets = PackedFloat32Array(0.53614455, 1)
+colors = PackedColorArray(1, 1, 0.52156866, 1, 1, 1, 0.49411765, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ne1wf"]
+gradient = SubResource("Gradient_bgn8b")
+fill = 1
+fill_from = Vector2(0.46521738, 0.47391304)
+fill_to = Vector2(0.04347826, 0.50869566)
+
 [sub_resource type="Curve" id="Curve_jmcek"]
 _limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0.010638304, 200), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
@@ -83,6 +129,31 @@ point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8373"]
 size = Vector2(32, 648)
+
+[sub_resource type="Environment" id="Environment_6p6qw"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_bloom = 0.11
+
+[sub_resource type="Gradient" id="Gradient_ne1wf"]
+offsets = PackedFloat32Array(0, 0.9939759)
+colors = PackedColorArray(1, 0.34509805, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6p6qw"]
+gradient = SubResource("Gradient_ne1wf")
+width = 12
+height = 12
+fill = 1
+fill_from = Vector2(0.4869565, 0.53913045)
+fill_to = Vector2(1, 0.51304346)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e8373"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(120, 120, 10)
+gravity = Vector3(61.08, 98, 0)
+turbulence_enabled = true
 
 [node name="Minigame 1" type="Node2D" unique_id=1813012965]
 script = ExtResource("1_5txvl")
@@ -163,16 +234,11 @@ occluder = SubResource("OccluderPolygon2D_6p6qw")
 
 [node name="Player" parent="." unique_id=1395390089 instance=ExtResource("2_11mgy")]
 position = Vector2(88, 536)
-scale = Vector2(5, 5)
+scale = Vector2(3.8, 3.8)
 
 [node name="Rune" type="Node2D" parent="." unique_id=520859927]
 position = Vector2(416, 408)
 script = ExtResource("4_0uv5o")
-
-[node name="RuneTexture" type="TextureRect" parent="Rune" unique_id=588686333]
-offset_right = 72.0
-offset_bottom = 72.0
-texture = ExtResource("3_f6tb2")
 
 [node name="RuneAnimation" type="AnimationPlayer" parent="Rune" unique_id=88577561]
 libraries/ = SubResource("AnimationLibrary_0uv5o")
@@ -210,8 +276,19 @@ hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_ne1wf")
 
+[node name="PointLight2D" type="PointLight2D" parent="Rune" unique_id=1029735388]
+position = Vector2(40, 41)
+scale = Vector2(1.8124998, 1.71875)
+energy = 0.3
+texture = SubResource("GradientTexture2D_ne1wf")
+
+[node name="RuneTexture" type="TextureRect" parent="Rune" unique_id=588686333]
+offset_right = 72.0
+offset_bottom = 72.0
+texture = ExtResource("3_f6tb2")
+
 [node name="Rune2" type="Node2D" parent="." unique_id=762582265]
-position = Vector2(680, 296)
+position = Vector2(696, 288)
 script = ExtResource("4_0uv5o")
 
 [node name="RuneTexture" type="TextureRect" parent="Rune2" unique_id=1567747474]
@@ -255,8 +332,14 @@ hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_ne1wf")
 
+[node name="PointLight2D" type="PointLight2D" parent="Rune2" unique_id=638590627]
+position = Vector2(40, 41)
+scale = Vector2(1.8124998, 1.71875)
+energy = 0.3
+texture = SubResource("GradientTexture2D_ne1wf")
+
 [node name="Rune3" type="Node2D" parent="." unique_id=1203052764]
-position = Vector2(976, 184)
+position = Vector2(976, 176)
 script = ExtResource("4_0uv5o")
 
 [node name="RuneTexture" type="TextureRect" parent="Rune3" unique_id=785000258]
@@ -300,6 +383,12 @@ hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_ne1wf")
 
+[node name="PointLight2D" type="PointLight2D" parent="Rune3" unique_id=1665668461]
+position = Vector2(40, 41)
+scale = Vector2(1.8124998, 1.71875)
+energy = 0.3
+texture = SubResource("GradientTexture2D_ne1wf")
+
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("6_0uv5o")]
 position = Vector2(960, 0)
 
@@ -323,13 +412,26 @@ shape = SubResource("RectangleShape2D_e8373")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1472832238]
 position = Vector2(-136, -112)
 rotation = -1.1007234
-energy = 0.04
+energy = 0.09
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 2.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=29504645]
-color = Color(0.9019608, 0.93333334, 0.98039216, 1)
+color = Color(0.4640289, 0.3847323, 0.59870404, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=434449649]
+environment = SubResource("Environment_6p6qw")
+
+[node name="AmbientParticles" type="GPUParticles2D" parent="." unique_id=1630760378]
+position = Vector2(576, 320)
+scale = Vector2(5.8, 3.2800002)
+amount = 36
+texture = SubResource("GradientTexture2D_6p6qw")
+lifetime = 4.0
+speed_scale = 0.37
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_e8373")
 
 [connection signal="runes_collected" from="Rune" to="." method="_on_rune_runes_collected"]
 [connection signal="runes_collected" from="Rune2" to="." method="_on_rune_runes_collected"]

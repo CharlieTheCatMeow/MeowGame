@@ -13,6 +13,11 @@ size = Vector2(96, 912)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a627d"]
 size = Vector2(96, 849)
 
+[sub_resource type="Environment" id="Environment_6p6qw"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.5
+
 [node name="Minigame 3" type="Node2D" unique_id=1679984557]
 script = ExtResource("1_asmx3")
 obstacle_speed = 400.0
@@ -157,6 +162,9 @@ position = Vector2(192, 320)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1405525687]
 color = Color(0.9999998, 0.91141254, 0.99348146, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=430811706]
+environment = SubResource("Environment_6p6qw")
 
 [connection signal="screen_exited" from="ObstacleGroup/VisibleOnScreenNotifier2D" to="ObstacleGroup" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_exited" from="ObstacleGroup2/VisibleOnScreenNotifier2D" to="ObstacleGroup2" method="_on_visible_on_screen_notifier_2d_screen_exited"]

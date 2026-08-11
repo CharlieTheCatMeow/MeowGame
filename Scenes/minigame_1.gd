@@ -1,5 +1,6 @@
 extends Node2D
 @onready var themed_timer: Node2D = $timer
+@onready var particles = $AmbientParticles
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 # ^^^ You dragged this in the scene by the way 
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 		# tell the script to wait for a signal, or for when a function finshes
 
 
+	particles.emitting = true
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	await themed_timer.Timer(10.0) #accessing a function from this node
 	#after this is compeleted...

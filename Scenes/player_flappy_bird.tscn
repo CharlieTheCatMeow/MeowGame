@@ -6,6 +6,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_6p6qw"]
 radius = 31.06445
 
+[sub_resource type="Gradient" id="Gradient_svlbe"]
+offsets = PackedFloat32Array(0.024096385, 1)
+colors = PackedColorArray(0.42476186, 0.6067884, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_svlbe"]
+gradient = SubResource("Gradient_svlbe")
+fill = 1
+fill_from = Vector2(0.47826087, 0.5217391)
+fill_to = Vector2(1, 0.57391304)
+
 [node name="Player Flappy Bird" type="CharacterBody2D" unique_id=651461736]
 script = ExtResource("1_scgws")
 
@@ -24,3 +34,9 @@ offset_right = 36.0
 offset_bottom = 50.0
 texture = ExtResource("2_svlbe")
 stretch_mode = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=334958613]
+position = Vector2(-3.33786e-05, 2.3841858e-06)
+scale = Vector2(1.249999, 1.2500002)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_svlbe")
