@@ -18,7 +18,7 @@ size = Vector2(1152, 64)
 size = Vector2(296, 32)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6p6qw"]
-polygon = PackedVector2Array(0, 0, 296, 0, 288, 32, 196.02658, 31.99997, 8, 32)
+polygon = PackedVector2Array(0, 8, 296, 8, 288, 32, 196.02658, 31.99997, 8, 32)
 
 [sub_resource type="Animation" id="Animation_o6yob"]
 loop_mode = 2

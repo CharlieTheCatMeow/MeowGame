@@ -109,3 +109,7 @@ shape = SubResource("CapsuleShape2D_o6yob")
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=673798159]
 energy = 0.3
 texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="JumpBufferTimer" type="Timer" parent="." unique_id=834763614]
+wait_time = 0.15
+one_shot = true

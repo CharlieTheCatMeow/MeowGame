@@ -2,8 +2,8 @@ extends CharacterBody2D
 @onready var player_sprite = $PlayerSprite
 @onready var jump_buffer = $JumpBufferTimer
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -500
+const SPEED = 500.0
+const JUMP_VELOCITY = -650
 
 
 func _physics_process(delta: float) -> void:
@@ -39,6 +39,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			player_sprite.play("jumping")
 
+	if global_position.x < 0:
+		global_position.x = 1152
+	elif global_position.x > 1152:
+		global_position.x = 0
+	
 	move_and_slide()
 
 
