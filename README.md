@@ -12,6 +12,7 @@ Failure to do so will result in losing one life. The player is given five lives 
 - Flappy Bird
 - Pong
 - Top-Down Racing Game
+- Doodle Jump
 
 ## Why I chose this project:
 I always wanted to do something with game development. 
