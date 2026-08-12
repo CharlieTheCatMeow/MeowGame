@@ -6,6 +6,13 @@ MeowGame! is a WarioWare inspired game featuring two minigames.
 The minigames must be completed within a certain timeframe.
 Failure to do so will result in losing one life. The player is given five lives in total.
 
+## Mingames:
+- Platformer
+- Clicker Game
+- Flappy Bird
+- Pong
+- Top-Down Racing Game
+
 ## Why I chose this project:
 I always wanted to do something with game development. 
 This Stardance mission was perfect for that.
