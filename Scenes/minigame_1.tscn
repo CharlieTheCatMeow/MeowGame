@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bhu38d1noxcb3" path="res://Scenes/player_platformer.tscn" id="2_11mgy"]
 [ext_resource type="Texture2D" uid="uid://dyc2hn6c4n0dx" path="res://Assets/Icons/MeowGame Rune.png" id="3_f6tb2"]
 [ext_resource type="Texture2D" uid="uid://pnq1j7k5or3m" path="res://Assets/Objects/MeowGame Platformer Ground.png" id="3_ojqsy"]
+[ext_resource type="Texture2D" uid="uid://4btg7x7ibbx3" path="res://Assets/Background/MeowGame Tree Background.png" id="3_qytqt"]
 [ext_resource type="Script" uid="uid://buec0di6kybdh" path="res://Scenes/rune.gd" id="4_0uv5o"]
 [ext_resource type="Texture2D" uid="uid://bqt8wb12qqvp6" path="res://Assets/Objects/MeowGame Platformer Platform.png" id="4_jmcek"]
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="6_0uv5o"]
@@ -147,6 +148,11 @@ autoscroll = Vector2(10, 0)
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_enoba")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=881251898]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_qytqt")
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=1568142151]
 position = Vector2(0, 584)

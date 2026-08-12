@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cgymrwblob37v" path="res://Assets/Player/MeowGame Flappy Bird Player.png" id="2_svlbe"]
 
 [sub_resource type="Gradient" id="Gradient_k275q"]
-colors = PackedColorArray(1, 0, 1, 1, 1, 1, 1, 0)
+colors = PackedColorArray(1, 0, 1, 0.6745098, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6p6qw"]
 gradient = SubResource("Gradient_k275q")
