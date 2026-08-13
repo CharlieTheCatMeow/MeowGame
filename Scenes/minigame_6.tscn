@@ -526,4 +526,12 @@ stream = ExtResource("12_5ru11")
 [node name="timer" parent="CanvasLayer" unique_id=844459433 instance=ExtResource("8_4cwf1")]
 position = Vector2(960, 0)
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1624229897]
+rotation = -1.1028419
+energy = 0.1
+shadow_enabled = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=854203952]
+color = Color(1, 0.6862745, 0.69411767, 1)
+
 [connection signal="runes_collected" from="Rune" to="." method="_on_rune_runes_collected"]
