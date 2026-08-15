@@ -4,7 +4,9 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -600
+const JUMP_CUT_MULTIPLIER = 0.5
 
+signal player_died()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -18,6 +20,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		player_sprite.play("jumping")
 		jump_buffer.stop()
+	if Input.is_action_just_released("ui_accept") and velocity.y < 0:
+		velocity.y *= JUMP_CUT_MULTIPLIER
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -32,7 +36,10 @@ func _physics_process(delta: float) -> void:
 		player_sprite.play("jumping")
 
 	move_and_slide()
-
-
-func _on_rune_garlic_collected() -> void:
-	pass # Replace with function body.
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider.is_in_group("spike_obstacles"):
+			player_died.emit()

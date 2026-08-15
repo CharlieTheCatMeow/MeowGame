@@ -61,9 +61,9 @@ func _process(delta: float) -> void: # runs EVERY FRAME
 	elif Global.minigames_done == 2:
 		hint.text = "[center]Hint: Navigate through the obstacles[/center]"
 	elif Global.minigames_done == 3:
-		hint.text = "[center]Hint: It's Pong[/center]"
+		hint.text = "[center]Hint: Collect 8 fruits[/center]"
 	elif Global.minigames_done == 4:
-		hint.text = "[center]Hint: Use your mouse to steer, and go left[/center]"
+		hint.text = "[center]Hint: Jump over the obstacles[/center]"
 	elif Global.minigames_done == 5:
 		hint.text = "[center]Hint: Climb to the top[/center]"
 

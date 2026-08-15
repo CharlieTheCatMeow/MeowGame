@@ -86,7 +86,7 @@ fill = 1
 fill_from = Vector2(0.4826087, 0.5043478)
 fill_to = Vector2(0.04347826, 0.50869566)
 
-[node name="Player Jumping Game" type="CharacterBody2D" unique_id=242961018]
+[node name="Player Jumping Game" type="CharacterBody2D" unique_id=242961018 groups=["player_jumping_game"]]
 script = ExtResource("1_tl04i")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1392309518]

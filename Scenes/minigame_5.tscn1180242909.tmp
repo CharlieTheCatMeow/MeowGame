@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://c3sr70ee7rhy3"]
 
 [ext_resource type="Script" uid="uid://bqjbrhq4kfxdn" path="res://Scenes/minigame_5.gd" id="1_6fijl"]
-[ext_resource type="Texture2D" uid="uid://3y3ct7rpspus" path="res://Assets/Background/MeowGame Flappy Bird Background Stars.png" id="2_5l52r"]
+[ext_resource type="Texture2D" uid="uid://p6jwfvil742t" path="res://Assets/Background/MeowGame Sky Background.png" id="2_6fijl"]
 [ext_resource type="Texture2D" uid="uid://pnq1j7k5or3m" path="res://Assets/Objects/MeowGame Platformer Ground.png" id="2_bgv4i"]
-[ext_resource type="Texture2D" uid="uid://4btg7x7ibbx3" path="res://Assets/Background/MeowGame Tree Background.png" id="3_5l52r"]
 [ext_resource type="PackedScene" uid="uid://cw6se0yq3tn5k" path="res://Scenes/player_jumping_game.tscn" id="4_28s5m"]
 [ext_resource type="Script" uid="uid://bwccjqw67eei5" path="res://Scenes/obstacle_spike.gd" id="5_ofli8"]
 [ext_resource type="Texture2D" uid="uid://cfmnetxguc0le" path="res://Assets/Objects/MeowGame Bush Obstacle.png" id="6_kpx3j"]
@@ -14,14 +13,6 @@ size = Vector2(1152, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
 size = Vector2(20, 74)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6p6qw"]
-polygon = PackedVector2Array(8, 0, 16, -8, 56, -8, 64, 8, 64, 56, 8, 56)
-
-[sub_resource type="Environment" id="Environment_6p6qw"]
-background_mode = 3
-glow_enabled = true
-glow_bloom = 0.3
 
 [node name="Minigame 5" type="Node2D" unique_id=1731774065]
 script = ExtResource("1_6fijl")
@@ -34,17 +25,7 @@ repeat_times = 4
 [node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=1391829666]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_5l52r")
-
-[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1703255738]
-repeat_size = Vector2(1152, 0)
-autoscroll = Vector2(-100, 0)
-repeat_times = 4
-
-[node name="TextureRect" type="TextureRect" parent="Parallax2D2" unique_id=2120522646]
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = ExtResource("3_5l52r")
+texture = ExtResource("2_6fijl")
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=663039714]
 position = Vector2(0, 584)
@@ -87,9 +68,6 @@ shape = SubResource("RectangleShape2D_6p6qw")
 position = Vector2(72, -8)
 rect = Rect2(-10, -10, 20, 74)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Obstacle" unique_id=2010920271]
-occluder = SubResource("OccluderPolygon2D_6p6qw")
-
 [node name="Obstacle2" type="StaticBody2D" parent="." unique_id=25881208]
 position = Vector2(1648, 528)
 script = ExtResource("5_ofli8")
@@ -107,9 +85,6 @@ shape = SubResource("RectangleShape2D_6p6qw")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Obstacle2" unique_id=1267301817]
 position = Vector2(72, -8)
 rect = Rect2(-10, -10, 20, 74)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Obstacle2" unique_id=2095041450]
-occluder = SubResource("OccluderPolygon2D_6p6qw")
 
 [node name="Obstacle3" type="StaticBody2D" parent="." unique_id=1906339735]
 position = Vector2(1712, 528)
@@ -129,23 +104,8 @@ shape = SubResource("RectangleShape2D_6p6qw")
 position = Vector2(72, -8)
 rect = Rect2(-10, -10, 20, 74)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Obstacle3" unique_id=623838232]
-occluder = SubResource("OccluderPolygon2D_6p6qw")
-
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("7_ykq01")]
 position = Vector2(960, 0)
-
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2105106270]
-color = Color(1, 0.7529412, 0.5803922, 1)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=434260906]
-environment = SubResource("Environment_6p6qw")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1630529019]
-rotation = -0.897394
-color = Color(1, 0.7529412, 0.5686275, 1)
-energy = 0.1
-shadow_enabled = true
 
 [connection signal="player_died" from="Player Jumping Game" to="." method="_on_player_jumping_game_player_died"]
 [connection signal="screen_exited" from="Obstacle/VisibleOnScreenNotifier2D" to="Obstacle" method="_on_visible_on_screen_notifier_2d_screen_exited"]
