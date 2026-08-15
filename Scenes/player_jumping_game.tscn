@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cw6se0yq3tn5k"]
+
+[ext_resource type="Texture2D" uid="uid://cteb65a41da4u" path="res://Assets/Player/MeowGame Player Platformer Idle.png" id="1_a5akk"]
+[ext_resource type="Script" uid="uid://biro77fjgwsyy" path="res://Scenes/player_jumping_game.gd" id="1_tl04i"]
+[ext_resource type="Texture2D" uid="uid://b3xtpc35h725w" path="res://Assets/Player/MeowGame Player Platformer Jumping.png" id="2_tl04i"]
+[ext_resource type="Texture2D" uid="uid://bd5rb80j3om3t" path="res://Assets/Player/MeowGame Platformer Running.png" id="3_5xgfw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tudsp"]
+atlas = ExtResource("1_a5akk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djtre"]
+atlas = ExtResource("1_a5akk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s72c"]
+atlas = ExtResource("3_5xgfw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2030"]
+atlas = ExtResource("3_5xgfw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqv7k"]
+atlas = ExtResource("3_5xgfw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i754i"]
+atlas = ExtResource("3_5xgfw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ri1dv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tudsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djtre")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tl04i")
+}],
+"loop": 0,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_4s72c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2030")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqv7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i754i")
+}],
+"loop": 1,
+"name": &"running",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hnwe"]
+radius = 6.3333335
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhgyn"]
+radius = 6.3333335
+height = 36.0
+
+[sub_resource type="Gradient" id="Gradient_bgn8b"]
+offsets = PackedFloat32Array(0.22289157, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5fj50"]
+gradient = SubResource("Gradient_bgn8b")
+fill = 1
+fill_from = Vector2(0.4826087, 0.5043478)
+fill_to = Vector2(0.04347826, 0.50869566)
+
+[node name="Player Jumping Game" type="CharacterBody2D" unique_id=242961018]
+script = ExtResource("1_tl04i")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1392309518]
+position = Vector2(-1.3333334, 0)
+sprite_frames = SubResource("SpriteFrames_ri1dv")
+animation = &"jumping"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=675776235]
+position = Vector2(-1, -2)
+shape = SubResource("CapsuleShape2D_3hnwe")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1188013633]
+position = Vector2(-1, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=341455905]
+shape = SubResource("CapsuleShape2D_xhgyn")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=112645364]
+energy = 0.3
+texture = SubResource("GradientTexture2D_5fj50")
+
+[node name="JumpBufferTimer" type="Timer" parent="." unique_id=2028206768]
+wait_time = 0.15
+one_shot = true
