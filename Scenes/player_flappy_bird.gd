@@ -14,16 +14,16 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept"):
 		velocity.y = JUMP_VELOCITY
+		var max_angle = deg_to_rad(30.0)
+		var target_angle = clamp(velocity.angle(), -max_angle, max_angle)
+		rotation = lerp_angle(rotation, target_angle, delta * 10)
 		particles.restart()
 		particles.emitting = true
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	if velocity.length() > 0:
+		var max_angle = deg_to_rad(30.0)
+		var target_angle = clamp(velocity.angle(), -max_angle, max_angle)
+		rotation = lerp_angle(rotation, target_angle, delta * 3)
 
 	move_and_slide()
 	for i in get_slide_collision_count():

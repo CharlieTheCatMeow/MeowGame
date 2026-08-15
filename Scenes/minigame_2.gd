@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if buttons_pressed == 10:
+		await get_tree().create_timer(1.0).timeout
 		if Global.minigames_done >= Global.minigames_amount:
 			get_tree().change_scene_to_file("res://Scenes/done_screen.tscn")
 		else:

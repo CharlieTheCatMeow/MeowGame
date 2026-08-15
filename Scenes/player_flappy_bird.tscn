@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cgymrwblob37v" path="res://Assets/Player/MeowGame Flappy Bird Player.png" id="2_svlbe"]
 
 [sub_resource type="Gradient" id="Gradient_k275q"]
-colors = PackedColorArray(1, 0, 1, 0.6745098, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 0.6745098, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6p6qw"]
 gradient = SubResource("Gradient_k275q")
@@ -64,15 +64,15 @@ shape = SubResource("CircleShape2D_6p6qw")
 shape = SubResource("CircleShape2D_6p6qw")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1068937335]
-offset_left = -35.0
-offset_top = -45.0
-offset_right = 36.0
-offset_bottom = 50.0
+offset_left = -72.0
+offset_top = -24.0
+offset_right = 67.0
+offset_bottom = 38.0
 texture = ExtResource("2_svlbe")
 stretch_mode = 4
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=334958613]
-position = Vector2(-8.6736174e-19, 0)
-scale = Vector2(1.249999, 1.2500002)
+position = Vector2(4.7683716e-06, 0)
+scale = Vector2(2.0000002, 1.2500002)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_svlbe")

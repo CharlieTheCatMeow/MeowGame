@@ -30,6 +30,7 @@ func _process(delta: float) -> void: # running every frame brochacho
 
 func _on_rune_runes_collected() -> void:
 	audio_player.play()
+	await get_tree().create_timer(1.0).timeout
 	if Global.minigames_done >= Global.minigames_amount: # we access a global script and see how many minigames have been compeleted
 			get_tree().change_scene_to_file("res://Scenes/done_screen.tscn") # change current play scene into another, but you make your own finish screen in a later challenge, dont worry abt this rn
 	else:

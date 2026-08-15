@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bid0levlanj0u"]
+
+[ext_resource type="Script" uid="uid://r5k8uxavobcg" path="res://Scenes/player_basket.gd" id="1_j0dia"]
+[ext_resource type="Texture2D" uid="uid://d383dxcsjsd3k" path="res://Assets/Player/Basket.png" id="2_76756"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
+size = Vector2(96, 64)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6p6qw"]
+polygon = PackedVector2Array(0, 8, 96, 8, 96, 40, 88, 64, 8, 64, 0, 40)
+
+[node name="Player Pong" type="Area2D" unique_id=1618904061]
+script = ExtResource("1_j0dia")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1754737351]
+offset_right = 96.0
+offset_bottom = 64.0
+texture = ExtResource("2_76756")
+stretch_mode = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=883269759]
+position = Vector2(48, 32)
+shape = SubResource("RectangleShape2D_6p6qw")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1410210824]
+occluder = SubResource("OccluderPolygon2D_6p6qw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

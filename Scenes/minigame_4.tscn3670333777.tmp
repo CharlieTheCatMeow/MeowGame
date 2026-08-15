@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dpc7sdwud1rsj"]
+
+[ext_resource type="PackedScene" uid="uid://bid0levlanj0u" path="res://Scenes/player_basket.tscn" id="1_4ashd"]
+[ext_resource type="Script" uid="uid://57bwnt6ayww6" path="res://Scenes/minigame_4.gd" id="1_e1srr"]
+[ext_resource type="Script" uid="uid://b8xb1heqjjaol" path="res://Scenes/fruit.gd" id="4_lrixb"]
+[ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="5_xea2i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6p6qw"]
+radius = 24.0
+
+[node name="Minigame 4" type="Node2D" unique_id=629613376]
+script = ExtResource("1_e1srr")
+
+[node name="PlayerBasket" parent="." unique_id=375440504 instance=ExtResource("1_4ashd")]
+position = Vector2(0, 576)
+
+[node name="timer" parent="." unique_id=844459433 instance=ExtResource("5_xea2i")]
+position = Vector2(960, 0)
+
+[node name="timer" parent="timer" index="0" unique_id=151355501]
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+
+[node name="Fruit" type="Area2D" parent="." unique_id=111625886]
+position = Vector2(1016, 608)
+script = ExtResource("4_lrixb")
+
+[node name="ColorRect" type="ColorRect" parent="Fruit" unique_id=1002563964]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fruit" unique_id=45174092]
+shape = SubResource("CircleShape2D_6p6qw")
+
+[connection signal="area_entered" from="Fruit" to="Fruit" method="_on_area_entered"]
+
+[editable path="PlayerBasket"]
+[editable path="timer"]

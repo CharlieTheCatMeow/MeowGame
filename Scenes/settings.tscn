@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpa6gt0g8rda6" path="res://Scenes/settings.gd" id="1_i44u3"]
 [ext_resource type="Texture2D" uid="uid://dvnqr27mfe47k" path="res://Assets/Background/MeowGame Menu Background.png" id="2_i44u3"]
+[ext_resource type="Script" uid="uid://b3jum7x1byn4m" path="res://Scenes/volume.gd" id="3_lhmql"]
 
 [node name="Settings" type="Node2D" unique_id=1173759484]
 script = ExtResource("1_i44u3")
@@ -43,6 +44,13 @@ theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 26
 text = "Toggle Music"
 
+[node name="Volume" type="HSlider" parent="VBoxContainer" unique_id=682815826]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("3_lhmql")
+
 [node name="Return" type="Button" parent="VBoxContainer" unique_id=1626810917]
 layout_mode = 2
 theme_override_constants/outline_size = 14
@@ -50,4 +58,5 @@ theme_override_font_sizes/font_size = 26
 text = "Return"
 
 [connection signal="pressed" from="VBoxContainer/Meow" to="." method="_on_meow_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Volume" to="VBoxContainer/Volume" method="_on_value_changed"]
 [connection signal="pressed" from="VBoxContainer/Return" to="." method="_on_return_pressed"]
