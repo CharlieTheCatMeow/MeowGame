@@ -204,6 +204,9 @@ fill = 1
 fill_from = Vector2(0.46521738, 0.47391304)
 fill_to = Vector2(0.04347826, 0.50869566)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
+size = Vector2(1768, 282)
+
 [node name="Minigame 6" type="Node2D" unique_id=1051535053]
 script = ExtResource("1_ufxbc")
 
@@ -534,4 +537,12 @@ shadow_enabled = true
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=854203952]
 color = Color(1, 0.6862745, 0.69411767, 1)
 
+[node name="Area2D" type="Area2D" parent="." unique_id=235021122]
+position = Vector2(0, 896)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=882505603]
+position = Vector2(604, 131)
+shape = SubResource("RectangleShape2D_6p6qw")
+
 [connection signal="runes_collected" from="Rune" to="." method="_on_rune_runes_collected"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -35,3 +35,9 @@ func _on_rune_runes_collected() -> void:
 			get_tree().change_scene_to_file("res://Scenes/done_screen.tscn") # change current play scene into another, but you make your own finish screen in a later challenge, dont worry abt this rn
 	else:
 		get_tree().change_scene_to_file("res://Scenes/level_scene.tscn") # go back to the intermission scene
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	Global.minigames_done -=1 #go back a minigame
+	Global.lives -= 1 # lose ur lives
+	get_tree().change_scene_to_file("res://Scenes/level_scene.tscn") # back to intermission
