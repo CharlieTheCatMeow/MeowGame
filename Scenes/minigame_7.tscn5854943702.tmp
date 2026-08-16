@@ -163,7 +163,6 @@ texture = ExtResource("8_o6d8m")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=586527554]
 position = Vector2(576, 192)
 stream = ExtResource("12_df13i")
-volume_db = 10.0
 autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=168463550]
@@ -175,13 +174,8 @@ environment = SubResource("Environment_6p6qw")
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("13_ekw7v")]
 position = Vector2(960, 0)
 
-[node name="timer" parent="timer" index="0" unique_id=151355501]
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-
 [connection signal="player_died" from="Player Raft" to="." method="_on_player_raft_player_died"]
 [connection signal="screen_exited" from="Obstacle/VisibleOnScreenNotifier2D" to="Obstacle" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_exited" from="Obstacle2/VisibleOnScreenNotifier2D" to="Obstacle2" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_exited" from="Obstacle3/VisibleOnScreenNotifier2D" to="Obstacle3" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_exited" from="Obstacle4/VisibleOnScreenNotifier2D" to="Obstacle4" method="_on_visible_on_screen_notifier_2d_screen_exited"]
-
-[editable path="timer"]
