@@ -1,6 +1,6 @@
 # MeowGame!
 
-MeowGame! is a WarioWare inspired game featuring two minigames.
+MeowGame! is a WarioWare style game featuring seven minigames.
 
 ## Game Rules:
 The minigames must be completed within a certain timeframe.
@@ -10,9 +10,10 @@ Failure to do so will result in losing one life. The player is given five lives 
 - Platformer
 - Clicker Game
 - Flappy Bird
-- Pong
-- Top-Down Racing Game
+- Collect Fruit
+- Jump over obstacles
 - Doodle Jump
+- Maneuver a raft
 
 ## Why I chose this project:
 I always wanted to do something with game development. 
@@ -23,11 +24,9 @@ This Stardance mission was perfect for that.
 - Basic GDscript skills
 - How to create pixel art for games
 
-## Some notes
-The game is ridiculously easy.
-
-![Minigame example](Screenshots/Screenshot_Flappy_Bird.png)
+![Minigame example](Screenshots/Screenshot_Raft.png)
 
 ## Credits
-Art by me (I have no artistic talent. I apologise in advance)
+Art is created by me
 BGM: Audio from opengameart.org by mrpoly
+Some water sound I found online
