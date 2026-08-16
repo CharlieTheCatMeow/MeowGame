@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://1xtrrcwbq4dm"]
+
+[ext_resource type="Script" uid="uid://dstfrmhltumu0" path="res://Scenes/minigame_7.gd" id="1_kentg"]
+[ext_resource type="PackedScene" uid="uid://ebjh7ly3kink" path="res://Scenes/player_raft.tscn" id="1_xbsvc"]
+[ext_resource type="Script" uid="uid://tko28cxbmks4" path="res://Scenes/obstacle_minigame_7.gd" id="2_340fc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6p6qw"]
+radius = 32.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kentg"]
+radius = 40.0
+height = 128.0
+
+[node name="Minigame 7" type="Node2D" unique_id=801935196]
+script = ExtResource("1_kentg")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1675103986]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1289503178]
+offset_left = 288.0
+offset_right = 864.0
+offset_bottom = 648.0
+color = Color(0, 1, 1, 1)
+
+[node name="Player Raft" parent="." unique_id=1079466853 instance=ExtResource("1_xbsvc")]
+position = Vector2(536, 536)
+
+[node name="Obstacle" type="Area2D" parent="." unique_id=1363547150]
+position = Vector2(408, -96)
+script = ExtResource("2_340fc")
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle" unique_id=706598529]
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle" unique_id=1544439881]
+position = Vector2(32, 32)
+shape = SubResource("CapsuleShape2D_6p6qw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Obstacle" unique_id=692555371]
+position = Vector2(32, 32)
+
+[node name="Obstacle2" type="Area2D" parent="." unique_id=547406328]
+position = Vector2(648, -208)
+script = ExtResource("2_340fc")
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle2" unique_id=1413813835]
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle2" unique_id=484688094]
+position = Vector2(32, 32)
+shape = SubResource("CapsuleShape2D_6p6qw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Obstacle2" unique_id=499034571]
+position = Vector2(32, 32)
+
+[node name="Obstacle3" type="Area2D" parent="." unique_id=507608893]
+position = Vector2(448, -368)
+script = ExtResource("2_340fc")
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle3" unique_id=1392473511]
+offset_right = 128.0
+offset_bottom = 64.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3" unique_id=116349629]
+position = Vector2(64, 32)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kentg")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Obstacle3" unique_id=2146556841]
+position = Vector2(32, 32)
+
+[node name="Obstacle4" type="Area2D" parent="." unique_id=1236228764]
+position = Vector2(632, -592)
+script = ExtResource("2_340fc")
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle4" unique_id=1759568408]
+offset_right = 128.0
+offset_bottom = 80.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle4" unique_id=1075364955]
+position = Vector2(64, 40)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kentg")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Obstacle4" unique_id=1432309420]
+position = Vector2(32, 32)
+
+[connection signal="player_died" from="Player Raft" to="." method="_on_player_raft_player_died"]
+[connection signal="screen_exited" from="Obstacle/VisibleOnScreenNotifier2D" to="Obstacle" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="Obstacle2/VisibleOnScreenNotifier2D" to="Obstacle2" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="Obstacle3/VisibleOnScreenNotifier2D" to="Obstacle3" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="Obstacle4/VisibleOnScreenNotifier2D" to="Obstacle4" method="_on_visible_on_screen_notifier_2d_screen_exited"]

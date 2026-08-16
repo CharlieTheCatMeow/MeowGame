@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ebjh7ly3kink"]
+
+[ext_resource type="Script" uid="uid://b46vxw3m4srby" path="res://Scenes/player_raft.gd" id="1_fv0of"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6p6qw"]
+radius = 32.0
+height = 128.0
+
+[node name="Player Raft" type="Area2D" unique_id=156711402]
+script = ExtResource("1_fv0of")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1590942446]
+shape = SubResource("CapsuleShape2D_6p6qw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=607245644]
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = 64.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
