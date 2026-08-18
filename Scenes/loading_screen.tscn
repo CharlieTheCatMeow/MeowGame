@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d1g25yfimj76h"]
+
+[ext_resource type="Script" uid="uid://cwe88pp68ew0l" path="res://Scenes/loading_screen.gd" id="1_oobaa"]
+[ext_resource type="PackedScene" uid="uid://xm2abbik6652" path="res://Scenes/minigame_1.tscn" id="2_1godw"]
+[ext_resource type="PackedScene" uid="uid://b34nx3o0useum" path="res://Scenes/minigame_2.tscn" id="3_yisgd"]
+[ext_resource type="PackedScene" uid="uid://cpg0lji8d8ov0" path="res://Scenes/minigame_3.tscn" id="4_gegoj"]
+[ext_resource type="PackedScene" uid="uid://1xtrrcwbq4dm" path="res://Scenes/minigame_7.tscn" id="5_m2hk5"]
+
+[node name="Loading Screen" type="Node2D" unique_id=1617496416]
+script = ExtResource("1_oobaa")
+objects_to_preload = Array[PackedScene]([ExtResource("2_1godw"), ExtResource("3_yisgd"), ExtResource("4_gegoj"), ExtResource("5_m2hk5")])
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=338952470]
+z_index = 4096
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.5523703, 0.9019243, 0.53403825, 1)

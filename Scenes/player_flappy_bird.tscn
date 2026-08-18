@@ -18,20 +18,6 @@ fill_to = Vector2(1, 0.5043478)
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_4gxqj"]
-curve = SubResource("Curve_svlbe")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6p6qw"]
-lifetime_randomness = 0.09
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(27.26, 10.95, 1)
-direction = Vector3(0, 1, 0)
-spread = 42.882
-initial_velocity_min = 478.49
-initial_velocity_max = 478.49
-scale_curve = SubResource("CurveTexture_4gxqj")
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_6p6qw"]
 radius = 31.06445
 
@@ -48,12 +34,22 @@ fill_to = Vector2(1, 0.57391304)
 [node name="Player Flappy Bird" type="CharacterBody2D" unique_id=651461736]
 script = ExtResource("1_scgws")
 
-[node name="Particles" type="GPUParticles2D" parent="." unique_id=1751693286]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1052940659]
 emitting = false
 texture = SubResource("GradientTexture2D_6p6qw")
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_6p6qw")
+lifetime_randomness = 0.09
+fixed_fps = 30
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(27.26, 10.95)
+direction = Vector2(0, 1)
+spread = 42.882
+gravity = Vector2(0, -9.8)
+initial_velocity_min = 478.49
+initial_velocity_max = 478.49
+scale_amount_curve = SubResource("Curve_svlbe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=360043448]
 shape = SubResource("CircleShape2D_6p6qw")

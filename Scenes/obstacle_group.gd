@@ -14,4 +14,5 @@ func _process(delta: float) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	self.global_position.x = get_viewport_rect().size.x
+	random_position.randomize()
 	self.global_position.y = random_position.randf_range(150, get_viewport_rect().size.y - 150)

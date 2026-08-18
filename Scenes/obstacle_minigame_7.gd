@@ -16,4 +16,5 @@ func _process(delta: float) -> void:
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	rng.randomize()
 	global_position = Vector2(rng.randf_range(SCREEN_WIDTH / 4, SCREEN_WIDTH / 4 * 3 - texture.size.x), -100)

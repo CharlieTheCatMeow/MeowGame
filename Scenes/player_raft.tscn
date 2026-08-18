@@ -15,26 +15,12 @@ fill = 1
 fill_from = Vector2(0.51304346, 0.5)
 fill_to = Vector2(0.70869565, 0.50869566)
 
-[sub_resource type="Gradient" id="Gradient_5yj0k"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_xh5le"]
-gradient = SubResource("Gradient_5yj0k")
-
 [sub_resource type="Curve" id="Curve_k31me"]
 _data = [Vector2(0, 0.3595506), 0.0, 0.0, 0, 0, Vector2(0.4527027, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_7o8v6"]
-curve = SubResource("Curve_k31me")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6p6qw"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 1000, 0)
-scale_min = 5.0
-scale_max = 6.29
-scale_curve = SubResource("CurveTexture_7o8v6")
-color_ramp = SubResource("GradientTexture1D_xh5le")
+[sub_resource type="Gradient" id="Gradient_5yj0k"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5yj0k"]
 atlas = ExtResource("2_57qkx")
@@ -65,10 +51,16 @@ height = 96.0
 [node name="Player Raft" type="Area2D" unique_id=156711402]
 script = ExtResource("1_fv0of")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=382288564]
+[node name="GPUParticles2D" type="CPUParticles2D" parent="." unique_id=777277117]
 position = Vector2(0, 64)
 texture = SubResource("GradientTexture2D_e8373")
-process_material = SubResource("ParticleProcessMaterial_6p6qw")
+fixed_fps = 30
+draw_order = 1
+gravity = Vector2(0, 1000)
+scale_amount_min = 5.0
+scale_amount_max = 6.29
+scale_amount_curve = SubResource("Curve_k31me")
+color_ramp = SubResource("Gradient_5yj0k")
 
 [node name="ColorRect" type="AnimatedSprite2D" parent="." unique_id=689465280]
 position = Vector2(7.9999995, 7.9999995)

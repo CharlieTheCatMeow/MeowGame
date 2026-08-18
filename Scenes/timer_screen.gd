@@ -66,7 +66,7 @@ func _process(delta: float) -> void: # runs EVERY FRAME
 		hint.text = "[center]Hint: Jump over the obstacles[/center]"
 	elif Global.minigames_done == 5:
 		hint.text = "[center]Hint: Climb to the top[/center]"
-	elif Global.minigames_done == 5:
+	elif Global.minigames_done == 6:
 		hint.text = "[center]Hint: Navigate through the obstacles[/center]"
 
 func Timer(start_time: float): # making a new function for timer countdown!

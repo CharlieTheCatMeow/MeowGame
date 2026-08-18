@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MeowGame!"
-run/main_scene="uid://b7760gfdhev6g"
+run/main_scene="uid://d1g25yfimj76h"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
