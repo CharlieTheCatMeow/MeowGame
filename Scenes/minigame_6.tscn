@@ -99,7 +99,9 @@ fill_to = Vector2(0.04347826, 0.50869566)
 size = Vector2(296, 32)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xuuwq"]
-polygon = PackedVector2Array(0, 8, 296, 8, 288, 32, 196.02658, 31.99997, 8, 32)
+closed = false
+cull_mode = 1
+polygon = PackedVector2Array(288, 8, 288, 32, 200, 32, 8, 32, 0, 8)
 
 [sub_resource type="Animation" id="Animation_o6yob"]
 loop_mode = 2
@@ -213,7 +215,7 @@ script = ExtResource("1_ufxbc")
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1295779128]
 scroll_offset = Vector2(0, 40)
 repeat_size = Vector2(1152, 648)
-autoscroll = Vector2(0, 10)
+autoscroll = Vector2(0, 15)
 repeat_times = 7
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=140732563]
@@ -253,6 +255,22 @@ script = ExtResource("6_4pllv")
 [node name="JumpBufferTimer" type="Timer" parent="Player" unique_id=1248676219]
 wait_time = 0.15
 one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Player" unique_id=209140854]
+position = Vector2(-185.26315, -111.92105)
+rotation = -2.8175228
+amount = 150
+lifetime = 3.0
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(10, 150)
+direction = Vector2(-1, 0)
+spread = 12.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 500.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=616628624]
 position = Vector2(416, 512)
@@ -533,6 +551,8 @@ position = Vector2(960, 0)
 rotation = -1.1028419
 energy = 0.1
 shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=854203952]
 color = Color(1, 0.6862745, 0.69411767, 1)

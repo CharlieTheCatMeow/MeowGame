@@ -3,18 +3,84 @@
 [ext_resource type="PackedScene" uid="uid://bid0levlanj0u" path="res://Scenes/player_basket.tscn" id="1_4ashd"]
 [ext_resource type="Script" uid="uid://57bwnt6ayww6" path="res://Scenes/minigame_4.gd" id="1_e1srr"]
 [ext_resource type="Texture2D" uid="uid://bx6vwfw7hqmcn" path="res://Assets/Background/Forest.png" id="2_ake4f"]
+[ext_resource type="Texture2D" uid="uid://ck8ag27njonh2" path="res://Assets/Background/Forest_grass.png" id="3_ylyf8"]
 [ext_resource type="Script" uid="uid://b8xb1heqjjaol" path="res://Scenes/fruit.gd" id="4_lrixb"]
+[ext_resource type="Texture2D" uid="uid://bayfrgrbj1iaa" path="res://Assets/Normal Maps/Forest grass normal map/Forest_grass_normal.png" id="4_m8ta0"]
 [ext_resource type="Script" uid="uid://bocx13kj5aam2" path="res://Scenes/fruits_ground.gd" id="5_ake4f"]
+[ext_resource type="Texture2D" uid="uid://to1rx5t1palt" path="res://Assets/Normal Maps/Forest grass normal map/Forest_grass_specular.png" id="5_hkr3k"]
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="5_xea2i"]
 [ext_resource type="Texture2D" uid="uid://euqx10auvyq6" path="res://Assets/Objects/fruit.png" id="6_frvhq"]
 [ext_resource type="Texture2D" uid="uid://bmar6debrbia4" path="res://Assets/Objects/Fruit tree.png" id="7_57wpc"]
 [ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="9_yexny"]
+[ext_resource type="Texture2D" uid="uid://b5w621d0ikxlv" path="res://Assets/Objects/MeowGame Leaves.png" id="10_y1k8l"]
+[ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="11_ksguu"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_e8373"]
+diffuse_texture = ExtResource("3_ylyf8")
+normal_texture = ExtResource("4_m8ta0")
+specular_texture = ExtResource("5_hkr3k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6p6qw"]
+shader = ExtResource("11_ksguu")
+shader_parameter/angle = -0.035
+shader_parameter/position = 0.01
+shader_parameter/spread = 0.5
+shader_parameter/cutoff = 0.12200005329500008
+shader_parameter/falloff = 0.4090000194275
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.134000006365
+shader_parameter/color = Color(0.6975914, 0.6661635, 0, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 8.59
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksguu"]
+shader = ExtResource("11_ksguu")
+shader_parameter/angle = -0.175
+shader_parameter/position = -0.075
+shader_parameter/spread = 0.67600003211
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.21600001026
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 27.065
+shader_parameter/ray2_intensity = 0.2850000135375
+shader_parameter/color = Color(0.5940202, 0.704165, 7.70092e-07, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 10.96
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6p6qw"]
 radius = 24.0
 
+[sub_resource type="Gradient" id="Gradient_y1k8l"]
+offsets = PackedFloat32Array(0, 0.92771083)
+colors = PackedColorArray(0.8058156, 0, 0.22212023, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6p6qw"]
+gradient = SubResource("Gradient_y1k8l")
+fill = 1
+fill_from = Vector2(0.5043478, 0.51304346)
+fill_to = Vector2(0.073913045, 0.5478261)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
 size = Vector2(1152, 56)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7o8v6"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_e8373"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.17021278, 74.15732), 0.0, 0.0, 0, 0, Vector2(0.30851066, -42.696625), 0.0, 0.0, 0, 0, Vector2(0.4095745, 119.101135), 105.618034, 105.618034, 0, 0, Vector2(0.57978725, -87.64044), 0.0, 0.0, 0, 0, Vector2(0.6755319, 119.101135), 0.0, 0.0, 0, 0, Vector2(0.80319154, -74.15729), 0.0, 0.0, 0, 0, Vector2(0.925532, 155.0562), 0.0, 0.0, 0, 0, Vector2(1, -128.08987), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ksguu"]
+light_mode = 1
 
 [sub_resource type="Environment" id="Environment_6p6qw"]
 background_mode = 3
@@ -24,10 +90,26 @@ glow_bloom = 0.11
 [node name="Minigame 4" type="Node2D" unique_id=629613376]
 script = ExtResource("1_e1srr")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=940242769]
+[node name="Background" type="TextureRect" parent="." unique_id=940242769]
 offset_right = 1152.0
 offset_bottom = 704.0
 texture = ExtResource("2_ake4f")
+
+[node name="Grass" type="TextureRect" parent="." unique_id=895500060]
+offset_right = 1152.0
+offset_bottom = 704.0
+texture = SubResource("CanvasTexture_e8373")
+
+[node name="God rays" type="ColorRect" parent="." unique_id=1417188444]
+material = SubResource("ShaderMaterial_6p6qw")
+offset_right = 504.0
+offset_bottom = 704.0
+
+[node name="God rays2" type="ColorRect" parent="." unique_id=917000104]
+material = SubResource("ShaderMaterial_ksguu")
+offset_left = 552.0
+offset_right = 1056.0
+offset_bottom = 704.0
 
 [node name="PlayerBasket" parent="." unique_id=375440504 instance=ExtResource("1_4ashd")]
 position = Vector2(0, 576)
@@ -47,6 +129,12 @@ texture = ExtResource("6_frvhq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fruit" unique_id=45174092]
 shape = SubResource("CircleShape2D_6p6qw")
 
+[node name="PointLight2D" type="PointLight2D" parent="Fruit" unique_id=1874354786]
+position = Vector2(1.1444092e-05, 3.8146973e-06)
+scale = Vector2(2.4999995, 2.4999998)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6p6qw")
+
 [node name="Fruit2" type="RigidBody2D" parent="." unique_id=491668677]
 position = Vector2(208, -64)
 gravity_scale = 0.5
@@ -62,6 +150,12 @@ texture = ExtResource("6_frvhq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fruit2" unique_id=1386163663]
 shape = SubResource("CircleShape2D_6p6qw")
 
+[node name="PointLight2D" type="PointLight2D" parent="Fruit2" unique_id=1944600756]
+position = Vector2(1.1444092e-05, 3.8146973e-06)
+scale = Vector2(2.4999995, 2.4999998)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6p6qw")
+
 [node name="FruitsGround" type="Area2D" parent="." unique_id=2023162162]
 position = Vector2(0, 648)
 script = ExtResource("5_ake4f")
@@ -74,8 +168,33 @@ shape = SubResource("RectangleShape2D_6p6qw")
 rotation = -0.6213703
 energy = 0.3
 shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.0
+
+[node name="Leaves" type="CPUParticles2D" parent="." unique_id=1217391074]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_7o8v6")
+position = Vector2(464, -64)
+amount = 25
+texture = ExtResource("10_y1k8l")
+lifetime = 8.0
+preprocess = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(800, 10)
+direction = Vector2(0.2, 1)
+spread = 15.0
+gravity = Vector2(10, 25)
+initial_velocity_min = 15.0
+initial_velocity_max = 35.0
+angular_velocity_min = -40.0
+angular_velocity_max = 40.0
+linear_accel_curve = SubResource("Curve_e8373")
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+anim_offset_max = 1.0
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1888030640]
+material = SubResource("CanvasItemMaterial_ksguu")
 offset_right = 1152.0
 offset_bottom = 184.0
 texture = ExtResource("7_57wpc")
@@ -95,6 +214,61 @@ position = Vector2(960, 0)
 
 [node name="timer" parent="timer" index="0" unique_id=151355501]
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+
+[node name="FruitCountContainer" type="VBoxContainer" parent="." unique_id=207939680]
+offset_left = 16.0
+offset_top = 136.0
+offset_right = 48.0
+offset_bottom = 456.0
+alignment = 2
+
+[node name="Fruit1" type="TextureRect" parent="FruitCountContainer" unique_id=1041906599]
+layout_mode = 2
+texture = ExtResource("6_frvhq")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Fruit2" type="TextureRect" parent="FruitCountContainer" unique_id=1906503406]
+layout_mode = 2
+texture = ExtResource("6_frvhq")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Fruit3" type="TextureRect" parent="FruitCountContainer" unique_id=1868844300]
+layout_mode = 2
+texture = ExtResource("6_frvhq")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Fruit4" type="TextureRect" parent="FruitCountContainer" unique_id=952701779]
+layout_mode = 2
+texture = ExtResource("6_frvhq")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Fruit5" type="TextureRect" parent="FruitCountContainer" unique_id=1800014575]
+layout_mode = 2
+texture = ExtResource("6_frvhq")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Fruit6" type="TextureRect" parent="FruitCountContainer" unique_id=504395914]
+layout_mode = 2
+texture = ExtResource("6_frvhq")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Fruit7" type="TextureRect" parent="FruitCountContainer" unique_id=785192184]
+layout_mode = 2
+texture = ExtResource("6_frvhq")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Fruit8" type="TextureRect" parent="FruitCountContainer" unique_id=434519]
+layout_mode = 2
+texture = ExtResource("6_frvhq")
+expand_mode = 4
+stretch_mode = 4
 
 [connection signal="collected" from="PlayerBasket" to="." method="_on_player_basket_collected"]
 [connection signal="body_entered" from="FruitsGround" to="FruitsGround" method="_on_body_entered"]

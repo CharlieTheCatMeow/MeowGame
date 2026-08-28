@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 		particles.restart()
 		particles.emitting = true
 		
+		
 	if velocity.length() > 0:
 		var max_angle = deg_to_rad(30.0)
 		var target_angle = clamp(velocity.angle(), -max_angle, max_angle)

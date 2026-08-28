@@ -4,15 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://cgymrwblob37v" path="res://Assets/Player/MeowGame Flappy Bird Player.png" id="2_svlbe"]
 
 [sub_resource type="Gradient" id="Gradient_k275q"]
+offsets = PackedFloat32Array(0, 0.8072289)
 colors = PackedColorArray(1, 1, 1, 0.6745098, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6p6qw"]
 gradient = SubResource("Gradient_k275q")
-width = 24
-height = 16
+width = 48
+height = 32
 fill = 1
 fill_from = Vector2(0.5043478, 0.47826087)
-fill_to = Vector2(1, 0.5043478)
+fill_to = Vector2(1, 0.4826087)
 
 [sub_resource type="Curve" id="Curve_svlbe"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -22,29 +23,29 @@ point_count = 2
 radius = 31.06445
 
 [sub_resource type="Gradient" id="Gradient_svlbe"]
-offsets = PackedFloat32Array(0.024096385, 1)
+offsets = PackedFloat32Array(0.18674698, 0.6927711)
 colors = PackedColorArray(0.42476186, 0.6067884, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_svlbe"]
 gradient = SubResource("Gradient_svlbe")
 fill = 1
 fill_from = Vector2(0.47826087, 0.5217391)
-fill_to = Vector2(1, 0.57391304)
+fill_to = Vector2(1, 0.526087)
 
 [node name="Player Flappy Bird" type="CharacterBody2D" unique_id=651461736]
 script = ExtResource("1_scgws")
 
 [node name="Particles" type="CPUParticles2D" parent="." unique_id=1052940659]
+position = Vector2(0, -16)
 emitting = false
 texture = SubResource("GradientTexture2D_6p6qw")
 one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.09
-fixed_fps = 30
 draw_order = 1
 emission_shape = 3
 emission_rect_extents = Vector2(27.26, 10.95)
-direction = Vector2(0, 1)
+direction = Vector2(-1, 1)
 spread = 42.882
 gravity = Vector2(0, -9.8)
 initial_velocity_min = 478.49
@@ -68,7 +69,10 @@ texture = ExtResource("2_svlbe")
 stretch_mode = 4
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=334958613]
-position = Vector2(4.7683716e-06, 0)
-scale = Vector2(2.0000002, 1.2500002)
+position = Vector2(-1.9073486e-06, 8.583069e-06)
+scale = Vector2(2.75, 2.0000002)
+energy = 0.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_svlbe")
+
+[connection signal="finished" from="Particles" to="." method="_on_particles_finished"]

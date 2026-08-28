@@ -6,6 +6,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -600
 const JUMP_CUT_MULTIPLIER = 0.5
 
+var player_died_check = false
+
 signal player_died()
 
 func _physics_process(delta: float) -> void:
@@ -42,4 +44,7 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		
 		if collider.is_in_group("spike_obstacles"):
+			if player_died_check:
+				return
+			player_died_check = true
 			player_died.emit()

@@ -20,6 +20,8 @@ background_mode = 3
 glow_enabled = true
 glow_bloom = 0.5
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y1k8l"]
+
 [node name="Minigame 3" type="Node2D" unique_id=1679984557]
 script = ExtResource("1_asmx3")
 obstacle_speed = 400.0
@@ -37,7 +39,7 @@ stretch_mode = 4
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1854872036]
 repeat_size = Vector2(1000, 0)
-autoscroll = Vector2(-20, 0)
+autoscroll = Vector2(-40, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=57907520]
 offset_right = 1147.6482
@@ -204,11 +206,11 @@ color = Color(1, 0.6978124, 0.9827028, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=430811706]
 environment = SubResource("Environment_6p6qw")
 
-[node name="GPUParticles2D" type="CPUParticles2D" parent="." unique_id=1238801253]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1238801253]
+material = SubResource("CanvasItemMaterial_y1k8l")
 position = Vector2(1192, 320)
 amount = 150
 lifetime = 3.0
-fixed_fps = 30
 draw_order = 1
 emission_shape = 3
 emission_rect_extents = Vector2(10, 300)

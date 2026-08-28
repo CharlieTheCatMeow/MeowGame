@@ -9,6 +9,7 @@ extends Node2D
 
 var timer_end = false
 var player_died = false
+var scene_changed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +22,9 @@ func on_player_died() -> void:
 	if player_died:
 		return
 	player_died = true
+	if scene_changed:
+		return
+	scene_changed = true
 	Global.minigames_done -=1 #go back a minigame
 	Global.lives -= 1 # lose ur lives
 	var tree = get_tree()
@@ -35,6 +39,9 @@ func _process(delta: float) -> void:
 	obstacle_group_3.position += movement_vector
 	
 	if timer_end:
+		if scene_changed:
+			return
+		scene_changed = true
 		if Global.minigames_done >= Global.minigames_amount:
 			get_tree().change_scene_to_file("res://Scenes/done_screen.tscn")
 		else:

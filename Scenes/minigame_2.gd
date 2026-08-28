@@ -3,6 +3,7 @@ extends Node2D
 
 var buttons_pressed := 0
 var timer_end = false
+var scene_changed = false
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -12,6 +13,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if buttons_pressed == 10:
+		if scene_changed:
+			return
+		scene_changed = true
 		await get_tree().create_timer(1.0).timeout
 		if Global.minigames_done >= Global.minigames_amount:
 			get_tree().change_scene_to_file("res://Scenes/done_screen.tscn")
@@ -20,6 +24,9 @@ func _process(delta: float) -> void:
 		return               # stop further processing this frame
 
 	elif timer_end:
+		if scene_changed:
+			return
+		scene_changed = true
 		Global.lives -= 1
 		Global.minigames_done -= 1
 		# reset so a fresh timer can be started if the scene is re‑entered

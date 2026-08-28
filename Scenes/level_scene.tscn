@@ -3,6 +3,37 @@
 [ext_resource type="Script" uid="uid://cqcwjtrda0cqt" path="res://Scenes/timer_screen.gd" id="1_cn3xy"]
 [ext_resource type="Texture2D" uid="uid://dvnqr27mfe47k" path="res://Assets/Background/MeowGame Menu Background.png" id="2_c7xwe"]
 [ext_resource type="Texture2D" uid="uid://b7v8voldwvnl4" path="res://Assets/Icons/MeowGame Life Icon.png" id="3_c7xwe"]
+[ext_resource type="Texture2D" uid="uid://vm070jg3qd0" path="res://Assets/Normal Maps/Menu Background Normal Map/MeowGame Menu Background_normal.png" id="3_c8y3w"]
+[ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="4_2fcgv"]
+[ext_resource type="Texture2D" uid="uid://cvgacht7qvy66" path="res://Assets/Normal Maps/Menu Background Normal Map/MeowGame Menu Background_specular.png" id="4_66tft"]
+[ext_resource type="Texture2D" uid="uid://d0rg0rww6vlr4" path="res://Assets/Normal Maps/Life Icon Normal Map/MeowGame Life Icon_normal.png" id="4_lymix"]
+[ext_resource type="Texture2D" uid="uid://dyysclvwxihn1" path="res://Assets/Normal Maps/Basket Normal Map/Basket_specular.png" id="5_b7jio"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lymix"]
+diffuse_texture = ExtResource("2_c7xwe")
+normal_texture = ExtResource("3_c8y3w")
+specular_texture = ExtResource("4_66tft")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2fcgv"]
+diffuse_texture = ExtResource("3_c7xwe")
+normal_texture = ExtResource("4_lymix")
+specular_texture = ExtResource("5_b7jio")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qnqh0"]
+shader = ExtResource("4_2fcgv")
+shader_parameter/angle = -0.235
+shader_parameter/position = -0.195
+shader_parameter/spread = 0.5550000263625
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.0800000038
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.24400001159
+shader_parameter/color = Color(0.6975914, 0.6661635, 0, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 8.59
 
 [node name="LevelScene" type="Node2D" unique_id=46321951]
 script = ExtResource("1_cn3xy")
@@ -10,7 +41,7 @@ script = ExtResource("1_cn3xy")
 [node name="LevelSceneBackground" type="TextureRect" parent="." unique_id=785050440]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_c7xwe")
+texture = SubResource("CanvasTexture_lymix")
 expand_mode = 2
 
 [node name="LivesContainer" type="HBoxContainer" parent="." unique_id=1383584770]
@@ -22,27 +53,27 @@ alignment = 1
 
 [node name="Life" type="TextureRect" parent="LivesContainer" unique_id=248168246]
 layout_mode = 2
-texture = ExtResource("3_c7xwe")
+texture = SubResource("CanvasTexture_2fcgv")
 expand_mode = 2
 
 [node name="Life2" type="TextureRect" parent="LivesContainer" unique_id=397992808]
 layout_mode = 2
-texture = ExtResource("3_c7xwe")
+texture = SubResource("CanvasTexture_2fcgv")
 expand_mode = 2
 
 [node name="Life3" type="TextureRect" parent="LivesContainer" unique_id=1974311643]
 layout_mode = 2
-texture = ExtResource("3_c7xwe")
+texture = SubResource("CanvasTexture_2fcgv")
 expand_mode = 2
 
 [node name="Life4" type="TextureRect" parent="LivesContainer" unique_id=1343622738]
 layout_mode = 2
-texture = ExtResource("3_c7xwe")
+texture = SubResource("CanvasTexture_2fcgv")
 expand_mode = 2
 
 [node name="Life5" type="TextureRect" parent="LivesContainer" unique_id=1689692913]
 layout_mode = 2
-texture = ExtResource("3_c7xwe")
+texture = SubResource("CanvasTexture_2fcgv")
 expand_mode = 2
 
 [node name="Timer" type="RichTextLabel" parent="." unique_id=1367258306]
@@ -51,7 +82,7 @@ offset_top = 400.0
 offset_right = 704.0
 offset_bottom = 464.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 42
+theme_override_font_sizes/normal_font_size = 56
 bbcode_enabled = true
 text = "[center]0.0[/center]"
 
@@ -61,7 +92,7 @@ offset_top = 272.0
 offset_right = 704.0
 offset_bottom = 336.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 42
+theme_override_font_sizes/normal_font_size = 56
 bbcode_enabled = true
 text = "[center]Level #[/center]"
 
@@ -71,6 +102,11 @@ offset_top = 328.0
 offset_right = 832.0
 offset_bottom = 392.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]Hint: [/center]"
+
+[node name="God rays" type="ColorRect" parent="." unique_id=814051203]
+material = SubResource("ShaderMaterial_qnqh0")
+offset_right = 1152.0
+offset_bottom = 704.0

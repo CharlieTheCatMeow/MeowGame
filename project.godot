@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MeowGame!"
-run/main_scene="uid://d1g25yfimj76h"
+run/main_scene="uid://b7760gfdhev6g"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -29,6 +29,10 @@ BgmPlayer="*uid://vgcn25ap61q8"
 window/hdr/request_hdr_output=true
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
+
+[gui]
+
+theme/custom="uid://dqd5ew3qjhnl2"
 
 [input]
 
