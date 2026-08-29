@@ -1,0 +1,10 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://dwjxtdlvl7llp"]
+
+[ext_resource type="Texture2D" uid="uid://bd5rb80j3om3t" path="res://Assets/Player/MeowGame Platformer Running.png" id="1_wb15e"]
+[ext_resource type="Texture2D" uid="uid://cng7lbi4sktnd" path="res://Assets/Normal Maps/Platformer Running Normal Map/MeowGame Platformer Running_normal.png" id="2_abftv"]
+[ext_resource type="Texture2D" uid="uid://cqk1jjm3m5dw3" path="res://Assets/Normal Maps/Platformer Running Normal Map/MeowGame Platformer Running_specular.png" id="3_6t2pj"]
+
+[resource]
+diffuse_texture = ExtResource("1_wb15e")
+normal_texture = ExtResource("2_abftv")
+specular_texture = ExtResource("3_6t2pj")

@@ -6,14 +6,52 @@
 [ext_resource type="Texture2D" uid="uid://4btg7x7ibbx3" path="res://Assets/Background/MeowGame Tree Background.png" id="2_lr4ld"]
 [ext_resource type="Texture2D" uid="uid://p6jwfvil742t" path="res://Assets/Background/MeowGame Sky Background.png" id="2_rpf30"]
 [ext_resource type="Texture2D" uid="uid://dnqm6gednmqlv" path="res://Assets/Objects/MeowGame Flappy Bird Tower.png" id="3_6sdpr"]
+[ext_resource type="Texture2D" uid="uid://d3gx5qayue6th" path="res://Assets/Normal Maps/Tree Background Normal Map/MeowGame Tree Background_normal.png" id="4_5plo5"]
+[ext_resource type="Texture2D" uid="uid://5cxgkgpterft" path="res://Assets/Normal Maps/Tree Background Normal Map/MeowGame Tree Background_specular.png" id="5_1kvof"]
 [ext_resource type="PackedScene" uid="uid://dwxwnb2rl1prj" path="res://Scenes/player_flappy_bird.tscn" id="6_lr4ld"]
 [ext_resource type="Texture2D" uid="uid://hs3q1feimsl3" path="res://Assets/Objects/MeowGame Foreground Deco Plants.png" id="6_y6mal"]
+[ext_resource type="Texture2D" uid="uid://duogc3m2f3lsf" path="res://Assets/Normal Maps/Foreground Deco Plant Normal Map/MeowGame Foreground Deco Plants_normal.png" id="7_mu65p"]
+[ext_resource type="Texture2D" uid="uid://cx0guyt8bswuu" path="res://Assets/Normal Maps/Flappy Bird Tower Normal Map/MeowGame Flappy Bird Tower_normal.png" id="8_7u6rh"]
+[ext_resource type="Texture2D" uid="uid://w3ixs6e6wt1j" path="res://Assets/Normal Maps/Foreground Deco Plant Normal Map/MeowGame Foreground Deco Plants_specular.png" id="8_s0j2t"]
+[ext_resource type="Texture2D" uid="uid://m74ka70ijmwm" path="res://Assets/Normal Maps/Flappy Bird Tower Normal Map/MeowGame Flappy Bird Tower_specular.png" id="9_75k32"]
+[ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="15_75k32"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7u6rh"]
+diffuse_texture = ExtResource("2_lr4ld")
+normal_texture = ExtResource("4_5plo5")
+specular_texture = ExtResource("5_1kvof")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_s7fsw"]
+diffuse_texture = ExtResource("3_6sdpr")
+normal_texture = ExtResource("8_7u6rh")
+specular_texture = ExtResource("9_75k32")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
 size = Vector2(96, 912)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a627d"]
 size = Vector2(96, 849)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f07lr"]
+shader = ExtResource("15_75k32")
+shader_parameter/angle = -0.335
+shader_parameter/position = -0.345
+shader_parameter/spread = 0.874000041515
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.0800000038
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = -3.22
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.24400001159
+shader_parameter/color = Color(0.77254903, 0.61960787, 0.3882353, 0.22745098)
+shader_parameter/hdr = false
+shader_parameter/seed = -1.24
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_f12bx"]
+diffuse_texture = ExtResource("6_y6mal")
+normal_texture = ExtResource("7_mu65p")
+specular_texture = ExtResource("8_s0j2t")
 
 [sub_resource type="Environment" id="Environment_6p6qw"]
 background_mode = 3
@@ -26,25 +64,25 @@ glow_bloom = 0.5
 script = ExtResource("1_asmx3")
 obstacle_speed = 400.0
 
-[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1530338899]
+[node name="Parallax2D2 Sky" type="Parallax2D" parent="." unique_id=1530338899]
 repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(-10, 0)
 repeat_times = 2
 
-[node name="TextureRect" type="TextureRect" parent="Parallax2D2" unique_id=158072011]
+[node name="Sky" type="TextureRect" parent="Parallax2D2 Sky" unique_id=158072011]
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_rpf30")
 stretch_mode = 4
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1854872036]
+[node name="Parallax2D Trees" type="Parallax2D" parent="." unique_id=1854872036]
 repeat_size = Vector2(1000, 0)
 autoscroll = Vector2(-40, 0)
 
-[node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=57907520]
+[node name="Trees" type="TextureRect" parent="Parallax2D Trees" unique_id=57907520]
 offset_right = 1147.6482
 offset_bottom = 648.0
-texture = ExtResource("2_lr4ld")
+texture = SubResource("CanvasTexture_7u6rh")
 
 [node name="ObstacleGroup" type="Marker2D" parent="." unique_id=1050549337]
 position = Vector2(2038, 322)
@@ -58,7 +96,7 @@ offset_left = -8.0
 offset_top = -16.0
 offset_right = 104.0
 offset_bottom = 896.0
-texture = ExtResource("3_6sdpr")
+texture = SubResource("CanvasTexture_s7fsw")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleGroup/Obstacle" unique_id=933632320]
@@ -73,7 +111,7 @@ offset_left = -8.0
 offset_top = -784.0
 offset_right = 104.0
 offset_bottom = 16.0
-texture = ExtResource("3_6sdpr")
+texture = SubResource("CanvasTexture_s7fsw")
 stretch_mode = 4
 flip_h = true
 flip_v = true
@@ -98,7 +136,7 @@ offset_left = -8.0
 offset_top = -16.0
 offset_right = 104.0
 offset_bottom = 896.0
-texture = ExtResource("3_6sdpr")
+texture = SubResource("CanvasTexture_s7fsw")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleGroup2/Obstacle" unique_id=216769790]
@@ -113,7 +151,7 @@ offset_left = -8.0
 offset_top = -784.0
 offset_right = 104.0
 offset_bottom = 16.0
-texture = ExtResource("3_6sdpr")
+texture = SubResource("CanvasTexture_s7fsw")
 stretch_mode = 4
 flip_h = true
 flip_v = true
@@ -138,7 +176,7 @@ offset_left = -8.0
 offset_top = -16.0
 offset_right = 104.0
 offset_bottom = 896.0
-texture = ExtResource("3_6sdpr")
+texture = SubResource("CanvasTexture_s7fsw")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleGroup3/Obstacle" unique_id=1006599806]
@@ -153,7 +191,7 @@ offset_left = -8.0
 offset_top = -784.0
 offset_right = 104.0
 offset_bottom = 16.0
-texture = ExtResource("3_6sdpr")
+texture = SubResource("CanvasTexture_s7fsw")
 stretch_mode = 4
 flip_h = true
 flip_v = true
@@ -166,6 +204,11 @@ shape = SubResource("RectangleShape2D_a627d")
 position = Vector2(0, -320)
 rect = Rect2(-2, 190, 96, 256)
 
+[node name="God rays" type="ColorRect" parent="." unique_id=914229425]
+material = SubResource("ShaderMaterial_f07lr")
+offset_right = 1152.0
+offset_bottom = 704.0
+
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1752233476]
 scroll_offset = Vector2(0, 288)
 repeat_size = Vector2(1152, 0)
@@ -176,7 +219,7 @@ repeat_times = 2
 offset_top = 128.0
 offset_right = 1152.0
 offset_bottom = 360.0
-texture = ExtResource("6_y6mal")
+texture = SubResource("CanvasTexture_f12bx")
 
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1337858998]
 rotation = 3.1415927
@@ -189,7 +232,7 @@ repeat_times = 4
 offset_left = -1152.0
 offset_top = 128.0001
 offset_bottom = 360.00012
-texture = ExtResource("6_y6mal")
+texture = SubResource("CanvasTexture_f12bx")
 
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("2_h40nw")]
 position = Vector2(960, 0)
@@ -221,6 +264,12 @@ initial_velocity_min = 1000.0
 initial_velocity_max = 1500.0
 scale_amount_min = 4.0
 scale_amount_max = 6.0
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=637006552]
+position = Vector2(-152, -264)
+rotation = 1.7302037
+color = Color(1, 0.7019608, 0.4509804, 1)
+energy = 0.2
 
 [connection signal="screen_exited" from="ObstacleGroup/VisibleOnScreenNotifier2D" to="ObstacleGroup" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_exited" from="ObstacleGroup2/VisibleOnScreenNotifier2D" to="ObstacleGroup2" method="_on_visible_on_screen_notifier_2d_screen_exited"]

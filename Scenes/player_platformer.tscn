@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bhu38d1noxcb3"]
 
 [ext_resource type="Script" uid="uid://ce1nrosxgobv5" path="res://Scenes/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://cteb65a41da4u" path="res://Assets/Player/MeowGame Player Platformer Idle.png" id="2_bgn8b"]
-[ext_resource type="Texture2D" uid="uid://b3xtpc35h725w" path="res://Assets/Player/MeowGame Player Platformer Jumping.png" id="3_tudsp"]
-[ext_resource type="Texture2D" uid="uid://bd5rb80j3om3t" path="res://Assets/Player/MeowGame Platformer Running.png" id="4_djtre"]
+[ext_resource type="Texture2D" uid="uid://dx1vx0aempq2m" path="res://Assets/Player/Canvas Textures/Player_Platformer_Idle.tres" id="2_bgn8b"]
+[ext_resource type="Texture2D" uid="uid://bdnw1wm06sci5" path="res://Assets/Player/Canvas Textures/Player_Platformer_Jumping.tres" id="3_bgn8b"]
+[ext_resource type="Texture2D" uid="uid://dwjxtdlvl7llp" path="res://Assets/Player/Canvas Textures/Player_Platformer_Running.tres" id="4_bgn8b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tudsp"]
 atlas = ExtResource("2_bgn8b")
@@ -13,20 +13,20 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("2_bgn8b")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4s72c"]
-atlas = ExtResource("4_djtre")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4utk0"]
+atlas = ExtResource("4_bgn8b")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m2030"]
-atlas = ExtResource("4_djtre")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqgqh"]
+atlas = ExtResource("4_bgn8b")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wqv7k"]
-atlas = ExtResource("4_djtre")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s72c"]
+atlas = ExtResource("4_bgn8b")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i754i"]
-atlas = ExtResource("4_djtre")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2030"]
+atlas = ExtResource("4_bgn8b")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8373"]
@@ -44,24 +44,24 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_tudsp")
+"texture": ExtResource("3_bgn8b")
 }],
 "loop": 0,
 "name": &"jumping",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.8,
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4utk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqgqh")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4s72c")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m2030")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wqv7k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i754i")
 }],
 "loop": 1,
 "name": &"running",
@@ -93,7 +93,7 @@ script = ExtResource("1_cvnsp")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=48204629]
 position = Vector2(-1.3333334, 0)
 sprite_frames = SubResource("SpriteFrames_e8373")
-animation = &"jumping"
+animation = &"running"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803579138]

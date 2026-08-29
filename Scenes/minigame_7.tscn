@@ -8,23 +8,58 @@
 [ext_resource type="Texture2D" uid="uid://cxt1rrin45ac0" path="res://Assets/Background/MeowGame Raft Grass Edge.png" id="4_m1xe1"]
 [ext_resource type="Texture2D" uid="uid://cmxppk6dhnfhk" path="res://Assets/Objects/MeowGame Raft Foreground.png" id="7_3m4y6"]
 [ext_resource type="Texture2D" uid="uid://cfx6pgjyc3a2l" path="res://Assets/Objects/MeowGame Raft Obstacle 1.png" id="7_vkof5"]
+[ext_resource type="Texture2D" uid="uid://f6s67wk8ln1p" path="res://Assets/Normal Maps/Raft Obstacle 1 Normal Map/MeowGame Raft Obstacle 1_normal.png" id="8_2ntgs"]
 [ext_resource type="Texture2D" uid="uid://cmm26sbx0s5tj" path="res://Assets/Objects/MeowGame Raft Obstacle 2.png" id="8_6tlyq"]
 [ext_resource type="Texture2D" uid="uid://bquxls0kbhwgv" path="res://Assets/Objects/MeowGame Raft Foreground 2.png" id="8_o6d8m"]
 [ext_resource type="Texture2D" uid="uid://1sgnycsxgi32" path="res://Assets/Objects/MeowGame Raft Obstacle 3.png" id="9_6y32a"]
+[ext_resource type="Texture2D" uid="uid://xcumtk1ncxor" path="res://Assets/Normal Maps/Raft Obstacle 1 Normal Map/MeowGame Raft Obstacle 1_specular.png" id="9_gq1la"]
+[ext_resource type="Texture2D" uid="uid://cdqnlpipqj2qp" path="res://Assets/Normal Maps/Raft Obstacle 2 Normal Map/MeowGame Raft Obstacle 2_normal.png" id="11_yfbmy"]
 [ext_resource type="AudioStream" uid="uid://20a2h2suhfwo" path="res://Assets/Audio/Water.mp3" id="12_df13i"]
+[ext_resource type="Texture2D" uid="uid://cieqosrcvgc6d" path="res://Assets/Normal Maps/Raft Foreground 2 Normal Map/MeowGame Raft Foreground 2_normal.png" id="12_r00pg"]
+[ext_resource type="Texture2D" uid="uid://bws4gbfya2jfc" path="res://Assets/Normal Maps/Raft Obstacle 2 Normal Map/MeowGame Raft Obstacle 2_specular.png" id="12_ymvbw"]
+[ext_resource type="Texture2D" uid="uid://d3p8wd00f2boj" path="res://Assets/Normal Maps/Raft Foreground Normal Map/MeowGame Raft Foreground_normal.png" id="13_1xj4p"]
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="13_ekw7v"]
+[ext_resource type="Texture2D" uid="uid://dhnhncy2gbu1w" path="res://Assets/Normal Maps/Raft Foreground 2 Normal Map/MeowGame Raft Foreground 2_specular.png" id="13_xp4mv"]
+[ext_resource type="Texture2D" uid="uid://b1h7tge7wk8jf" path="res://Assets/Normal Maps/Raft Obstacle 3 Normal Map/MeowGame Raft Obstacle 3_normal.png" id="14_uj4nb"]
+[ext_resource type="Texture2D" uid="uid://xuwnhyqgioug" path="res://Assets/Normal Maps/Raft Foreground Normal Map/MeowGame Raft Foreground_specular.png" id="14_was10"]
+[ext_resource type="Texture2D" uid="uid://e6valif5fp6" path="res://Assets/Normal Maps/Raft Obstacle 3 Normal Map/MeowGame Raft Obstacle 3_specular.png" id="15_ndrxq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_65kyc"]
+diffuse_texture = ExtResource("7_vkof5")
+normal_texture = ExtResource("8_2ntgs")
+specular_texture = ExtResource("9_gq1la")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6p6qw"]
 radius = 32.0
 height = 64.0
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_yfbmy"]
+diffuse_texture = ExtResource("8_6tlyq")
+normal_texture = ExtResource("11_yfbmy")
+specular_texture = ExtResource("12_ymvbw")
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kentg"]
 radius = 32.0
 height = 128.0
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_ymvbw"]
+diffuse_texture = ExtResource("9_6y32a")
+normal_texture = ExtResource("14_uj4nb")
+specular_texture = ExtResource("15_ndrxq")
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m1xe1"]
 radius = 40.0
 height = 128.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bhg03"]
+diffuse_texture = ExtResource("7_3m4y6")
+normal_texture = ExtResource("13_1xj4p")
+specular_texture = ExtResource("14_was10")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6p6qw"]
+diffuse_texture = ExtResource("8_o6d8m")
+normal_texture = ExtResource("12_r00pg")
+specular_texture = ExtResource("13_xp4mv")
 
 [sub_resource type="Environment" id="Environment_6p6qw"]
 background_mode = 3
@@ -75,7 +110,7 @@ script = ExtResource("2_340fc")
 [node name="ColorRect" type="TextureRect" parent="Obstacle" unique_id=2106187024]
 offset_right = 80.0
 offset_bottom = 80.0
-texture = ExtResource("7_vkof5")
+texture = SubResource("CanvasTexture_65kyc")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle" unique_id=1544439881]
@@ -92,7 +127,7 @@ script = ExtResource("2_340fc")
 [node name="ColorRect" type="TextureRect" parent="Obstacle2" unique_id=1377694771]
 offset_right = 80.0
 offset_bottom = 80.0
-texture = ExtResource("7_vkof5")
+texture = SubResource("CanvasTexture_65kyc")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle2" unique_id=484688094]
@@ -109,7 +144,7 @@ script = ExtResource("2_340fc")
 [node name="ColorRect" type="TextureRect" parent="Obstacle3" unique_id=2113276291]
 offset_right = 144.0
 offset_bottom = 80.0
-texture = ExtResource("8_6tlyq")
+texture = SubResource("CanvasTexture_yfbmy")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3" unique_id=116349629]
@@ -127,7 +162,7 @@ script = ExtResource("2_340fc")
 [node name="ColorRect" type="TextureRect" parent="Obstacle4" unique_id=1308448751]
 offset_right = 144.0
 offset_bottom = 96.0
-texture = ExtResource("9_6y32a")
+texture = SubResource("CanvasTexture_ymvbw")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle4" unique_id=1075364955]
@@ -147,7 +182,7 @@ repeat_times = 5
 self_modulate = Color(1, 0.9182814, 0.85073423, 1)
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("7_3m4y6")
+texture = SubResource("CanvasTexture_bhg03")
 
 [node name="Parallax2D5" type="Parallax2D" parent="." unique_id=836627412]
 repeat_size = Vector2(0, 648)
@@ -158,7 +193,7 @@ repeat_times = 5
 self_modulate = Color(1, 0.91764706, 0.5568628, 1)
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("8_o6d8m")
+texture = SubResource("CanvasTexture_6p6qw")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=586527554]
 position = Vector2(576, 192)
@@ -177,6 +212,12 @@ position = Vector2(960, 0)
 
 [node name="timer" parent="timer" index="0" unique_id=151355501]
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1406136185]
+position = Vector2(-112, -104)
+rotation = -2.4324794
+color = Color(1, 0.7529412, 0.22745098, 1)
+energy = 0.2
 
 [connection signal="player_died" from="Player Raft" to="." method="_on_player_raft_player_died"]
 [connection signal="screen_exited" from="Obstacle/VisibleOnScreenNotifier2D" to="Obstacle" method="_on_visible_on_screen_notifier_2d_screen_exited"]

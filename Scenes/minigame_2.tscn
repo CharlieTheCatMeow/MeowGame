@@ -6,6 +6,23 @@
 [ext_resource type="Script" uid="uid://b5yst0b4gc6j2" path="res://Scenes/button.gd" id="3_mmgun"]
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="4_h684j"]
 [ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="5_mmgun"]
+[ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="7_h684j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wu6l1"]
+shader = ExtResource("7_h684j")
+shader_parameter/angle = -0.335
+shader_parameter/position = -0.175
+shader_parameter/spread = 0.6870000326325
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 16.955
+shader_parameter/ray2_density = 36.31
+shader_parameter/ray2_intensity = 0.24400001159
+shader_parameter/color = Color(0.77254903, 0.61960787, 0.7764706, 0.5411765)
+shader_parameter/hdr = false
+shader_parameter/seed = -1.24
 
 [sub_resource type="Gradient" id="Gradient_mmgun"]
 colors = PackedColorArray(1, 1, 0.34509805, 1, 1, 1, 1, 0)
@@ -51,6 +68,11 @@ autoscroll = Vector2(10, 0)
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_dfb65")
+
+[node name="God rays2" type="ColorRect" parent="." unique_id=1158785468]
+material = SubResource("ShaderMaterial_wu6l1")
+offset_right = 1152.0
+offset_bottom = 704.0
 
 [node name="Button" type="TextureButton" parent="." unique_id=722561134]
 offset_left = 88.0

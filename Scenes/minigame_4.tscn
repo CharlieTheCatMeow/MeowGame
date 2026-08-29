@@ -12,8 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://euqx10auvyq6" path="res://Assets/Objects/fruit.png" id="6_frvhq"]
 [ext_resource type="Texture2D" uid="uid://bmar6debrbia4" path="res://Assets/Objects/Fruit tree.png" id="7_57wpc"]
 [ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="9_yexny"]
+[ext_resource type="Texture2D" uid="uid://daortsmsdys7w" path="res://Assets/Normal Maps/Fruit Normal Map/fruit_normal.png" id="10_hkr3k"]
 [ext_resource type="Texture2D" uid="uid://b5w621d0ikxlv" path="res://Assets/Objects/MeowGame Leaves.png" id="10_y1k8l"]
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="11_ksguu"]
+[ext_resource type="Texture2D" uid="uid://c7r1ab41dny2s" path="res://Assets/Normal Maps/Fruit Normal Map/fruit_specular.png" id="11_ph87j"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_e8373"]
 diffuse_texture = ExtResource("3_ylyf8")
@@ -51,6 +53,11 @@ shader_parameter/ray2_intensity = 0.2850000135375
 shader_parameter/color = Color(0.5940202, 0.704165, 7.70092e-07, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = 10.96
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7u6rh"]
+diffuse_texture = ExtResource("6_frvhq")
+normal_texture = ExtResource("10_hkr3k")
+specular_texture = ExtResource("11_ph87j")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6p6qw"]
 radius = 24.0
@@ -124,7 +131,7 @@ offset_left = -24.0
 offset_top = -24.0
 offset_right = 24.0
 offset_bottom = 24.0
-texture = ExtResource("6_frvhq")
+texture = SubResource("CanvasTexture_7u6rh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fruit" unique_id=45174092]
 shape = SubResource("CircleShape2D_6p6qw")
@@ -145,7 +152,7 @@ offset_left = -24.0
 offset_top = -24.0
 offset_right = 24.0
 offset_bottom = 24.0
-texture = ExtResource("6_frvhq")
+texture = SubResource("CanvasTexture_7u6rh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fruit2" unique_id=1386163663]
 shape = SubResource("CircleShape2D_6p6qw")
@@ -165,6 +172,7 @@ position = Vector2(576, 28)
 shape = SubResource("RectangleShape2D_6p6qw")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1715105264]
+position = Vector2(-88, -160)
 rotation = -0.6213703
 energy = 0.3
 shadow_enabled = true
@@ -224,49 +232,49 @@ alignment = 2
 
 [node name="Fruit1" type="TextureRect" parent="FruitCountContainer" unique_id=1041906599]
 layout_mode = 2
-texture = ExtResource("6_frvhq")
+texture = SubResource("CanvasTexture_7u6rh")
 expand_mode = 4
 stretch_mode = 4
 
 [node name="Fruit2" type="TextureRect" parent="FruitCountContainer" unique_id=1906503406]
 layout_mode = 2
-texture = ExtResource("6_frvhq")
+texture = SubResource("CanvasTexture_7u6rh")
 expand_mode = 4
 stretch_mode = 4
 
 [node name="Fruit3" type="TextureRect" parent="FruitCountContainer" unique_id=1868844300]
 layout_mode = 2
-texture = ExtResource("6_frvhq")
+texture = SubResource("CanvasTexture_7u6rh")
 expand_mode = 4
 stretch_mode = 4
 
 [node name="Fruit4" type="TextureRect" parent="FruitCountContainer" unique_id=952701779]
 layout_mode = 2
-texture = ExtResource("6_frvhq")
+texture = SubResource("CanvasTexture_7u6rh")
 expand_mode = 4
 stretch_mode = 4
 
 [node name="Fruit5" type="TextureRect" parent="FruitCountContainer" unique_id=1800014575]
 layout_mode = 2
-texture = ExtResource("6_frvhq")
+texture = SubResource("CanvasTexture_7u6rh")
 expand_mode = 4
 stretch_mode = 4
 
 [node name="Fruit6" type="TextureRect" parent="FruitCountContainer" unique_id=504395914]
 layout_mode = 2
-texture = ExtResource("6_frvhq")
+texture = SubResource("CanvasTexture_7u6rh")
 expand_mode = 4
 stretch_mode = 4
 
 [node name="Fruit7" type="TextureRect" parent="FruitCountContainer" unique_id=785192184]
 layout_mode = 2
-texture = ExtResource("6_frvhq")
+texture = SubResource("CanvasTexture_7u6rh")
 expand_mode = 4
 stretch_mode = 4
 
 [node name="Fruit8" type="TextureRect" parent="FruitCountContainer" unique_id=434519]
 layout_mode = 2
-texture = ExtResource("6_frvhq")
+texture = SubResource("CanvasTexture_7u6rh")
 expand_mode = 4
 stretch_mode = 4
 

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b8tv0bfd5pg6p" path="res://Scenes/player_flappy_bird.gd" id="1_scgws"]
 [ext_resource type="Texture2D" uid="uid://cgymrwblob37v" path="res://Assets/Player/MeowGame Flappy Bird Player.png" id="2_svlbe"]
+[ext_resource type="Texture2D" uid="uid://5dc2dp7ngppa" path="res://Assets/Normal Maps/Flappy Bird Player Normal Map/MeowGame Flappy Bird Player_normal.png" id="3_tjj8t"]
+[ext_resource type="Texture2D" uid="uid://nab2qavbnd1w" path="res://Assets/Normal Maps/Flappy Bird Player Normal Map/MeowGame Flappy Bird Player_specular.png" id="4_gc8yn"]
 
 [sub_resource type="Gradient" id="Gradient_k275q"]
 offsets = PackedFloat32Array(0, 0.8072289)
@@ -21,6 +23,11 @@ point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6p6qw"]
 radius = 31.06445
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_75k32"]
+diffuse_texture = ExtResource("2_svlbe")
+normal_texture = ExtResource("3_tjj8t")
+specular_texture = ExtResource("4_gc8yn")
 
 [sub_resource type="Gradient" id="Gradient_svlbe"]
 offsets = PackedFloat32Array(0.18674698, 0.6927711)
@@ -65,7 +72,7 @@ offset_left = -72.0
 offset_top = -24.0
 offset_right = 67.0
 offset_bottom = 38.0
-texture = ExtResource("2_svlbe")
+texture = SubResource("CanvasTexture_75k32")
 stretch_mode = 4
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=334958613]

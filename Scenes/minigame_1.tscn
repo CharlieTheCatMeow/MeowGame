@@ -8,11 +8,65 @@
 [ext_resource type="Texture2D" uid="uid://4btg7x7ibbx3" path="res://Assets/Background/MeowGame Tree Background.png" id="3_qytqt"]
 [ext_resource type="Script" uid="uid://buec0di6kybdh" path="res://Scenes/rune.gd" id="4_0uv5o"]
 [ext_resource type="Texture2D" uid="uid://bqt8wb12qqvp6" path="res://Assets/Objects/MeowGame Platformer Platform.png" id="4_jmcek"]
+[ext_resource type="Texture2D" uid="uid://d3gx5qayue6th" path="res://Assets/Normal Maps/Tree Background Normal Map/MeowGame Tree Background_normal.png" id="4_o14ck"]
+[ext_resource type="Texture2D" uid="uid://5cxgkgpterft" path="res://Assets/Normal Maps/Tree Background Normal Map/MeowGame Tree Background_specular.png" id="5_btwg3"]
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="6_0uv5o"]
+[ext_resource type="Texture2D" uid="uid://i7ivv7al2b3b" path="res://Assets/Normal Maps/Platformer Ground Normal Map/MeowGame Platformer Ground_normal.png" id="7_f12bx"]
+[ext_resource type="Texture2D" uid="uid://c3olpk0tt4kpb" path="res://Assets/Normal Maps/Platformer Ground Normal Map/MeowGame Platformer Ground_specular.png" id="8_0m3l0"]
+[ext_resource type="Texture2D" uid="uid://c8jvnoqt5p831" path="res://Assets/Normal Maps/Platformer Platform Normal Map/MeowGame Platformer Platform_normal.png" id="8_3yb6h"]
+[ext_resource type="Texture2D" uid="uid://b4ak3hnbgh06b" path="res://Assets/Normal Maps/Platformer Platform Normal Map/MeowGame Platformer Platform_specular.png" id="9_kllcc"]
 [ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="9_ne1wf"]
+[ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="17_0m3l0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vj06g"]
+diffuse_texture = ExtResource("3_qytqt")
+normal_texture = ExtResource("4_o14ck")
+specular_texture = ExtResource("5_btwg3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05nur"]
+shader = ExtResource("17_0m3l0")
+shader_parameter/angle = -0.335
+shader_parameter/position = -0.345
+shader_parameter/spread = 0.5550000263625
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.0800000038
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.24400001159
+shader_parameter/color = Color(0.77254903, 0.61960787, 0.3882353, 0.4862745)
+shader_parameter/hdr = false
+shader_parameter/seed = 2.09
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kioj1"]
+shader = ExtResource("17_0m3l0")
+shader_parameter/angle = -0.335
+shader_parameter/position = -0.345
+shader_parameter/spread = 0.5550000263625
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.0800000038
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.24400001159
+shader_parameter/color = Color(0.77254903, 0.61960787, 0.3882353, 0.4862745)
+shader_parameter/hdr = false
+shader_parameter/seed = -1.24
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11mgy"]
 size = Vector2(1152, 64)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a08jo"]
+diffuse_texture = ExtResource("3_ojqsy")
+normal_texture = ExtResource("7_f12bx")
+specular_texture = ExtResource("8_0m3l0")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3yb6h"]
+diffuse_texture = ExtResource("4_jmcek")
+normal_texture = ExtResource("8_3yb6h")
+specular_texture = ExtResource("9_kllcc")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
 size = Vector2(296, 32)
@@ -116,10 +170,21 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_enoba")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=881251898]
+[node name="Trees" type="TextureRect" parent="." unique_id=881251898]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("3_qytqt")
+texture = SubResource("CanvasTexture_vj06g")
+
+[node name="God rays" type="ColorRect" parent="." unique_id=1279891236]
+material = SubResource("ShaderMaterial_05nur")
+offset_right = 1152.0
+offset_bottom = 704.0
+
+[node name="God rays2" type="ColorRect" parent="." unique_id=654867014]
+material = SubResource("ShaderMaterial_kioj1")
+offset_left = 504.0
+offset_right = 1656.0
+offset_bottom = 704.0
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=1568142151]
 position = Vector2(0, 584)
@@ -133,7 +198,7 @@ self_modulate = Color(0.9999997, 0.9724521, 0.32689643, 1)
 offset_top = -26.0
 offset_right = 1152.0
 offset_bottom = 64.0
-texture = ExtResource("3_ojqsy")
+texture = SubResource("CanvasTexture_a08jo")
 stretch_mode = 4
 
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=1787317148]
@@ -143,7 +208,7 @@ position = Vector2(304, 488)
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 56.0
-texture = ExtResource("4_jmcek")
+texture = SubResource("CanvasTexture_3yb6h")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1980872311]
@@ -160,7 +225,7 @@ position = Vector2(568, 384)
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
-texture = ExtResource("4_jmcek")
+texture = SubResource("CanvasTexture_3yb6h")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1223198370]
@@ -177,7 +242,7 @@ position = Vector2(856, 272)
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
-texture = ExtResource("4_jmcek")
+texture = SubResource("CanvasTexture_3yb6h")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=1497190217]

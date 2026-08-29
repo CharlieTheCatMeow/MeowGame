@@ -5,12 +5,34 @@
 [ext_resource type="Texture2D" uid="uid://pnq1j7k5or3m" path="res://Assets/Objects/MeowGame Platformer Ground.png" id="2_bgv4i"]
 [ext_resource type="Texture2D" uid="uid://4btg7x7ibbx3" path="res://Assets/Background/MeowGame Tree Background.png" id="3_5l52r"]
 [ext_resource type="PackedScene" uid="uid://cw6se0yq3tn5k" path="res://Scenes/player_jumping_game.tscn" id="4_28s5m"]
+[ext_resource type="Texture2D" uid="uid://d3gx5qayue6th" path="res://Assets/Normal Maps/Tree Background Normal Map/MeowGame Tree Background_normal.png" id="4_br4fl"]
+[ext_resource type="Texture2D" uid="uid://5cxgkgpterft" path="res://Assets/Normal Maps/Tree Background Normal Map/MeowGame Tree Background_specular.png" id="5_8mbc2"]
 [ext_resource type="Script" uid="uid://bwccjqw67eei5" path="res://Scenes/obstacle_spike.gd" id="5_ofli8"]
 [ext_resource type="Texture2D" uid="uid://cfmnetxguc0le" path="res://Assets/Objects/MeowGame Bush Obstacle.png" id="6_kpx3j"]
+[ext_resource type="Texture2D" uid="uid://i7ivv7al2b3b" path="res://Assets/Normal Maps/Platformer Ground Normal Map/MeowGame Platformer Ground_normal.png" id="7_io7vq"]
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="7_ykq01"]
+[ext_resource type="Texture2D" uid="uid://c3olpk0tt4kpb" path="res://Assets/Normal Maps/Platformer Ground Normal Map/MeowGame Platformer Ground_specular.png" id="8_f067r"]
+[ext_resource type="Texture2D" uid="uid://bj05m3rj4lf2p" path="res://Assets/Normal Maps/Bush Obstacle Normal Map/MeowGame Bush Obstacle_normal.png" id="8_oo5rc"]
+[ext_resource type="Texture2D" uid="uid://cof1wpyjsruyf" path="res://Assets/Normal Maps/Bush Obstacle Normal Map/MeowGame Bush Obstacle_specular.png" id="9_0nun1"]
+[ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="15_8mbc2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_q1dn1"]
+diffuse_texture = ExtResource("3_5l52r")
+normal_texture = ExtResource("4_br4fl")
+specular_texture = ExtResource("5_8mbc2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fijl"]
 size = Vector2(1152, 64)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_r0805"]
+diffuse_texture = ExtResource("2_bgv4i")
+normal_texture = ExtResource("7_io7vq")
+specular_texture = ExtResource("8_f067r")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hkr3k"]
+diffuse_texture = ExtResource("6_kpx3j")
+normal_texture = ExtResource("8_oo5rc")
+specular_texture = ExtResource("9_0nun1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p6qw"]
 size = Vector2(20, 74)
@@ -19,6 +41,22 @@ size = Vector2(20, 74)
 closed = false
 cull_mode = 1
 polygon = PackedVector2Array(8, 0, 16, -8, 56, -8, 64, 8, 64, 56, 8, 56)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_io7vq"]
+shader = ExtResource("15_8mbc2")
+shader_parameter/angle = -0.125
+shader_parameter/position = 0.025
+shader_parameter/spread = 0.50000002375
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.0800000038
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.24400001159
+shader_parameter/color = Color(0.67058825, 0.6745098, 0.1764706, 0.16862746)
+shader_parameter/hdr = false
+shader_parameter/seed = 3.115
 
 [sub_resource type="Environment" id="Environment_6p6qw"]
 background_mode = 3
@@ -48,7 +86,7 @@ repeat_times = 4
 [node name="TextureRect" type="TextureRect" parent="Parallax2D2" unique_id=2120522646]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("3_5l52r")
+texture = SubResource("CanvasTexture_q1dn1")
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=663039714]
 position = Vector2(0, 584)
@@ -66,7 +104,7 @@ repeat_times = 4
 offset_top = -26.0
 offset_right = 1152.0
 offset_bottom = 64.0
-texture = ExtResource("2_bgv4i")
+texture = SubResource("CanvasTexture_r0805")
 stretch_mode = 4
 
 [node name="Player Jumping Game" parent="." unique_id=242961018 instance=ExtResource("4_28s5m")]
@@ -81,7 +119,7 @@ script = ExtResource("5_ofli8")
 offset_top = -16.0
 offset_right = 64.0
 offset_bottom = 56.0
-texture = ExtResource("6_kpx3j")
+texture = SubResource("CanvasTexture_hkr3k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle" unique_id=1939021183]
 position = Vector2(32, 21)
@@ -102,7 +140,7 @@ script = ExtResource("5_ofli8")
 offset_top = -16.0
 offset_right = 64.0
 offset_bottom = 56.0
-texture = ExtResource("6_kpx3j")
+texture = SubResource("CanvasTexture_hkr3k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle2" unique_id=591916109]
 position = Vector2(32, 21)
@@ -123,7 +161,7 @@ script = ExtResource("5_ofli8")
 offset_top = -16.0
 offset_right = 64.0
 offset_bottom = 56.0
-texture = ExtResource("6_kpx3j")
+texture = SubResource("CanvasTexture_hkr3k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3" unique_id=2099334819]
 position = Vector2(32, 21)
@@ -142,6 +180,11 @@ position = Vector2(960, 0)
 [node name="timer" parent="timer" index="0" unique_id=151355501]
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 
+[node name="God rays" type="ColorRect" parent="." unique_id=1321148570]
+material = SubResource("ShaderMaterial_io7vq")
+offset_right = 1152.0
+offset_bottom = 704.0
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2105106270]
 color = Color(0.8190088, 0.84529114, 0.46670723, 1)
 
@@ -151,7 +194,7 @@ environment = SubResource("Environment_6p6qw")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1630529019]
 rotation = -0.897394
 color = Color(1, 0.7529412, 0.5686275, 1)
-energy = 0.1
+energy = 0.2
 shadow_enabled = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1317314788]

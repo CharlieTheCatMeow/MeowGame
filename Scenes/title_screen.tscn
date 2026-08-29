@@ -3,9 +3,56 @@
 [ext_resource type="Script" uid="uid://vo12nscfjv10" path="res://Scenes/title_screen.gd" id="1_p3fck"]
 [ext_resource type="Texture2D" uid="uid://dvnqr27mfe47k" path="res://Assets/Background/MeowGame Menu Background.png" id="2_p3fck"]
 [ext_resource type="Texture2D" uid="uid://bl6kdbs3e3crm" path="res://Assets/Objects/MeowGame Title.png" id="3_4gxqj"]
+[ext_resource type="Texture2D" uid="uid://vm070jg3qd0" path="res://Assets/Normal Maps/Menu Background Normal Map/MeowGame Menu Background_normal.png" id="3_6vd4x"]
+[ext_resource type="Texture2D" uid="uid://cvgacht7qvy66" path="res://Assets/Normal Maps/Menu Background Normal Map/MeowGame Menu Background_specular.png" id="4_n82rj"]
+[ext_resource type="Texture2D" uid="uid://hg04ygcwe3my" path="res://Assets/Normal Maps/Title Normal Map/MeowGame Title_normal.png" id="6_0061g"]
+[ext_resource type="Texture2D" uid="uid://dvdnbvey22xqn" path="res://Assets/Normal Maps/Title Normal Map/MeowGame Title_specular.png" id="7_8mikk"]
+[ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="8_n82rj"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sqelc"]
+diffuse_texture = ExtResource("2_p3fck")
+normal_texture = ExtResource("3_6vd4x")
+specular_texture = ExtResource("4_n82rj")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_57qkx"]
+diffuse_texture = ExtResource("3_4gxqj")
+normal_texture = ExtResource("6_0061g")
+specular_texture = ExtResource("7_8mikk")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4gxqj"]
-texture = ExtResource("3_4gxqj")
+texture = SubResource("CanvasTexture_57qkx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0061g"]
+shader = ExtResource("8_n82rj")
+shader_parameter/angle = -0.235
+shader_parameter/position = -0.035
+shader_parameter/spread = 0.5550000263625
+shader_parameter/cutoff = 0.05600005015999998
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.61200002907
+shader_parameter/speed = 1.385
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.24400001159
+shader_parameter/color = Color(0.6975914, 0.6661635, 0, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 10.345
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8mikk"]
+shader = ExtResource("8_n82rj")
+shader_parameter/angle = -0.235
+shader_parameter/position = -0.035
+shader_parameter/spread = 0.5550000263625
+shader_parameter/cutoff = 0.05600005015999998
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.61200002907
+shader_parameter/speed = 1.385
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.24400001159
+shader_parameter/color = Color(0.6975914, 0.6661635, 0, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 16.015
 
 [node name="TitleScreen" type="Node2D" unique_id=413198438]
 script = ExtResource("1_p3fck")
@@ -14,7 +61,7 @@ script = ExtResource("1_p3fck")
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(28.8, 16.2)
-texture = ExtResource("2_p3fck")
+texture = SubResource("CanvasTexture_sqelc")
 expand_mode = 2
 
 [node name="TitleScreenTitle" type="RichTextLabel" parent="." unique_id=1411677269]
@@ -37,6 +84,18 @@ text = "[center]MeowGame![/center]"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
+
+[node name="God rays" type="ColorRect" parent="." unique_id=1077166211]
+material = SubResource("ShaderMaterial_0061g")
+offset_left = -176.0
+offset_right = 976.0
+offset_bottom = 720.0
+
+[node name="God rays2" type="ColorRect" parent="." unique_id=1416138175]
+material = SubResource("ShaderMaterial_8mikk")
+offset_left = 360.0
+offset_right = 1512.0
+offset_bottom = 720.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=476146809]
 offset_left = 368.0
@@ -66,6 +125,11 @@ layout_mode = 2
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 48
 text = "Quit"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1479469421]
+position = Vector2(-232, -320)
+rotation = 0.50588155
+energy = 0.15
 
 [connection signal="pressed" from="VBoxContainer/Begin" to="." method="_on_begin_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]

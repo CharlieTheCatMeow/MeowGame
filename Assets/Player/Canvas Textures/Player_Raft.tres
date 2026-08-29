@@ -1,0 +1,10 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://bni82a3ig2aym"]
+
+[ext_resource type="Texture2D" uid="uid://dqgkr8w3oeir8" path="res://Assets/Player/MeowGame Raft Player.png" id="1_dlmc4"]
+[ext_resource type="Texture2D" uid="uid://b80x2r5dap3hd" path="res://Assets/Normal Maps/Raft Player Normal Map/MeowGame Raft Player_normal.png" id="2_28dqg"]
+[ext_resource type="Texture2D" uid="uid://dhx20trdi2xce" path="res://Assets/Normal Maps/Raft Player Normal Map/MeowGame Raft Player_specular.png" id="3_e7fxl"]
+
+[resource]
+diffuse_texture = ExtResource("1_dlmc4")
+normal_texture = ExtResource("2_28dqg")
+specular_texture = ExtResource("3_e7fxl")

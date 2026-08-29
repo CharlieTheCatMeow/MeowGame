@@ -19,21 +19,37 @@ diffuse_texture = ExtResource("3_c7xwe")
 normal_texture = ExtResource("4_lymix")
 specular_texture = ExtResource("5_b7jio")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qnqh0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c8y3w"]
 shader = ExtResource("4_2fcgv")
 shader_parameter/angle = -0.235
-shader_parameter/position = -0.195
+shader_parameter/position = -0.035
 shader_parameter/spread = 0.5550000263625
-shader_parameter/cutoff = 0.1
-shader_parameter/falloff = 0.0800000038
-shader_parameter/edge_fade = 0.15
-shader_parameter/speed = 1.0
+shader_parameter/cutoff = 0.05600005015999998
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.61200002907
+shader_parameter/speed = 1.385
 shader_parameter/ray1_density = 8.0
 shader_parameter/ray2_density = 30.0
 shader_parameter/ray2_intensity = 0.24400001159
 shader_parameter/color = Color(0.6975914, 0.6661635, 0, 0.8)
 shader_parameter/hdr = false
-shader_parameter/seed = 8.59
+shader_parameter/seed = 10.345
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66tft"]
+shader = ExtResource("4_2fcgv")
+shader_parameter/angle = -0.235
+shader_parameter/position = -0.035
+shader_parameter/spread = 0.5550000263625
+shader_parameter/cutoff = 0.05600005015999998
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.61200002907
+shader_parameter/speed = 1.385
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.24400001159
+shader_parameter/color = Color(0.6975914, 0.6661635, 0, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 16.015
 
 [node name="LevelScene" type="Node2D" unique_id=46321951]
 script = ExtResource("1_cn3xy")
@@ -106,7 +122,19 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]Hint: [/center]"
 
-[node name="God rays" type="ColorRect" parent="." unique_id=814051203]
-material = SubResource("ShaderMaterial_qnqh0")
-offset_right = 1152.0
-offset_bottom = 704.0
+[node name="God rays" type="ColorRect" parent="." unique_id=35789456]
+material = SubResource("ShaderMaterial_c8y3w")
+offset_left = -176.0
+offset_right = 976.0
+offset_bottom = 720.0
+
+[node name="God rays2" type="ColorRect" parent="." unique_id=479161639]
+material = SubResource("ShaderMaterial_66tft")
+offset_left = 360.0
+offset_right = 1512.0
+offset_bottom = 720.0
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=113799407]
+position = Vector2(-224, -256)
+rotation = 2.2352407
+energy = 0.2
