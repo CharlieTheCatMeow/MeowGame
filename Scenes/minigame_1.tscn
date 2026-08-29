@@ -41,8 +41,8 @@ shader_parameter/seed = 2.09
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kioj1"]
 shader = ExtResource("17_0m3l0")
-shader_parameter/angle = -0.335
-shader_parameter/position = -0.345
+shader_parameter/angle = -0.12
+shader_parameter/position = 0.085
 shader_parameter/spread = 0.5550000263625
 shader_parameter/cutoff = 0.1
 shader_parameter/falloff = 0.0800000038
@@ -182,7 +182,6 @@ offset_bottom = 704.0
 
 [node name="God rays2" type="ColorRect" parent="." unique_id=654867014]
 material = SubResource("ShaderMaterial_kioj1")
-offset_left = 504.0
 offset_right = 1656.0
 offset_bottom = 704.0
 

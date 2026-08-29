@@ -2,8 +2,56 @@
 
 [ext_resource type="Script" uid="uid://bsnc21eyg0370" path="res://Scenes/done_screen.gd" id="1_3rr80"]
 [ext_resource type="Texture2D" uid="uid://dvnqr27mfe47k" path="res://Assets/Background/MeowGame Menu Background.png" id="2_8rpo2"]
+[ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="3_5u8ma"]
 [ext_resource type="Texture2D" uid="uid://bjoeerloi00v7" path="res://Assets/Icons/MeowGame Cat thumbs up.png" id="3_8rpo2"]
+[ext_resource type="Texture2D" uid="uid://vm070jg3qd0" path="res://Assets/Normal Maps/Menu Background Normal Map/MeowGame Menu Background_normal.png" id="3_kmuj4"]
 [ext_resource type="Texture2D" uid="uid://dyc2hn6c4n0dx" path="res://Assets/Icons/MeowGame Rune.png" id="4_5u8ma"]
+[ext_resource type="Texture2D" uid="uid://cvgacht7qvy66" path="res://Assets/Normal Maps/Menu Background Normal Map/MeowGame Menu Background_specular.png" id="4_ilqlj"]
+[ext_resource type="Texture2D" uid="uid://d2tir16fxb4xs" path="res://Assets/Background/MeowGame Menu Background Grass and Flowers.png" id="6_ye11t"]
+[ext_resource type="Texture2D" uid="uid://c6katpdjc2k4w" path="res://Assets/Normal Maps/Menu Background Grass and Flowers Normal Map/MeowGame Menu Background Grass and Flowers_normal.png" id="7_4gccj"]
+[ext_resource type="Texture2D" uid="uid://bnp1t3yyswumh" path="res://Assets/Normal Maps/Menu Background Grass and Flowers Normal Map/MeowGame Menu Background Grass and Flowers_displacement.png" id="8_kmuj4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_70ucn"]
+diffuse_texture = ExtResource("2_8rpo2")
+normal_texture = ExtResource("3_kmuj4")
+specular_texture = ExtResource("4_ilqlj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uxf1h"]
+shader = ExtResource("3_5u8ma")
+shader_parameter/angle = -0.235
+shader_parameter/position = -0.035
+shader_parameter/spread = 0.5550000263625
+shader_parameter/cutoff = 0.05600005015999998
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.61200002907
+shader_parameter/speed = 1.385
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.24400001159
+shader_parameter/color = Color(0.6975914, 0.6661635, 0, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 32.42
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8lfy6"]
+shader = ExtResource("3_5u8ma")
+shader_parameter/angle = -0.235
+shader_parameter/position = -0.035
+shader_parameter/spread = 0.5550000263625
+shader_parameter/cutoff = 0.05600005015999998
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.61200002907
+shader_parameter/speed = 1.385
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.24400001159
+shader_parameter/color = Color(0.6975914, 0.6661635, 0, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = -12.375
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ilqlj"]
+diffuse_texture = ExtResource("6_ye11t")
+normal_texture = ExtResource("7_4gccj")
+specular_texture = ExtResource("8_kmuj4")
 
 [node name="Done Screen" type="Node2D" unique_id=790361240]
 script = ExtResource("1_3rr80")
@@ -11,7 +59,7 @@ script = ExtResource("1_3rr80")
 [node name="Background" type="TextureRect" parent="." unique_id=1505730876]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_8rpo2")
+texture = SubResource("CanvasTexture_70ucn")
 expand_mode = 2
 
 [node name="TitleScreenTitle" type="RichTextLabel" parent="." unique_id=1180929029]
@@ -33,6 +81,46 @@ text = "[center]You Win![/center]"
 fit_content = true
 scroll_active = false
 
+[node name="God rays" type="ColorRect" parent="." unique_id=1172900734]
+material = SubResource("ShaderMaterial_uxf1h")
+offset_left = -176.0
+offset_right = 976.0
+offset_bottom = 720.0
+
+[node name="God rays2" type="ColorRect" parent="." unique_id=1115729872]
+material = SubResource("ShaderMaterial_8lfy6")
+offset_left = 360.0
+offset_right = 1512.0
+offset_bottom = 720.0
+
+[node name="Cat Thumbs Up" type="TextureRect" parent="." unique_id=1717226374]
+offset_left = 400.0
+offset_top = 280.0
+offset_right = 688.0
+offset_bottom = 560.0
+texture = ExtResource("3_8rpo2")
+
+[node name="Rune" type="TextureRect" parent="." unique_id=552779496]
+offset_left = 928.0
+offset_top = 32.0
+offset_right = 1096.0
+offset_bottom = 160.0
+texture = ExtResource("4_5u8ma")
+stretch_mode = 4
+
+[node name="Rune2" type="TextureRect" parent="." unique_id=1060724677]
+offset_left = 88.0
+offset_top = 40.0
+offset_right = 256.0
+offset_bottom = 168.0
+texture = ExtResource("4_5u8ma")
+stretch_mode = 4
+
+[node name="Grass" type="TextureRect" parent="." unique_id=1659372629]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("CanvasTexture_ilqlj")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1346733935]
 offset_left = 368.0
 offset_top = 144.0
@@ -52,20 +140,6 @@ layout_mode = 2
 theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 48
 text = "Quit"
-
-[node name="Cat Thumbs Up" type="TextureRect" parent="." unique_id=1717226374]
-offset_left = 400.0
-offset_top = 280.0
-offset_right = 688.0
-offset_bottom = 560.0
-texture = ExtResource("3_8rpo2")
-
-[node name="Rune" type="TextureRect" parent="." unique_id=552779496]
-offset_left = 928.0
-offset_top = 32.0
-offset_right = 1096.0
-offset_bottom = 176.0
-texture = ExtResource("4_5u8ma")
 
 [connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

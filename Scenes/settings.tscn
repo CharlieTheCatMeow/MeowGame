@@ -3,7 +3,17 @@
 [ext_resource type="Script" uid="uid://dpa6gt0g8rda6" path="res://Scenes/settings.gd" id="1_i44u3"]
 [ext_resource type="Texture2D" uid="uid://dvnqr27mfe47k" path="res://Assets/Background/MeowGame Menu Background.png" id="2_i44u3"]
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="3_aaqfp"]
+[ext_resource type="Texture2D" uid="uid://vm070jg3qd0" path="res://Assets/Normal Maps/Menu Background Normal Map/MeowGame Menu Background_normal.png" id="3_bismi"]
 [ext_resource type="Script" uid="uid://b3jum7x1byn4m" path="res://Scenes/volume.gd" id="3_lhmql"]
+[ext_resource type="Texture2D" uid="uid://cvgacht7qvy66" path="res://Assets/Normal Maps/Menu Background Normal Map/MeowGame Menu Background_specular.png" id="4_rgw85"]
+[ext_resource type="Texture2D" uid="uid://d2tir16fxb4xs" path="res://Assets/Background/MeowGame Menu Background Grass and Flowers.png" id="5_6vr2p"]
+[ext_resource type="Texture2D" uid="uid://c6katpdjc2k4w" path="res://Assets/Normal Maps/Menu Background Grass and Flowers Normal Map/MeowGame Menu Background Grass and Flowers_normal.png" id="6_f60ng"]
+[ext_resource type="Texture2D" uid="uid://bnp1t3yyswumh" path="res://Assets/Normal Maps/Menu Background Grass and Flowers Normal Map/MeowGame Menu Background Grass and Flowers_displacement.png" id="7_bismi"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_l7vst"]
+diffuse_texture = ExtResource("2_i44u3")
+normal_texture = ExtResource("3_bismi")
+specular_texture = ExtResource("4_rgw85")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j2dne"]
 shader = ExtResource("3_aaqfp")
@@ -37,13 +47,18 @@ shader_parameter/color = Color(0.6975914, 0.6661635, 0, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = -12.375
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_rgw85"]
+diffuse_texture = ExtResource("5_6vr2p")
+normal_texture = ExtResource("6_f60ng")
+specular_texture = ExtResource("7_bismi")
+
 [node name="Settings" type="Node2D" unique_id=1173759484]
 script = ExtResource("1_i44u3")
 
 [node name="SettingsBackground" type="TextureRect" parent="." unique_id=605952857]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_i44u3")
+texture = SubResource("CanvasTexture_l7vst")
 expand_mode = 2
 
 [node name="TitleScreenTitle" type="RichTextLabel" parent="." unique_id=776190687]
@@ -77,6 +92,16 @@ material = SubResource("ShaderMaterial_6kysc")
 offset_left = 360.0
 offset_right = 1512.0
 offset_bottom = 720.0
+
+[node name="Grass" type="TextureRect" parent="." unique_id=1762847274]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("CanvasTexture_rgw85")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1368751934]
+position = Vector2(-232, -320)
+rotation = 0.50588155
+energy = 0.1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1786345294]
 offset_left = 368.0

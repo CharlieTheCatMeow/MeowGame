@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cvgacht7qvy66" path="res://Assets/Normal Maps/Menu Background Normal Map/MeowGame Menu Background_specular.png" id="4_66tft"]
 [ext_resource type="Texture2D" uid="uid://d0rg0rww6vlr4" path="res://Assets/Normal Maps/Life Icon Normal Map/MeowGame Life Icon_normal.png" id="4_lymix"]
 [ext_resource type="Texture2D" uid="uid://dyysclvwxihn1" path="res://Assets/Normal Maps/Basket Normal Map/Basket_specular.png" id="5_b7jio"]
+[ext_resource type="Texture2D" uid="uid://d2tir16fxb4xs" path="res://Assets/Background/MeowGame Menu Background Grass and Flowers.png" id="9_njln1"]
+[ext_resource type="Texture2D" uid="uid://c6katpdjc2k4w" path="res://Assets/Normal Maps/Menu Background Grass and Flowers Normal Map/MeowGame Menu Background Grass and Flowers_normal.png" id="10_nwlgb"]
+[ext_resource type="Texture2D" uid="uid://bnp1t3yyswumh" path="res://Assets/Normal Maps/Menu Background Grass and Flowers Normal Map/MeowGame Menu Background Grass and Flowers_displacement.png" id="11_g0s7p"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_lymix"]
 diffuse_texture = ExtResource("2_c7xwe")
@@ -50,6 +53,11 @@ shader_parameter/ray2_intensity = 0.24400001159
 shader_parameter/color = Color(0.6975914, 0.6661635, 0, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = 16.015
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6p6qw"]
+diffuse_texture = ExtResource("9_njln1")
+normal_texture = ExtResource("10_nwlgb")
+specular_texture = ExtResource("11_g0s7p")
 
 [node name="LevelScene" type="Node2D" unique_id=46321951]
 script = ExtResource("1_cn3xy")
@@ -138,3 +146,8 @@ offset_bottom = 720.0
 position = Vector2(-224, -256)
 rotation = 2.2352407
 energy = 0.2
+
+[node name="Grass" type="TextureRect" parent="." unique_id=1114314954]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("CanvasTexture_6p6qw")
