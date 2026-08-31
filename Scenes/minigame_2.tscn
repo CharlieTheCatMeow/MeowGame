@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="4_h684j"]
 [ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="5_mmgun"]
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="7_h684j"]
+[ext_resource type="AudioStream" uid="uid://mf1hwjfs15qn" path="res://Assets/Audio/Wind.mp3" id="8_wu6l1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wu6l1"]
 shader = ExtResource("7_h684j")
@@ -513,6 +514,11 @@ color = Color(0.6223741, 0.70608497, 0.9333221, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1756195166]
 environment = SubResource("Environment_6p6qw")
+
+[node name="Ambient Wind Sound" type="AudioStreamPlayer" parent="." unique_id=914609942]
+stream = ExtResource("8_wu6l1")
+volume_db = 4.0
+autoplay = true
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

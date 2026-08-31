@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://w3ixs6e6wt1j" path="res://Assets/Normal Maps/Foreground Deco Plant Normal Map/MeowGame Foreground Deco Plants_specular.png" id="8_s0j2t"]
 [ext_resource type="Texture2D" uid="uid://m74ka70ijmwm" path="res://Assets/Normal Maps/Flappy Bird Tower Normal Map/MeowGame Flappy Bird Tower_specular.png" id="9_75k32"]
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="15_75k32"]
+[ext_resource type="AudioStream" uid="uid://cxbkjok7cvf6u" path="res://Assets/Audio/Forest Sound.mp3" id="16_f07lr"]
+[ext_resource type="AudioStream" uid="uid://mf1hwjfs15qn" path="res://Assets/Audio/Wind.mp3" id="16_kvuqf"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7u6rh"]
 diffuse_texture = ExtResource("2_lr4ld")
@@ -59,6 +61,9 @@ glow_enabled = true
 glow_bloom = 0.5
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y1k8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8373"]
+size = Vector2(176, 32)
 
 [node name="Minigame 3" type="Node2D" unique_id=1679984557]
 script = ExtResource("1_asmx3")
@@ -210,6 +215,7 @@ offset_right = 1152.0
 offset_bottom = 704.0
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1752233476]
+top_level = true
 scroll_offset = Vector2(0, 288)
 repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(-500, 0)
@@ -222,6 +228,7 @@ offset_bottom = 360.0
 texture = SubResource("CanvasTexture_f12bx")
 
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1337858998]
+top_level = true
 rotation = 3.1415927
 scroll_offset = Vector2(0, 360)
 repeat_size = Vector2(1152, 0)
@@ -270,6 +277,30 @@ position = Vector2(-152, -264)
 rotation = 1.7302037
 color = Color(1, 0.7019608, 0.4509804, 1)
 energy = 0.2
+
+[node name="Border" type="StaticBody2D" parent="." unique_id=69248423]
+position = Vector2(104, -96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border" unique_id=543874123]
+position = Vector2(88, -16)
+shape = SubResource("RectangleShape2D_e8373")
+
+[node name="Border2" type="StaticBody2D" parent="." unique_id=863055338]
+position = Vector2(128, 760)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border2" unique_id=2078229499]
+position = Vector2(88, 16)
+shape = SubResource("RectangleShape2D_e8373")
+
+[node name="Ambient Wind Sound" type="AudioStreamPlayer" parent="." unique_id=625859506]
+stream = ExtResource("16_kvuqf")
+volume_db = 6.0
+autoplay = true
+
+[node name="Ambient Sound" type="AudioStreamPlayer" parent="." unique_id=126645526]
+stream = ExtResource("16_f07lr")
+volume_db = -10.035
+autoplay = true
 
 [connection signal="screen_exited" from="ObstacleGroup/VisibleOnScreenNotifier2D" to="ObstacleGroup" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_exited" from="ObstacleGroup2/VisibleOnScreenNotifier2D" to="ObstacleGroup2" method="_on_visible_on_screen_notifier_2d_screen_exited"]

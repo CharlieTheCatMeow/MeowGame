@@ -114,3 +114,7 @@ texture = SubResource("GradientTexture2D_6p6qw")
 [node name="JumpBufferTimer" type="Timer" parent="." unique_id=834763614]
 wait_time = 0.15
 one_shot = true
+
+[node name="CoyoteTimeTimer" type="Timer" parent="." unique_id=866353632]
+wait_time = 0.15
+one_shot = true

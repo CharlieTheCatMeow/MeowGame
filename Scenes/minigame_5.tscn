@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://bj05m3rj4lf2p" path="res://Assets/Normal Maps/Bush Obstacle Normal Map/MeowGame Bush Obstacle_normal.png" id="8_oo5rc"]
 [ext_resource type="Texture2D" uid="uid://cof1wpyjsruyf" path="res://Assets/Normal Maps/Bush Obstacle Normal Map/MeowGame Bush Obstacle_specular.png" id="9_0nun1"]
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="15_8mbc2"]
+[ext_resource type="AudioStream" uid="uid://mf1hwjfs15qn" path="res://Assets/Audio/Wind.mp3" id="16_f067r"]
+[ext_resource type="AudioStream" uid="uid://cxbkjok7cvf6u" path="res://Assets/Audio/Forest Sound.mp3" id="16_io7vq"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_q1dn1"]
 diffuse_texture = ExtResource("3_5l52r")
@@ -213,6 +215,16 @@ initial_velocity_min = 600.0
 initial_velocity_max = 900.0
 scale_amount_min = 4.0
 scale_amount_max = 6.0
+
+[node name="Ambient Wind Sound" type="AudioStreamPlayer" parent="." unique_id=1706001735]
+stream = ExtResource("16_f067r")
+volume_db = 3.0
+autoplay = true
+
+[node name="Ambient Sound" type="AudioStreamPlayer" parent="." unique_id=1674125243]
+stream = ExtResource("16_io7vq")
+volume_db = -10.035
+autoplay = true
 
 [connection signal="player_died" from="Player Jumping Game" to="." method="_on_player_jumping_game_player_died"]
 [connection signal="screen_exited" from="Obstacle/VisibleOnScreenNotifier2D" to="Obstacle" method="_on_visible_on_screen_notifier_2d_screen_exited"]

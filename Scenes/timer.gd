@@ -17,15 +17,19 @@ func Timer(start_time: float): # making a new function for timer countdown!
 	
 	time = start_time
 	
-	while time > 0.0: # run if timer hasnt reached 0
+	while time > 0.0:
+		if Global.timer_paused:
+			# Freeze here until unpaused — don't return!
+			await get_tree().create_timer(0.05, false).timeout
+			continue
 		await wait(0.10)
 		time = time - 0.10
 		timer.text = str(snapped(time, 0.1))
-	
 	#when timer reaches 0
 	return
 	
-func wait(seconds: float) -> void: # write this simple function out for wait!
+	
+func wait(seconds: float) -> void:
 	if not is_inside_tree():
 		return
-	await get_tree().create_timer(seconds).timeout # makes u wait
+	await get_tree().create_timer(seconds, false).timeout

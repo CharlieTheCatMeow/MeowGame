@@ -1,6 +1,6 @@
 extends Node2D
 @onready var themed_timer: Node2D = $timer
-@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var audio_player: AudioStreamPlayer = $CoinCollectSound
 # ^^^ You dragged this in the scene by the way 
 
 

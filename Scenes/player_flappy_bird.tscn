@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cgymrwblob37v" path="res://Assets/Player/MeowGame Flappy Bird Player.png" id="2_svlbe"]
 [ext_resource type="Texture2D" uid="uid://5dc2dp7ngppa" path="res://Assets/Normal Maps/Flappy Bird Player Normal Map/MeowGame Flappy Bird Player_normal.png" id="3_tjj8t"]
 [ext_resource type="Texture2D" uid="uid://nab2qavbnd1w" path="res://Assets/Normal Maps/Flappy Bird Player Normal Map/MeowGame Flappy Bird Player_specular.png" id="4_gc8yn"]
+[ext_resource type="AudioStream" uid="uid://215ueuyjdgyn" path="res://Assets/Audio/Gust of Wind.wav" id="5_gc8yn"]
 
 [sub_resource type="Gradient" id="Gradient_k275q"]
 offsets = PackedFloat32Array(0, 0.8072289)
@@ -81,5 +82,9 @@ scale = Vector2(2.75, 2.0000002)
 energy = 0.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_svlbe")
+
+[node name="WindSound" type="AudioStreamPlayer2D" parent="." unique_id=1591314006]
+stream = ExtResource("5_gc8yn")
+pitch_scale = 0.83
 
 [connection signal="finished" from="Particles" to="." method="_on_particles_finished"]

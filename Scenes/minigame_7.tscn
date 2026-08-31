@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://b1h7tge7wk8jf" path="res://Assets/Normal Maps/Raft Obstacle 3 Normal Map/MeowGame Raft Obstacle 3_normal.png" id="14_uj4nb"]
 [ext_resource type="Texture2D" uid="uid://xuwnhyqgioug" path="res://Assets/Normal Maps/Raft Foreground Normal Map/MeowGame Raft Foreground_specular.png" id="14_was10"]
 [ext_resource type="Texture2D" uid="uid://e6valif5fp6" path="res://Assets/Normal Maps/Raft Obstacle 3 Normal Map/MeowGame Raft Obstacle 3_specular.png" id="15_ndrxq"]
+[ext_resource type="AudioStream" uid="uid://cxbkjok7cvf6u" path="res://Assets/Audio/Forest Sound.mp3" id="24_ymvbw"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_65kyc"]
 diffuse_texture = ExtResource("7_vkof5")
@@ -195,10 +196,9 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("CanvasTexture_6p6qw")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=586527554]
-position = Vector2(576, 192)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=1239568176]
 stream = ExtResource("12_df13i")
-volume_db = 10.0
+volume_db = -3.0
 autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=168463550]
@@ -218,6 +218,11 @@ position = Vector2(-112, -104)
 rotation = -2.4324794
 color = Color(1, 0.7529412, 0.22745098, 1)
 energy = 0.2
+
+[node name="Ambient Sound" type="AudioStreamPlayer" parent="." unique_id=859368094]
+stream = ExtResource("24_ymvbw")
+volume_db = -10.035
+autoplay = true
 
 [connection signal="player_died" from="Player Raft" to="." method="_on_player_raft_player_died"]
 [connection signal="screen_exited" from="Obstacle/VisibleOnScreenNotifier2D" to="Obstacle" method="_on_visible_on_screen_notifier_2d_screen_exited"]

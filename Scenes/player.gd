@@ -1,46 +1,50 @@
 extends CharacterBody2D
 @onready var player_sprite = $PlayerSprite
 @onready var jump_buffer = $JumpBufferTimer
+@onready var coyote_time = $CoyoteTimeTimer
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -500
+const JUMP_VELOCITY = -550
 
+var was_on_floor := false
+var jumped_this_frame := false 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
+	was_on_floor = is_on_floor()
+	jumped_this_frame = false 
+
+	if not was_on_floor:
 		velocity += get_gravity() * delta
 
-	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept"):
 		jump_buffer.start()
-	if is_on_floor() and not jump_buffer.is_stopped():
+
+	var can_jump: bool = was_on_floor or not coyote_time.is_stopped()
+	if can_jump and not jump_buffer.is_stopped():
 		velocity.y = JUMP_VELOCITY
 		player_sprite.play("jumping")
 		jump_buffer.stop()
+		coyote_time.stop()
+		jumped_this_frame = true 
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
-		if is_on_floor():
-			player_sprite.play("running")
-		else:
-			player_sprite.play("jumping")
-		if direction > 0:
-			player_sprite.flip_h = false
-		else:
-			player_sprite.flip_h = true
+		player_sprite.play("running" if was_on_floor else "jumping")
+		player_sprite.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if is_on_floor():
-			player_sprite.play("idle")
-		else:
-			player_sprite.play("jumping")
+		player_sprite.play("idle" if was_on_floor else "jumping")
+
+	if velocity.y > 0:
+		velocity += get_gravity() * delta * 0.5
+
+	if global_position.x < 0:
+		global_position.x = 1152
+	elif global_position.x > 1152:
+		global_position.x = 0
 
 	move_and_slide()
 
-
-func _on_rune_garlic_collected() -> void:
-	pass # Replace with function body.
+	if was_on_floor and not is_on_floor() and not jumped_this_frame:
+		coyote_time.start()

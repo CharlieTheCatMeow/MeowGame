@@ -16,13 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://b4ak3hnbgh06b" path="res://Assets/Normal Maps/Platformer Platform Normal Map/MeowGame Platformer Platform_specular.png" id="10_cbts5"]
 [ext_resource type="Texture2D" uid="uid://dyc2hn6c4n0dx" path="res://Assets/Icons/MeowGame Rune.png" id="10_ufxbc"]
 [ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="12_5ru11"]
+[ext_resource type="AudioStream" uid="uid://mf1hwjfs15qn" path="res://Assets/Audio/Wind.mp3" id="17_fwgue"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fwgue"]
 shader = ExtResource("8_cbts5")
 shader_parameter/angle = -0.3
 shader_parameter/position = -0.2
 shader_parameter/spread = 0.5
-shader_parameter/cutoff = 0.10000005224999997
+shader_parameter/cutoff = 0.10000005224999996
 shader_parameter/falloff = 0.2
 shader_parameter/edge_fade = 0.15
 shader_parameter/speed = 1.0
@@ -290,6 +291,10 @@ script = ExtResource("6_4pllv")
 
 [node name="JumpBufferTimer" type="Timer" parent="Player" unique_id=1248676219]
 wait_time = 0.15
+one_shot = true
+
+[node name="CoyoteTimeTimer" type="Timer" parent="Player" unique_id=53957245]
+wait_time = 0.1
 one_shot = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Player" unique_id=209140854]
@@ -594,6 +599,11 @@ position = Vector2(0, 896)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=882505603]
 position = Vector2(604, 131)
 shape = SubResource("RectangleShape2D_6p6qw")
+
+[node name="Ambient Wind Sound" type="AudioStreamPlayer" parent="." unique_id=1198891828]
+stream = ExtResource("17_fwgue")
+volume_db = 4.0
+autoplay = true
 
 [connection signal="runes_collected" from="Rune" to="." method="_on_rune_runes_collected"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,36 @@
+extends CanvasLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	hide()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func can_pause() -> bool:
+	var scene_path = get_tree().current_scene.scene_file_path
+	return "minigame_" in scene_path
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		if can_pause() or get_tree().paused:
+			toggle_pause_menu()
+		
+func toggle_pause_menu():
+	var toggle_pause = not get_tree().paused
+	get_tree().paused = toggle_pause
+	visible = toggle_pause
+	if toggle_pause:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		Global.timer_paused = true
+	else:
+		Global.timer_paused = false
+
+
+func _on_resume_pressed() -> void:
+	toggle_pause_menu()
+
+
+func _on_menu_pressed() -> void:
+	toggle_pause_menu()
+	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @onready var particles = $Particles
+@onready var wind_sound = $WindSound
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -19,6 +20,7 @@ func _physics_process(delta: float) -> void:
 		rotation = lerp_angle(rotation, target_angle, delta * 10)
 		particles.restart()
 		particles.emitting = true
+		wind_sound.play()
 		
 		
 	if velocity.length() > 0:

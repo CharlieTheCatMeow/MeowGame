@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b4ak3hnbgh06b" path="res://Assets/Normal Maps/Platformer Platform Normal Map/MeowGame Platformer Platform_specular.png" id="9_kllcc"]
 [ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="9_ne1wf"]
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="17_0m3l0"]
+[ext_resource type="AudioStream" uid="uid://cxbkjok7cvf6u" path="res://Assets/Audio/Forest Sound.mp3" id="18_05nur"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vj06g"]
 diffuse_texture = ExtResource("3_qytqt")
@@ -420,7 +421,7 @@ texture = SubResource("GradientTexture2D_ne1wf")
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("6_0uv5o")]
 position = Vector2(960, 0)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1368753795]
+[node name="CoinCollectSound" type="AudioStreamPlayer" parent="." unique_id=1368753795]
 stream = ExtResource("9_ne1wf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1210152428]
@@ -450,6 +451,11 @@ color = Color(0.4640289, 0.3847323, 0.59870404, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=434449649]
 environment = SubResource("Environment_6p6qw")
+
+[node name="Ambient Sound" type="AudioStreamPlayer" parent="." unique_id=1192213352]
+stream = ExtResource("18_05nur")
+volume_db = -10.035
+autoplay = true
 
 [connection signal="runes_collected" from="Rune" to="." method="_on_rune_runes_collected"]
 [connection signal="runes_collected" from="Rune2" to="." method="_on_rune_runes_collected"]
