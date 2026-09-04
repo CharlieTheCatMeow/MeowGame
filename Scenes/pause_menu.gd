@@ -25,3 +25,12 @@ func toggle_pause_menu():
 	else:
 		Input.mouse_mode = previous_mouse_mode
 		Global.timer_paused = false
+
+
+func _on_resume_pressed() -> void:
+	toggle_pause_menu()
+
+
+func _on_menu_pressed() -> void:
+	toggle_pause_menu()
+	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
