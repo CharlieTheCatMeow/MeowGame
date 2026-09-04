@@ -77,13 +77,14 @@ radius = 6.3333335
 height = 36.0
 
 [sub_resource type="Gradient" id="Gradient_bgn8b"]
-offsets = PackedFloat32Array(0.22289157, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6p6qw"]
 gradient = SubResource("Gradient_bgn8b")
+width = 128
+height = 128
 fill = 1
-fill_from = Vector2(0.4826087, 0.5043478)
+fill_from = Vector2(0.49565217, 0.49130434)
 fill_to = Vector2(0.04347826, 0.50869566)
 
 [node name="Player Platformer" type="CharacterBody2D" unique_id=1395390089]
@@ -107,7 +108,7 @@ position = Vector2(-1, -2)
 shape = SubResource("CapsuleShape2D_o6yob")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=673798159]
-energy = 0.3
+energy = 0.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_6p6qw")
 

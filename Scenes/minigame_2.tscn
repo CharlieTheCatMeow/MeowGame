@@ -52,6 +52,12 @@ _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.9550562), 0.0, 0.0, 0, 0, Vector2(0.9946809, 0.8202247), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wu6l1"]
+
+[sub_resource type="Gradient" id="Gradient_cqly6"]
+offsets = PackedFloat32Array(0, 0.2037037, 1)
+colors = PackedColorArray(1, 0.972549, 0.90588236, 0, 1, 0.972549, 0.90588236, 0.5882353, 1, 0.972549, 0.90588236, 0)
+
 [sub_resource type="Environment" id="Environment_6p6qw"]
 background_mode = 3
 tonemap_exposure = 1.35
@@ -505,6 +511,26 @@ color_ramp = SubResource("Gradient_ne1wf")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_7o8v6")
+
+[node name="Ambient Particles" type="CPUParticles2D" parent="." unique_id=898318318]
+material = SubResource("CanvasItemMaterial_wu6l1")
+position = Vector2(576, 320)
+amount = 160
+lifetime = 8.0
+preprocess = 8.0
+speed_scale = 0.8
+emission_shape = 3
+emission_rect_extents = Vector2(648, 1152)
+direction = Vector2(0.5, 1)
+spread = 180.0
+gravity = Vector2(0, 2)
+initial_velocity_min = 2.0
+initial_velocity_max = 6.0
+linear_accel_min = -1.0
+linear_accel_max = 1.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_cqly6")
 
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("4_h684j")]
 position = Vector2(960, 0)

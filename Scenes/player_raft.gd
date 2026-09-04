@@ -1,5 +1,6 @@
 extends Area2D
 
+const SPEED: float = 400.0
 const RAFT_WIDTH: float = 64.0
 const SCREEN_WIDTH: float = 1152.0
 
@@ -12,11 +13,26 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var mouse_pos_x = get_viewport().get_mouse_position().x
+	var direction := Input.get_axis("move_left", "move_right")
+	if direction < 0:
+		rotation = lerp_angle(rotation, deg_to_rad(-25), 5.0 * delta)
+	elif direction > 0:
+		rotation = lerp_angle(rotation, deg_to_rad(25), 5.0 * delta)
+	else:
+		rotation = lerp_angle(rotation, 0, 5.0 * delta)
+	
+	position.x += direction * SPEED * delta
 	var max_x = SCREEN_WIDTH / 4 * 3 - RAFT_WIDTH / 2
 	var min_x = SCREEN_WIDTH / 4 + RAFT_WIDTH / 2
+	position.x = clampf(position.x, min_x, max_x)
 	
-	position.x = clampf(mouse_pos_x, min_x, max_x)
+	#Mouse based movement, ignore.
+	
+	#var mouse_pos_x = get_viewport().get_mouse_position().x
+	#var max_x = SCREEN_WIDTH / 4 * 3 - RAFT_WIDTH / 2
+	#var min_x = SCREEN_WIDTH / 4 + RAFT_WIDTH / 2
+	
+	#position.x = clampf(mouse_pos_x, min_x, max_x)
 	
 	
 

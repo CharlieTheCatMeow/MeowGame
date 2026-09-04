@@ -14,10 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://i7ivv7al2b3b" path="res://Assets/Normal Maps/Platformer Ground Normal Map/MeowGame Platformer Ground_normal.png" id="7_f12bx"]
 [ext_resource type="Texture2D" uid="uid://c3olpk0tt4kpb" path="res://Assets/Normal Maps/Platformer Ground Normal Map/MeowGame Platformer Ground_specular.png" id="8_0m3l0"]
 [ext_resource type="Texture2D" uid="uid://c8jvnoqt5p831" path="res://Assets/Normal Maps/Platformer Platform Normal Map/MeowGame Platformer Platform_normal.png" id="8_3yb6h"]
+[ext_resource type="Texture2D" uid="uid://dqdwyckuxwir7" path="res://Assets/Normal Maps/Lantern Normal Map/MeowGame Lantern_specular.png" id="9_6dxw8"]
 [ext_resource type="Texture2D" uid="uid://b4ak3hnbgh06b" path="res://Assets/Normal Maps/Platformer Platform Normal Map/MeowGame Platformer Platform_specular.png" id="9_kllcc"]
 [ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="9_ne1wf"]
+[ext_resource type="Texture2D" uid="uid://dxph4ep82rg08" path="res://Assets/Objects/MeowGame Platformer Ground Grass.png" id="10_kioj1"]
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="17_0m3l0"]
 [ext_resource type="AudioStream" uid="uid://cxbkjok7cvf6u" path="res://Assets/Audio/Forest Sound.mp3" id="18_05nur"]
+[ext_resource type="Texture2D" uid="uid://d1mjrvxapgn04" path="res://Assets/Objects/MeowGame Lantern.png" id="20_2dauy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vj06g"]
 diffuse_texture = ExtResource("3_qytqt")
@@ -56,6 +59,22 @@ shader_parameter/color = Color(0.77254903, 0.61960787, 0.3882353, 0.4862745)
 shader_parameter/hdr = false
 shader_parameter/seed = -1.24
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_6p6qw"]
+diffuse_texture = ExtResource("20_2dauy")
+specular_texture = ExtResource("9_6dxw8")
+
+[sub_resource type="Gradient" id="Gradient_4andj"]
+offsets = PackedFloat32Array(0, 0.1626506, 0.24096386, 1)
+colors = PackedColorArray(0.94509804, 0.90588236, 0, 0.4509804, 0.3489435, 0.33409482, 0, 0.45783365, 0.5529412, 0.5294118, 0, 0.7254902, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6p6qw"]
+gradient = SubResource("Gradient_4andj")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.51304346, 0.49130434)
+fill_to = Vector2(0.9, 0.5304348)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11mgy"]
 size = Vector2(1152, 64)
 
@@ -76,6 +95,22 @@ size = Vector2(296, 32)
 closed = false
 cull_mode = 1
 polygon = PackedVector2Array(296, 8, 296, 8, 288, 32, 196.02658, 31.99997, 8, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kioj1"]
+size = Vector2(560, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2dauy"]
+closed = false
+cull_mode = 1
+polygon = PackedVector2Array(384, 0, 376, 32, 196.02658, 31.99997, -160, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4andj"]
+size = Vector2(544, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rmdn4"]
+closed = false
+cull_mode = 1
+polygon = PackedVector2Array(544, 8, 536, 32, 196.02658, 31.99997, 8, 32)
 
 [sub_resource type="Animation" id="Animation_o6yob"]
 loop_mode = 2
@@ -152,6 +187,13 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8373"]
 size = Vector2(32, 648)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rmdn4"]
+light_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_6p6qw"]
+offsets = PackedFloat32Array(0, 0.2037037, 1)
+colors = PackedColorArray(1, 0.972549, 0.90588236, 0, 1, 0.972549, 0.90588236, 0.3529412, 1, 0.972549, 0.90588236, 0)
+
 [sub_resource type="Environment" id="Environment_6p6qw"]
 background_mode = 3
 tonemap_mode = 3
@@ -186,6 +228,92 @@ material = SubResource("ShaderMaterial_kioj1")
 offset_right = 1656.0
 offset_bottom = 704.0
 
+[node name="Light" type="Node2D" parent="." unique_id=1269650961]
+position = Vector2(936, 472)
+
+[node name="TextureRect" type="TextureRect" parent="Light" unique_id=1670485555]
+offset_top = -8.0
+offset_right = 72.0
+offset_bottom = 120.0
+scale = Vector2(0.98, 0.98)
+texture = SubResource("CanvasTexture_6p6qw")
+stretch_mode = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="Light" unique_id=1423203072]
+position = Vector2(48, 64)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="Light2" type="Node2D" parent="." unique_id=810596518]
+z_index = 1
+position = Vector2(208, 464)
+
+[node name="TextureRect" type="TextureRect" parent="Light2" unique_id=1457306465]
+offset_top = -8.0
+offset_right = 72.0
+offset_bottom = 120.0
+scale = Vector2(0.98, 0.98)
+texture = SubResource("CanvasTexture_6p6qw")
+stretch_mode = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="Light2" unique_id=1052737168]
+position = Vector2(48, 64)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="Light3" type="Node2D" parent="." unique_id=789462091]
+position = Vector2(984, 256)
+
+[node name="TextureRect" type="TextureRect" parent="Light3" unique_id=2058872621]
+offset_top = -8.0
+offset_right = 72.0
+offset_bottom = 120.0
+scale = Vector2(0.98, 0.98)
+texture = SubResource("CanvasTexture_6p6qw")
+stretch_mode = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="Light3" unique_id=1871275732]
+position = Vector2(48, 64)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6p6qw")
+
+[node name="Light4" type="Node2D" parent="." unique_id=452020391]
+position = Vector2(280, 136)
+
+[node name="TextureRect" type="TextureRect" parent="Light4" unique_id=1154648481]
+offset_top = -8.0
+offset_right = 72.0
+offset_bottom = 120.0
+scale = Vector2(0.98, 0.98)
+texture = SubResource("CanvasTexture_6p6qw")
+stretch_mode = 4
+flip_h = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Light4" unique_id=1837567184]
+position = Vector2(48, 64)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6p6qw")
+offset = Vector2(-41.42, 0)
+
+[node name="Light5" type="Node2D" parent="." unique_id=1548217167]
+modulate = Color(0.68307734, 0.6830774, 0.68307734, 1)
+position = Vector2(328, 472)
+
+[node name="TextureRect" type="TextureRect" parent="Light5" unique_id=1579869609]
+offset_top = -8.0
+offset_right = 72.0
+offset_bottom = 120.0
+scale = Vector2(0.98, 0.98)
+texture = SubResource("CanvasTexture_6p6qw")
+stretch_mode = 4
+flip_h = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Light5" unique_id=1856838904]
+position = Vector2(48, 64)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6p6qw")
+offset = Vector2(-37.915, 0)
+
 [node name="Platform" type="StaticBody2D" parent="." unique_id=1568142151]
 position = Vector2(0, 584)
 
@@ -202,7 +330,7 @@ texture = SubResource("CanvasTexture_a08jo")
 stretch_mode = 4
 
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=1787317148]
-position = Vector2(304, 488)
+position = Vector2(448, 464)
 
 [node name="Platform Texture" type="TextureRect" parent="Platform2" unique_id=1622297619]
 offset_top = -13.0
@@ -219,45 +347,63 @@ shape = SubResource("RectangleShape2D_6p6qw")
 occluder = SubResource("OccluderPolygon2D_6p6qw")
 
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=1905112995]
-position = Vector2(568, 384)
+position = Vector2(904, 368)
 
 [node name="Platform Texture" type="TextureRect" parent="Platform3" unique_id=1444458610]
-offset_top = -13.0
-offset_right = 296.0
-offset_bottom = 51.0
+offset_left = -168.0
+offset_top = -16.0
+offset_right = 128.0
+offset_bottom = 48.0
+texture = SubResource("CanvasTexture_3yb6h")
+stretch_mode = 4
+
+[node name="Platform Texture2" type="TextureRect" parent="Platform3" unique_id=2102496557]
+offset_left = 96.0
+offset_top = -16.0
+offset_right = 392.0
+offset_bottom = 48.0
 texture = SubResource("CanvasTexture_3yb6h")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1223198370]
-position = Vector2(148, 16)
-shape = SubResource("RectangleShape2D_6p6qw")
+position = Vector2(112, 16)
+shape = SubResource("RectangleShape2D_kioj1")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Platform3" unique_id=1414759595]
-occluder = SubResource("OccluderPolygon2D_6p6qw")
+occluder = SubResource("OccluderPolygon2D_2dauy")
 
 [node name="Platform4" type="StaticBody2D" parent="." unique_id=1740492779]
-position = Vector2(856, 272)
+position = Vector2(-16, 248)
 
 [node name="Platform Texture" type="TextureRect" parent="Platform4" unique_id=111890573]
-offset_top = -13.0
+offset_top = -16.0
 offset_right = 296.0
-offset_bottom = 51.0
+offset_bottom = 48.0
+texture = SubResource("CanvasTexture_3yb6h")
+stretch_mode = 4
+
+[node name="Platform Texture2" type="TextureRect" parent="Platform4" unique_id=1236873117]
+offset_left = 256.0
+offset_top = -16.0
+offset_right = 552.0
+offset_bottom = 48.0
 texture = SubResource("CanvasTexture_3yb6h")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=1497190217]
-position = Vector2(148, 16)
-shape = SubResource("RectangleShape2D_6p6qw")
+position = Vector2(272, 16)
+shape = SubResource("RectangleShape2D_4andj")
+one_way_collision = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Platform4" unique_id=1942961762]
-occluder = SubResource("OccluderPolygon2D_6p6qw")
+occluder = SubResource("OccluderPolygon2D_rmdn4")
 
 [node name="Player" parent="." unique_id=1395390089 instance=ExtResource("2_11mgy")]
 position = Vector2(88, 536)
 scale = Vector2(3.8, 3.8)
 
 [node name="Rune" type="Node2D" parent="." unique_id=520859927]
-position = Vector2(416, 408)
+position = Vector2(552, 360)
 script = ExtResource("4_0uv5o")
 
 [node name="RuneAnimation" type="AnimationPlayer" parent="Rune" unique_id=88577561]
@@ -311,7 +457,7 @@ offset_bottom = 72.0
 texture = ExtResource("3_f6tb2")
 
 [node name="Rune2" type="Node2D" parent="." unique_id=762582265]
-position = Vector2(696, 288)
+position = Vector2(848, 256)
 script = ExtResource("4_0uv5o")
 
 [node name="RuneTexture" type="TextureRect" parent="Rune2" unique_id=1567747474]
@@ -365,7 +511,7 @@ shadow_filter_smooth = 2.0
 texture = SubResource("GradientTexture2D_ne1wf")
 
 [node name="Rune3" type="Node2D" parent="." unique_id=1203052764]
-position = Vector2(976, 176)
+position = Vector2(160, 136)
 script = ExtResource("4_0uv5o")
 
 [node name="RuneTexture" type="TextureRect" parent="Rune3" unique_id=785000258]
@@ -446,8 +592,37 @@ shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 2.0
 
+[node name="GrassTexture" type="TextureRect" parent="." unique_id=859562064]
+self_modulate = Color(0.9999997, 0.9724521, 0.32689643, 1)
+z_index = 2
+offset_top = 558.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("10_kioj1")
+stretch_mode = 4
+
+[node name="Ambient Particles" type="CPUParticles2D" parent="." unique_id=1221911933]
+material = SubResource("CanvasItemMaterial_rmdn4")
+position = Vector2(576, 320)
+amount = 160
+lifetime = 8.0
+preprocess = 8.0
+speed_scale = 0.8
+emission_shape = 3
+emission_rect_extents = Vector2(648, 1152)
+direction = Vector2(0.5, 1)
+spread = 180.0
+gravity = Vector2(0, 2)
+initial_velocity_min = 2.0
+initial_velocity_max = 6.0
+linear_accel_min = -1.0
+linear_accel_max = 1.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_6p6qw")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=29504645]
-color = Color(0.4640289, 0.3847323, 0.59870404, 1)
+color = Color(0.3857931, 0.31185824, 0.5069727, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=434449649]
 environment = SubResource("Environment_6p6qw")

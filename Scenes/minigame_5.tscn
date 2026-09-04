@@ -9,14 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://5cxgkgpterft" path="res://Assets/Normal Maps/Tree Background Normal Map/MeowGame Tree Background_specular.png" id="5_8mbc2"]
 [ext_resource type="Script" uid="uid://bwccjqw67eei5" path="res://Scenes/obstacle_spike.gd" id="5_ofli8"]
 [ext_resource type="Texture2D" uid="uid://cfmnetxguc0le" path="res://Assets/Objects/MeowGame Bush Obstacle.png" id="6_kpx3j"]
+[ext_resource type="Script" uid="uid://cixqlkupb6xue" path="res://Scenes/Light_Jumping Game.gd" id="7_a05fq"]
 [ext_resource type="Texture2D" uid="uid://i7ivv7al2b3b" path="res://Assets/Normal Maps/Platformer Ground Normal Map/MeowGame Platformer Ground_normal.png" id="7_io7vq"]
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="7_ykq01"]
 [ext_resource type="Texture2D" uid="uid://c3olpk0tt4kpb" path="res://Assets/Normal Maps/Platformer Ground Normal Map/MeowGame Platformer Ground_specular.png" id="8_f067r"]
 [ext_resource type="Texture2D" uid="uid://bj05m3rj4lf2p" path="res://Assets/Normal Maps/Bush Obstacle Normal Map/MeowGame Bush Obstacle_normal.png" id="8_oo5rc"]
 [ext_resource type="Texture2D" uid="uid://cof1wpyjsruyf" path="res://Assets/Normal Maps/Bush Obstacle Normal Map/MeowGame Bush Obstacle_specular.png" id="9_0nun1"]
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="15_8mbc2"]
+[ext_resource type="Texture2D" uid="uid://d1mjrvxapgn04" path="res://Assets/Objects/MeowGame Lantern.png" id="15_lvh7p"]
+[ext_resource type="Texture2D" uid="uid://dqdwyckuxwir7" path="res://Assets/Normal Maps/Lantern Normal Map/MeowGame Lantern_specular.png" id="16_a05fq"]
 [ext_resource type="AudioStream" uid="uid://mf1hwjfs15qn" path="res://Assets/Audio/Wind.mp3" id="16_f067r"]
 [ext_resource type="AudioStream" uid="uid://cxbkjok7cvf6u" path="res://Assets/Audio/Forest Sound.mp3" id="16_io7vq"]
+[ext_resource type="Texture2D" uid="uid://dxph4ep82rg08" path="res://Assets/Objects/MeowGame Platformer Ground Grass.png" id="16_q1dn1"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_q1dn1"]
 diffuse_texture = ExtResource("3_5l52r")
@@ -59,6 +63,22 @@ size = Vector2(20, 74)
 closed = false
 cull_mode = 1
 polygon = PackedVector2Array(8, 0, 16, -8, 56, -8, 64, 8, 64, 56, 8, 56)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1s8o8"]
+diffuse_texture = ExtResource("15_lvh7p")
+specular_texture = ExtResource("16_a05fq")
+
+[sub_resource type="Gradient" id="Gradient_4andj"]
+offsets = PackedFloat32Array(0, 0.1626506, 0.24096386, 1)
+colors = PackedColorArray(0.94509804, 0.90588236, 0, 0.4509804, 0.3489435, 0.33409482, 0, 0.45783365, 0.5529412, 0.5294118, 0, 0.7254902, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0m0u2"]
+gradient = SubResource("Gradient_4andj")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.51304346, 0.49130434)
+fill_to = Vector2(0.9, 0.5304348)
 
 [sub_resource type="Environment" id="Environment_6p6qw"]
 background_mode = 3
@@ -181,11 +201,48 @@ rect = Rect2(-10, -10, 20, 74)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Obstacle3" unique_id=623838232]
 occluder = SubResource("OccluderPolygon2D_6p6qw")
 
+[node name="Light5" type="Node2D" parent="." unique_id=1230163996]
+modulate = Color(0.68307734, 0.6830774, 0.68307734, 1)
+position = Vector2(1392, 464)
+script = ExtResource("7_a05fq")
+
+[node name="TextureRect" type="TextureRect" parent="Light5" unique_id=1606669897]
+offset_top = -8.0
+offset_right = 72.0
+offset_bottom = 120.0
+scale = Vector2(0.98, 0.98)
+texture = SubResource("CanvasTexture_1s8o8")
+stretch_mode = 4
+flip_h = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Light5" unique_id=641685252]
+position = Vector2(48, 64)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_0m0u2")
+offset = Vector2(-37.915, 0)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Light5" unique_id=909373423]
+position = Vector2(72, -8)
+rect = Rect2(-10, -10, 20, 74)
+
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("7_ykq01")]
 position = Vector2(960, 0)
 
 [node name="timer" parent="timer" index="0" unique_id=151355501]
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1114115784]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-400, 0)
+repeat_times = 4
+
+[node name="GrassTexture" type="TextureRect" parent="Parallax2D3" unique_id=81660999]
+self_modulate = Color(0.9999997, 0.9724521, 0.32689643, 1)
+offset_top = 558.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("16_q1dn1")
+stretch_mode = 4
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2105106270]
 color = Color(0.8190088, 0.84529114, 0.46670723, 1)
@@ -230,5 +287,6 @@ autoplay = true
 [connection signal="screen_exited" from="Obstacle/VisibleOnScreenNotifier2D" to="Obstacle" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_exited" from="Obstacle2/VisibleOnScreenNotifier2D" to="Obstacle2" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_exited" from="Obstacle3/VisibleOnScreenNotifier2D" to="Obstacle3" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="Light5/VisibleOnScreenNotifier2D" to="Light5" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 
 [editable path="timer"]

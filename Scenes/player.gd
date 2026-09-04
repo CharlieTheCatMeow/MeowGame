@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -550
+const JUMP_CUT_MULTIPLIER = 0.5
 
 var was_on_floor := false
 var jumped_this_frame := false 
@@ -26,6 +27,8 @@ func _physics_process(delta: float) -> void:
 		jump_buffer.stop()
 		coyote_time.stop()
 		jumped_this_frame = true 
+	if Input.is_action_just_released("ui_accept") and velocity.y < 0:
+		velocity.y *= JUMP_CUT_MULTIPLIER
 
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
