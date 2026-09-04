@@ -24,9 +24,9 @@ This Stardance mission was perfect for that.
 - Basic GDscript skills
 - How to create pixel art for games
 
-![Minigame example](Screenshots/Screenshot_Raft.png)
+![Minigame example](Screenshots/Screenshot_Platformer.png)
 
 ## Credits
-Art is created by me
+**Art is created by me**
 BGM: Audio from opengameart.org by mrpoly
 Some water sound I found online
