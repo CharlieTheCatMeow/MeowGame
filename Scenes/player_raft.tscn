@@ -45,7 +45,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6p6qw"]
-radius = 32.0
+radius = 24.0
 height = 96.0
 
 [node name="Player Raft" type="Area2D" unique_id=156711402]

@@ -256,11 +256,12 @@ color = Color(1, 0.6978124, 0.9827028, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=430811706]
 environment = SubResource("Environment_6p6qw")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1238801253]
+[node name="Wind" type="CPUParticles2D" parent="." unique_id=1238801253]
 material = SubResource("CanvasItemMaterial_y1k8l")
 position = Vector2(1192, 320)
 amount = 150
 lifetime = 3.0
+preprocess = 3.0
 draw_order = 1
 emission_shape = 3
 emission_rect_extents = Vector2(10, 300)

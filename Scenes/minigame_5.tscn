@@ -8,13 +8,19 @@
 [ext_resource type="Texture2D" uid="uid://d3gx5qayue6th" path="res://Assets/Normal Maps/Tree Background Normal Map/MeowGame Tree Background_normal.png" id="4_br4fl"]
 [ext_resource type="Texture2D" uid="uid://5cxgkgpterft" path="res://Assets/Normal Maps/Tree Background Normal Map/MeowGame Tree Background_specular.png" id="5_8mbc2"]
 [ext_resource type="Script" uid="uid://bwccjqw67eei5" path="res://Scenes/obstacle_spike.gd" id="5_ofli8"]
+[ext_resource type="Texture2D" uid="uid://dlsup67if46vb" path="res://Assets/Background/Bushes_Back.png" id="6_0m0u2"]
 [ext_resource type="Texture2D" uid="uid://cfmnetxguc0le" path="res://Assets/Objects/MeowGame Bush Obstacle.png" id="6_kpx3j"]
 [ext_resource type="Script" uid="uid://cixqlkupb6xue" path="res://Scenes/Light_Jumping Game.gd" id="7_a05fq"]
 [ext_resource type="Texture2D" uid="uid://i7ivv7al2b3b" path="res://Assets/Normal Maps/Platformer Ground Normal Map/MeowGame Platformer Ground_normal.png" id="7_io7vq"]
+[ext_resource type="Texture2D" uid="uid://w5uhh673di3y" path="res://Assets/Background/Bushes_Front.png" id="7_veu7o"]
+[ext_resource type="Texture2D" uid="uid://bigrno1eub1xs" path="res://Assets/Normal Maps/Bushes Back Normal Map/Bushes_Back_normal.png" id="7_vq1ml"]
 [ext_resource type="PackedScene" uid="uid://dbyolgwo443uk" path="res://Scenes/timer.tscn" id="7_ykq01"]
 [ext_resource type="Texture2D" uid="uid://c3olpk0tt4kpb" path="res://Assets/Normal Maps/Platformer Ground Normal Map/MeowGame Platformer Ground_specular.png" id="8_f067r"]
 [ext_resource type="Texture2D" uid="uid://bj05m3rj4lf2p" path="res://Assets/Normal Maps/Bush Obstacle Normal Map/MeowGame Bush Obstacle_normal.png" id="8_oo5rc"]
+[ext_resource type="Texture2D" uid="uid://c0fe2nuaedofq" path="res://Assets/Normal Maps/Bushes Back Normal Map/Bushes_Back_specular.png" id="8_sb67y"]
 [ext_resource type="Texture2D" uid="uid://cof1wpyjsruyf" path="res://Assets/Normal Maps/Bush Obstacle Normal Map/MeowGame Bush Obstacle_specular.png" id="9_0nun1"]
+[ext_resource type="Texture2D" uid="uid://dpqxxeaq50lgc" path="res://Assets/Normal Maps/Bushes Front Normal Map/Bushes_Front_normal.png" id="10_dlc28"]
+[ext_resource type="Texture2D" uid="uid://dfok3anl3yu10" path="res://Assets/Normal Maps/Bushes Front Normal Map/Bushes_Front_specular.png" id="11_7unob"]
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="15_8mbc2"]
 [ext_resource type="Texture2D" uid="uid://d1mjrvxapgn04" path="res://Assets/Objects/MeowGame Lantern.png" id="15_lvh7p"]
 [ext_resource type="Texture2D" uid="uid://dqdwyckuxwir7" path="res://Assets/Normal Maps/Lantern Normal Map/MeowGame Lantern_specular.png" id="16_a05fq"]
@@ -26,6 +32,16 @@
 diffuse_texture = ExtResource("3_5l52r")
 normal_texture = ExtResource("4_br4fl")
 specular_texture = ExtResource("5_8mbc2")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6p6qw"]
+diffuse_texture = ExtResource("6_0m0u2")
+normal_texture = ExtResource("7_vq1ml")
+specular_texture = ExtResource("8_sb67y")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0m0u2"]
+diffuse_texture = ExtResource("7_veu7o")
+normal_texture = ExtResource("10_dlc28")
+specular_texture = ExtResource("11_7unob")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_io7vq"]
 shader = ExtResource("15_8mbc2")
@@ -90,25 +106,46 @@ glow_bloom = 0.3
 [node name="Minigame 5" type="Node2D" unique_id=1731774065]
 script = ExtResource("1_6fijl")
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1246242563]
+[node name="Night Sky" type="Parallax2D" parent="." unique_id=1246242563]
 repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(-50, 0)
 repeat_times = 4
 
-[node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=1391829666]
+[node name="TextureRect" type="TextureRect" parent="Night Sky" unique_id=1391829666]
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_5l52r")
 
-[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1703255738]
+[node name="Trees" type="Parallax2D" parent="." unique_id=1703255738]
 repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(-100, 0)
 repeat_times = 4
 
-[node name="TextureRect" type="TextureRect" parent="Parallax2D2" unique_id=2120522646]
+[node name="TextureRect" type="TextureRect" parent="Trees" unique_id=2120522646]
+self_modulate = Color(0.67275095, 0.4576671, 0.568874, 1)
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("CanvasTexture_q1dn1")
+
+[node name="Bushes back" type="Parallax2D" parent="." unique_id=1478644330]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-200, 0)
+repeat_times = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Bushes back" unique_id=617166467]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("CanvasTexture_6p6qw")
+
+[node name="Bushes front" type="Parallax2D" parent="." unique_id=1379715401]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-250, 0)
+repeat_times = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Bushes front" unique_id=877169493]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("CanvasTexture_0m0u2")
 
 [node name="God rays" type="ColorRect" parent="." unique_id=1321148570]
 material = SubResource("ShaderMaterial_io7vq")

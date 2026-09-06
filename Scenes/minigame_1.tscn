@@ -17,7 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://dqdwyckuxwir7" path="res://Assets/Normal Maps/Lantern Normal Map/MeowGame Lantern_specular.png" id="9_6dxw8"]
 [ext_resource type="Texture2D" uid="uid://b4ak3hnbgh06b" path="res://Assets/Normal Maps/Platformer Platform Normal Map/MeowGame Platformer Platform_specular.png" id="9_kllcc"]
 [ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="9_ne1wf"]
+[ext_resource type="Texture2D" uid="uid://dlsup67if46vb" path="res://Assets/Background/Bushes_Back.png" id="9_r6gid"]
+[ext_resource type="Texture2D" uid="uid://bigrno1eub1xs" path="res://Assets/Normal Maps/Bushes Back Normal Map/Bushes_Back_normal.png" id="10_ik7qa"]
 [ext_resource type="Texture2D" uid="uid://dxph4ep82rg08" path="res://Assets/Objects/MeowGame Platformer Ground Grass.png" id="10_kioj1"]
+[ext_resource type="Texture2D" uid="uid://c0fe2nuaedofq" path="res://Assets/Normal Maps/Bushes Back Normal Map/Bushes_Back_specular.png" id="11_la0wu"]
+[ext_resource type="Texture2D" uid="uid://w5uhh673di3y" path="res://Assets/Background/Bushes_Front.png" id="12_1o73w"]
+[ext_resource type="Texture2D" uid="uid://dpqxxeaq50lgc" path="res://Assets/Normal Maps/Bushes Front Normal Map/Bushes_Front_normal.png" id="13_f25t8"]
+[ext_resource type="Texture2D" uid="uid://dfok3anl3yu10" path="res://Assets/Normal Maps/Bushes Front Normal Map/Bushes_Front_specular.png" id="14_5ryak"]
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="17_0m3l0"]
 [ext_resource type="AudioStream" uid="uid://cxbkjok7cvf6u" path="res://Assets/Audio/Forest Sound.mp3" id="18_05nur"]
 [ext_resource type="Texture2D" uid="uid://d1mjrvxapgn04" path="res://Assets/Objects/MeowGame Lantern.png" id="20_2dauy"]
@@ -74,6 +80,16 @@ height = 512
 fill = 1
 fill_from = Vector2(0.51304346, 0.49130434)
 fill_to = Vector2(0.9, 0.5304348)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_x3ji3"]
+diffuse_texture = ExtResource("9_r6gid")
+normal_texture = ExtResource("10_ik7qa")
+specular_texture = ExtResource("11_la0wu")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xx3hg"]
+diffuse_texture = ExtResource("12_1o73w")
+normal_texture = ExtResource("13_f25t8")
+specular_texture = ExtResource("14_5ryak")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11mgy"]
 size = Vector2(1152, 64)
@@ -314,14 +330,24 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_6p6qw")
 offset = Vector2(-37.915, 0)
 
-[node name="Platform" type="StaticBody2D" parent="." unique_id=1568142151]
+[node name="Bushes back" type="TextureRect" parent="." unique_id=1673208727]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("CanvasTexture_x3ji3")
+
+[node name="Bushes front" type="TextureRect" parent="." unique_id=1611512507]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("CanvasTexture_xx3hg")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1568142151]
 position = Vector2(0, 584)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=459721361]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=459721361]
 position = Vector2(576, 32)
 shape = SubResource("RectangleShape2D_11mgy")
 
-[node name="GroundTexture" type="TextureRect" parent="Platform" unique_id=1658532702]
+[node name="GroundTexture" type="TextureRect" parent="Ground" unique_id=1658532702]
 self_modulate = Color(0.9999997, 0.9724521, 0.32689643, 1)
 offset_top = -26.0
 offset_right = 1152.0

@@ -17,6 +17,9 @@
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="11_ksguu"]
 [ext_resource type="Texture2D" uid="uid://c7r1ab41dny2s" path="res://Assets/Normal Maps/Fruit Normal Map/fruit_specular.png" id="11_ph87j"]
 [ext_resource type="AudioStream" uid="uid://cxbkjok7cvf6u" path="res://Assets/Audio/Forest Sound.mp3" id="17_ph87j"]
+[ext_resource type="Texture2D" uid="uid://cxk58s07armfi" path="res://Assets/Objects/Forest_Grass.png" id="18_ryfma"]
+[ext_resource type="Texture2D" uid="uid://cfxsrx4f27itg" path="res://Assets/Normal Maps/Forest Grass Normal Map 2/Forest_Grass_normal.png" id="19_qw0ue"]
+[ext_resource type="Texture2D" uid="uid://b5sbfel1uud58" path="res://Assets/Normal Maps/Forest Grass Normal Map 2/Forest_Grass_specular.png" id="20_ny33n"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_e8373"]
 diffuse_texture = ExtResource("3_ylyf8")
@@ -94,6 +97,11 @@ light_mode = 1
 background_mode = 3
 glow_enabled = true
 glow_bloom = 0.11
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6p6qw"]
+diffuse_texture = ExtResource("18_ryfma")
+normal_texture = ExtResource("19_qw0ue")
+specular_texture = ExtResource("20_ny33n")
 
 [node name="Minigame 4" type="Node2D" unique_id=629613376]
 script = ExtResource("1_e1srr")
@@ -283,6 +291,13 @@ stretch_mode = 4
 stream = ExtResource("17_ph87j")
 volume_db = -10.035
 autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1387087601]
+offset_top = 48.0
+offset_right = 1152.0
+offset_bottom = 752.0
+texture = SubResource("CanvasTexture_6p6qw")
+stretch_mode = 4
 
 [connection signal="collected" from="PlayerBasket" to="." method="_on_player_basket_collected"]
 [connection signal="body_entered" from="FruitsGround" to="FruitsGround" method="_on_body_entered"]
