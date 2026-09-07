@@ -92,8 +92,12 @@ fill = 1
 fill_from = Vector2(0.51304346, 0.49130434)
 fill_to = Vector2(0.9, 0.5304348)
 
+[sub_resource type="Gradient" id="Gradient_ik7qa"]
+offsets = PackedFloat32Array(0, 0.1626506, 0.25903615, 1)
+colors = PackedColorArray(0.94509804, 0.90588236, 0, 0.4509804, 0.3489435, 0.33409482, 0, 0.45783365, 0.5529412, 0.5294118, 0, 0.7254902, 0, 0, 0, 0)
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6p6qw"]
-gradient = SubResource("Gradient_4andj")
+gradient = SubResource("Gradient_ik7qa")
 width = 512
 height = 512
 fill = 1
@@ -658,7 +662,7 @@ lifetime = 8.0
 preprocess = 8.0
 speed_scale = 0.8
 emission_shape = 3
-emission_rect_extents = Vector2(648, 1152)
+emission_rect_extents = Vector2(576, 324)
 direction = Vector2(0.5, 1)
 spread = 180.0
 gravity = Vector2(0, 2)

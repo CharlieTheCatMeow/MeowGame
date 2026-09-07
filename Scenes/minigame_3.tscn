@@ -81,7 +81,7 @@ texture = ExtResource("2_rpf30")
 stretch_mode = 4
 
 [node name="Parallax2D Trees" type="Parallax2D" parent="." unique_id=1854872036]
-repeat_size = Vector2(1000, 0)
+repeat_size = Vector2(1140, 0)
 autoscroll = Vector2(-40, 0)
 
 [node name="Trees" type="TextureRect" parent="Parallax2D Trees" unique_id=57907520]
@@ -233,7 +233,7 @@ rotation = 3.1415927
 scroll_offset = Vector2(0, 360)
 repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(-500, 0)
-repeat_times = 4
+repeat_times = 2
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D4" unique_id=326867981]
 offset_left = -1152.0
@@ -242,6 +242,7 @@ offset_bottom = 360.00012
 texture = SubResource("CanvasTexture_f12bx")
 
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("2_h40nw")]
+z_index = 1
 position = Vector2(960, 0)
 
 [node name="timer" parent="timer" index="0" unique_id=151355501]

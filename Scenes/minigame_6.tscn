@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://b4ak3hnbgh06b" path="res://Assets/Normal Maps/Platformer Platform Normal Map/MeowGame Platformer Platform_specular.png" id="10_cbts5"]
 [ext_resource type="Texture2D" uid="uid://dyc2hn6c4n0dx" path="res://Assets/Icons/MeowGame Rune.png" id="10_ufxbc"]
 [ext_resource type="AudioStream" uid="uid://6torjxf5rso4" path="res://Assets/Audio/collectRune.wav" id="12_5ru11"]
+[ext_resource type="Texture2D" uid="uid://d1mjrvxapgn04" path="res://Assets/Objects/MeowGame Lantern.png" id="13_ein88"]
+[ext_resource type="Texture2D" uid="uid://dqdwyckuxwir7" path="res://Assets/Normal Maps/Lantern Normal Map/MeowGame Lantern_specular.png" id="14_8s5yr"]
 [ext_resource type="AudioStream" uid="uid://mf1hwjfs15qn" path="res://Assets/Audio/Wind.mp3" id="17_fwgue"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fwgue"]
@@ -132,6 +134,38 @@ polygon = PackedVector2Array(288, 8, 288, 32, 200, 32, 8, 32, 0, 8)
 diffuse_texture = ExtResource("2_xojoc")
 normal_texture = ExtResource("9_4kkxe")
 specular_texture = ExtResource("10_cbts5")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pl4rx"]
+diffuse_texture = ExtResource("13_ein88")
+specular_texture = ExtResource("14_8s5yr")
+
+[sub_resource type="Gradient" id="Gradient_4andj"]
+offsets = PackedFloat32Array(0, 0.1626506, 0.25903615, 1)
+colors = PackedColorArray(0.94509804, 0.90588236, 0, 0.4509804, 0.3489435, 0.33409482, 0, 0.45783365, 0.5529412, 0.5294118, 0, 0.7254902, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2n5kv"]
+gradient = SubResource("Gradient_4andj")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.51304346, 0.49130434)
+fill_to = Vector2(0.9, 0.5304348)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gu6u6"]
+diffuse_texture = ExtResource("13_ein88")
+specular_texture = ExtResource("14_8s5yr")
+
+[sub_resource type="Gradient" id="Gradient_t8jr0"]
+offsets = PackedFloat32Array(0, 0.1626506, 0.25903615, 1)
+colors = PackedColorArray(0.94509804, 0.90588236, 0, 0.4509804, 0.3489435, 0.33409482, 0, 0.45783365, 0.5529412, 0.5294118, 0, 0.7254902, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wy7yh"]
+gradient = SubResource("Gradient_t8jr0")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.51304346, 0.49130434)
+fill_to = Vector2(0.9, 0.5304348)
 
 [sub_resource type="Animation" id="Animation_o6yob"]
 loop_mode = 2
@@ -261,6 +295,7 @@ offset_bottom = 648.0
 texture = ExtResource("1_ycw1r")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1395390089]
+z_index = 1
 position = Vector2(576, 441.3)
 scale = Vector2(3.8, 3.8)
 script = ExtResource("3_xuuwq")
@@ -317,6 +352,7 @@ scale_amount_max = 6.0
 position = Vector2(416, 512)
 
 [node name="Platform Texture" type="TextureRect" parent="Platform" unique_id=585457653]
+z_index = 2
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
@@ -336,6 +372,7 @@ position = Vector2(448, 320)
 script = ExtResource("6_35vpf")
 
 [node name="Platform Texture" type="TextureRect" parent="Platform2" unique_id=1486542280]
+z_index = 2
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
@@ -354,7 +391,28 @@ occluder = SubResource("OccluderPolygon2D_xuuwq")
 position = Vector2(448, 128)
 script = ExtResource("6_35vpf")
 
+[node name="Light5" type="Node2D" parent="Platform3" unique_id=912641042]
+modulate = Color(0.68307734, 0.6830774, 0.68307734, 1)
+position = Vector2(224, -112)
+
+[node name="TextureRect" type="TextureRect" parent="Platform3/Light5" unique_id=396941001]
+offset_top = -8.0
+offset_right = 72.0
+offset_bottom = 120.0
+scale = Vector2(0.98, 0.98)
+texture = SubResource("CanvasTexture_pl4rx")
+stretch_mode = 4
+flip_h = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Platform3/Light5" unique_id=343748729]
+position = Vector2(48, 64)
+energy = 1.42
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_2n5kv")
+offset = Vector2(-37.915, 0)
+
 [node name="Platform Texture" type="TextureRect" parent="Platform3" unique_id=1403148001]
+z_index = 2
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
@@ -374,6 +432,7 @@ position = Vector2(448, -64)
 script = ExtResource("6_35vpf")
 
 [node name="Platform Texture" type="TextureRect" parent="Platform4" unique_id=569812531]
+z_index = 2
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
@@ -393,6 +452,7 @@ position = Vector2(448, -256)
 script = ExtResource("6_35vpf")
 
 [node name="Platform Texture" type="TextureRect" parent="Platform5" unique_id=611858802]
+z_index = 2
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
@@ -412,6 +472,7 @@ position = Vector2(448, -448)
 script = ExtResource("6_35vpf")
 
 [node name="Platform Texture" type="TextureRect" parent="Platform6" unique_id=150387601]
+z_index = 2
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
@@ -431,6 +492,7 @@ position = Vector2(448, -640)
 script = ExtResource("6_35vpf")
 
 [node name="Platform Texture" type="TextureRect" parent="Platform7" unique_id=538658556]
+z_index = 2
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
@@ -449,7 +511,25 @@ occluder = SubResource("OccluderPolygon2D_xuuwq")
 position = Vector2(448, -832)
 script = ExtResource("6_35vpf")
 
+[node name="Light3" type="Node2D" parent="Platform8" unique_id=1657295662]
+position = Vector2(32, -88)
+
+[node name="TextureRect" type="TextureRect" parent="Platform8/Light3" unique_id=1976782355]
+offset_top = -8.0
+offset_right = 72.0
+offset_bottom = 120.0
+scale = Vector2(0.98, 0.98)
+texture = SubResource("CanvasTexture_gu6u6")
+stretch_mode = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="Platform8/Light3" unique_id=724615174]
+position = Vector2(48, 64)
+energy = 1.28
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_wy7yh")
+
 [node name="Platform Texture" type="TextureRect" parent="Platform8" unique_id=1206633156]
+z_index = 2
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
@@ -470,6 +550,7 @@ position = Vector2(448, -1024)
 script = ExtResource("6_35vpf")
 
 [node name="Platform Texture" type="TextureRect" parent="Platform9" unique_id=1621726617]
+z_index = 2
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
@@ -490,6 +571,7 @@ position = Vector2(448, -1216)
 script = ExtResource("6_35vpf")
 
 [node name="Platform Texture" type="TextureRect" parent="Platform10" unique_id=431387078]
+z_index = 2
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
@@ -509,6 +591,7 @@ occluder = SubResource("OccluderPolygon2D_xuuwq")
 position = Vector2(448, -1408)
 
 [node name="Platform Texture" type="TextureRect" parent="Platform11" unique_id=955449469]
+z_index = 2
 offset_top = -13.0
 offset_right = 296.0
 offset_bottom = 51.0
