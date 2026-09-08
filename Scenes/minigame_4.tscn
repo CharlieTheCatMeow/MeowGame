@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://b5w621d0ikxlv" path="res://Assets/Objects/MeowGame Leaves.png" id="10_y1k8l"]
 [ext_resource type="Shader" uid="uid://bhsxl2xr2g1kg" path="res://Scenes/god_rays.gdshader" id="11_ksguu"]
 [ext_resource type="Texture2D" uid="uid://c7r1ab41dny2s" path="res://Assets/Normal Maps/Fruit Normal Map/fruit_specular.png" id="11_ph87j"]
+[ext_resource type="Texture2D" uid="uid://dguitokhwa5lv" path="res://Assets/Normal Maps/Fruit Tree Normal Map/Fruit tree_normal.png" id="15_8xthx"]
+[ext_resource type="Texture2D" uid="uid://dpw0axo2g0cea" path="res://Assets/Normal Maps/Fruit Tree Normal Map/Fruit tree_specular.png" id="16_533ve"]
 [ext_resource type="AudioStream" uid="uid://cxbkjok7cvf6u" path="res://Assets/Audio/Forest Sound.mp3" id="17_ph87j"]
 [ext_resource type="Texture2D" uid="uid://cxk58s07armfi" path="res://Assets/Objects/Forest_Grass.png" id="18_ryfma"]
 [ext_resource type="Texture2D" uid="uid://cfxsrx4f27itg" path="res://Assets/Normal Maps/Forest Grass Normal Map 2/Forest_Grass_normal.png" id="19_qw0ue"]
@@ -91,6 +93,11 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.17021278, 74.15732), 0.0, 0.0,
 point_count = 9
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ksguu"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qw0ue"]
+diffuse_texture = ExtResource("7_57wpc")
+normal_texture = ExtResource("15_8xthx")
+specular_texture = ExtResource("16_533ve")
 
 [sub_resource type="Environment" id="Environment_6p6qw"]
 background_mode = 3
@@ -180,6 +187,7 @@ position = Vector2(576, 28)
 shape = SubResource("RectangleShape2D_6p6qw")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1715105264]
+light_mask = 3
 position = Vector2(-88, -160)
 rotation = -0.6213703
 energy = 0.3
@@ -215,7 +223,7 @@ z_index = 1
 material = SubResource("CanvasItemMaterial_ksguu")
 offset_right = 1152.0
 offset_bottom = 184.0
-texture = ExtResource("7_57wpc")
+texture = SubResource("CanvasTexture_qw0ue")
 stretch_mode = 4
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=727698613]
