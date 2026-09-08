@@ -1,5 +1,6 @@
 extends Node2D
 @onready var themed_timer: Node2D = $timer
+@onready var light: DirectionalLight2D = $Light
 
 var timer_end = false
 var scene_changed = false
@@ -13,6 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	light.rotation += 0.5 * delta
 	if timer_end:
 		if scene_changed:
 			return

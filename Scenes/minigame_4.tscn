@@ -91,7 +91,6 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.17021278, 74.15732), 0.0, 0.0,
 point_count = 9
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ksguu"]
-light_mode = 1
 
 [sub_resource type="Environment" id="Environment_6p6qw"]
 background_mode = 3
@@ -210,7 +209,9 @@ scale_amount_min = 2.0
 scale_amount_max = 3.0
 anim_offset_max = 1.0
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=1888030640]
+[node name="Trees" type="TextureRect" parent="." unique_id=1888030640]
+light_mask = 2
+z_index = 1
 material = SubResource("CanvasItemMaterial_ksguu")
 offset_right = 1152.0
 offset_bottom = 184.0

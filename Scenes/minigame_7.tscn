@@ -219,7 +219,7 @@ position = Vector2(960, 0)
 [node name="timer" parent="timer" index="0" unique_id=151355501]
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1406136185]
+[node name="Light" type="DirectionalLight2D" parent="." unique_id=1406136185]
 position = Vector2(-112, -104)
 rotation = -2.4324794
 color = Color(1, 0.7529412, 0.22745098, 1)
@@ -233,6 +233,7 @@ autoplay = true
 [node name="Ambient Particles" type="CPUParticles2D" parent="." unique_id=1223935791]
 material = SubResource("CanvasItemMaterial_ymvbw")
 position = Vector2(576, 320)
+rotation = -0.0023461073
 amount = 160
 lifetime = 8.0
 preprocess = 8.0

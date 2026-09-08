@@ -275,8 +275,8 @@ scale_amount_min = 4.0
 scale_amount_max = 6.0
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=637006552]
-position = Vector2(-152, -264)
-rotation = 1.7302037
+position = Vector2(-96.000015, -96.00006)
+rotation = 7.094625
 color = Color(1, 0.7019608, 0.4509804, 1)
 energy = 0.2
 

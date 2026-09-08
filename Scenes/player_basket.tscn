@@ -18,10 +18,10 @@ closed = false
 cull_mode = 1
 polygon = PackedVector2Array(96, 8, 96, 40, 88, 64, 8, 64, 0, 40, 0, 8)
 
-[node name="Player Pong" type="Area2D" unique_id=1618904061]
+[node name="Player Basket" type="Area2D" unique_id=1618904061]
 script = ExtResource("1_j0dia")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1754737351]
+[node name="Player Texture" type="TextureRect" parent="." unique_id=1754737351]
 offset_right = 96.0
 offset_bottom = 64.0
 texture = SubResource("CanvasTexture_ph87j")
