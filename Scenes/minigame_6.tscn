@@ -337,6 +337,7 @@ position = Vector2(-185.26315, -111.92105)
 rotation = -2.8175228
 amount = 150
 lifetime = 3.0
+preprocess = 3.0
 draw_order = 1
 emission_shape = 3
 emission_rect_extents = Vector2(10, 150)

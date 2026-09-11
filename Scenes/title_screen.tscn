@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d2tir16fxb4xs" path="res://Assets/Background/MeowGame Menu Background Grass and Flowers.png" id="9_sqelc"]
 [ext_resource type="Texture2D" uid="uid://c6katpdjc2k4w" path="res://Assets/Normal Maps/Menu Background Grass and Flowers Normal Map/MeowGame Menu Background Grass and Flowers_normal.png" id="10_w5sh6"]
 [ext_resource type="Texture2D" uid="uid://bnp1t3yyswumh" path="res://Assets/Normal Maps/Menu Background Grass and Flowers Normal Map/MeowGame Menu Background Grass and Flowers_displacement.png" id="11_o1e67"]
+[ext_resource type="AudioStream" uid="uid://dpnlj86u04ml8" path="res://Assets/Audio/click.wav" id="12_w5sh6"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_sqelc"]
 diffuse_texture = ExtResource("2_p3fck")
@@ -143,6 +144,10 @@ layout_mode = 2
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 48
 text = "Quit"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=824624795]
+stream = ExtResource("12_w5sh6")
+volume_db = 10.0
 
 [connection signal="pressed" from="VBoxContainer/Begin" to="." method="_on_begin_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]

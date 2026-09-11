@@ -114,8 +114,8 @@ specular_texture = ExtResource("8_0m3l0")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r6gid"]
 shader = ExtResource("18_ik7qa")
-shader_parameter/brightness = 2.0000000475
-shader_parameter/saturation_boost = 1.50000002375
+shader_parameter/brightness = 1.4950000235125
+shader_parameter/saturation_boost = 1.2490000118275
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_3yb6h"]
 diffuse_texture = ExtResource("4_jmcek")
@@ -675,7 +675,7 @@ scale_amount_max = 6.0
 color_ramp = SubResource("Gradient_6p6qw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=29504645]
-color = Color(0.3857931, 0.31185824, 0.5069727, 1)
+color = Color(0.5651929, 0.48710942, 0.70695657, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=434449649]
 environment = SubResource("Environment_6p6qw")

@@ -154,6 +154,7 @@ shape = SubResource("CircleShape2D_6p6qw")
 [node name="PointLight2D" type="PointLight2D" parent="Fruit" unique_id=1874354786]
 position = Vector2(1.1444092e-05, 3.8146973e-06)
 scale = Vector2(2.4999995, 2.4999998)
+energy = 0.6
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_6p6qw")
 
@@ -175,6 +176,7 @@ shape = SubResource("CircleShape2D_6p6qw")
 [node name="PointLight2D" type="PointLight2D" parent="Fruit2" unique_id=1944600756]
 position = Vector2(1.1444092e-05, 3.8146973e-06)
 scale = Vector2(2.4999995, 2.4999998)
+energy = 0.6
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_6p6qw")
 
