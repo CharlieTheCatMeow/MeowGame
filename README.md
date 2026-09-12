@@ -1,19 +1,21 @@
 # MeowGame!
 
-MeowGame! is a WarioWare style game featuring seven minigames.
+MeowGame! is a forest themed WarioWare style game featuring seven minigames.
+
+### All art is made by me
 
 ## Game Rules:
 The minigames must be completed within a certain timeframe.
 Failure to do so will result in losing one life. The player is given five lives in total.
 
 ## Mingames:
-- Platformer
-- Clicker Game
-- Flappy Bird
-- Collect Fruit
-- Jump over obstacles
-- Doodle Jump
-- Maneuver a raft
+- Platformer: Collect three coins
+- Clicker Game: Click ten coins
+- Flappy Bird: Navigate through the obstacles
+- Collect Fruit: Collect 8 fruits
+- Jump over obstacles: Jump over spiky bushes
+- Doodle Jump: Climb to the top and collect a coin
+- Maneuver a raft: Navigate through a river with obstacles
 
 ## Why I chose this project:
 I always wanted to do something with game development. 
