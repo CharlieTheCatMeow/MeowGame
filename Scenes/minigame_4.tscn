@@ -238,6 +238,7 @@ environment = SubResource("Environment_6p6qw")
 stream = ExtResource("9_yexny")
 
 [node name="timer" parent="." unique_id=844459433 instance=ExtResource("5_xea2i")]
+z_index = 2
 position = Vector2(960, 0)
 
 [node name="timer" parent="timer" index="0" unique_id=151355501]
