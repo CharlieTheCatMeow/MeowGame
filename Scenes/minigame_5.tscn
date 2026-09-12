@@ -133,6 +133,7 @@ autoscroll = Vector2(-200, 0)
 repeat_times = 4
 
 [node name="TextureRect2" type="TextureRect" parent="Bushes back" unique_id=617166467]
+self_modulate = Color(0.6542321, 0.6542321, 0.654232, 1)
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("CanvasTexture_6p6qw")
@@ -143,6 +144,7 @@ autoscroll = Vector2(-250, 0)
 repeat_times = 4
 
 [node name="TextureRect2" type="TextureRect" parent="Bushes front" unique_id=877169493]
+self_modulate = Color(0.8732984, 0.8732984, 0.8732984, 1)
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("CanvasTexture_0m0u2")
@@ -312,7 +314,7 @@ scale_amount_max = 6.0
 
 [node name="Ambient Wind Sound" type="AudioStreamPlayer" parent="." unique_id=1706001735]
 stream = ExtResource("16_f067r")
-volume_db = 3.0
+volume_db = -5.0
 autoplay = true
 
 [node name="Ambient Sound" type="AudioStreamPlayer" parent="." unique_id=1674125243]

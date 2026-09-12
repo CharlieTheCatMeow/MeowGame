@@ -141,7 +141,7 @@ specular_texture = ExtResource("14_8s5yr")
 
 [sub_resource type="Gradient" id="Gradient_4andj"]
 offsets = PackedFloat32Array(0, 0.1626506, 0.25903615, 1)
-colors = PackedColorArray(0.94509804, 0.90588236, 0, 0.4509804, 0.3489435, 0.33409482, 0, 0.45783365, 0.5529412, 0.5294118, 0, 0.7254902, 0, 0, 0, 0)
+colors = PackedColorArray(0.93106306, 0.91155213, 2.3102762e-06, 0.4509804, 0.3489435, 0.33409482, 0, 0.45783365, 0.5856204, 0.5820193, 0.32339692, 0.7254902, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2n5kv"]
 gradient = SubResource("Gradient_4andj")
@@ -361,7 +361,7 @@ texture = SubResource("CanvasTexture_fwgue")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1621872374]
-position = Vector2(148, 16)
+position = Vector2(148, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
@@ -381,7 +381,7 @@ texture = SubResource("CanvasTexture_sdao7")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1231328572]
-position = Vector2(148, 16)
+position = Vector2(148, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
@@ -421,7 +421,7 @@ texture = SubResource("CanvasTexture_sdao7")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1843619091]
-position = Vector2(148, 16)
+position = Vector2(148, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
@@ -441,7 +441,7 @@ texture = SubResource("CanvasTexture_sdao7")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=91923118]
-position = Vector2(148, 16)
+position = Vector2(148, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
@@ -461,7 +461,7 @@ texture = SubResource("CanvasTexture_sdao7")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5" unique_id=1113288013]
-position = Vector2(148, 16)
+position = Vector2(148, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
@@ -481,7 +481,7 @@ texture = SubResource("CanvasTexture_sdao7")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6" unique_id=26026386]
-position = Vector2(148, 16)
+position = Vector2(148, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
@@ -501,7 +501,7 @@ texture = SubResource("CanvasTexture_sdao7")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform7" unique_id=1277402592]
-position = Vector2(148, 16)
+position = Vector2(148, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
@@ -539,7 +539,7 @@ stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform8" unique_id=3869561]
-position = Vector2(148, 16)
+position = Vector2(148, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
@@ -560,7 +560,7 @@ stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform9" unique_id=170783714]
-position = Vector2(148, 16)
+position = Vector2(148, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
@@ -581,7 +581,7 @@ stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform10" unique_id=892922409]
-position = Vector2(148, 16)
+position = Vector2(148, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
@@ -601,7 +601,7 @@ stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform11" unique_id=1843050643]
-position = Vector2(148, 16)
+position = Vector2(148, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
