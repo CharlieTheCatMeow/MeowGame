@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://batt6dr4kx6ou"]
 
 [ext_resource type="Script" uid="uid://d7ham8x1unr5" path="res://Scenes/pause_menu.gd" id="1_emv3i"]
+[ext_resource type="AudioStream" uid="uid://dpnlj86u04ml8" path="res://Assets/Audio/click.wav" id="2_k0w1u"]
 
 [node name="Pause Menu" type="CanvasLayer" unique_id=401104467]
 process_mode = 3
@@ -9,7 +10,7 @@ script = ExtResource("1_emv3i")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=394289951]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(1, 1, 1, 0.19607843)
+color = Color(0, 0, 0, 0.27100003)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=83105576]
 offset_left = 416.0
@@ -31,6 +32,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 74
 text = "Main Menu"
 icon_alignment = 1
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=55384075]
+stream = ExtResource("2_k0w1u")
+volume_db = 10.0
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]

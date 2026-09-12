@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var clickSound: AudioStreamPlayer = $ClickSound
+
 var previous_mouse_mode: Input.MouseMode 
 
 func _ready() -> void:
@@ -12,7 +14,11 @@ func can_pause() -> bool:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if can_pause() or get_tree().paused:
+			
 			toggle_pause_menu()
+			clickSound.stop()
+			clickSound.play()
+			await await get_tree().create_timer(0.03, false).timeout
 
 func toggle_pause_menu():
 	var toggle_pause = not get_tree().paused
@@ -29,8 +35,14 @@ func toggle_pause_menu():
 
 func _on_resume_pressed() -> void:
 	toggle_pause_menu()
+	clickSound.stop()
+	clickSound.play()
+	await await get_tree().create_timer(0.03, false).timeout
 
 
 func _on_menu_pressed() -> void:
 	toggle_pause_menu()
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
+	clickSound.stop()
+	clickSound.play()
+	await await get_tree().create_timer(0.03, false).timeout
