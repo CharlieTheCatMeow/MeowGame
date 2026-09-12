@@ -1,13 +1,10 @@
 extends Node2D
 
-@onready var master_bus_index: int = AudioServer.get_bus_index("Master")
 @onready var clickSound: AudioStreamPlayer = $ClickSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	var db_value = linear_to_db(0.5)
-	AudioServer.set_bus_volume_db(master_bus_index, db_value)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

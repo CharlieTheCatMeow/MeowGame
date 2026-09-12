@@ -4,6 +4,9 @@ extends Node2D
 @onready var audio_player = $AudioStreamPlayer
 @onready var fruit_container: VBoxContainer = $FruitCountContainer
 
+@onready var fruit_1: RigidBody2D = $Fruit
+@onready var fruit_2: RigidBody2D = $Fruit2
+
 var fruit_counter: Array[TextureRect] = []
 
 var timer_end = false

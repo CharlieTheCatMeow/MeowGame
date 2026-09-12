@@ -15,7 +15,7 @@ var scene_changed = false
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	player.died.connect(on_player_died)
-	await themed_timer.Timer(10.0)
+	await themed_timer.Timer(15.0)
 	timer_end = true
 
 func on_player_died() -> void:

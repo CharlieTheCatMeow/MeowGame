@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://vgcn25ap61q8"]
+[gd_scene format=3 uid="uid://buy78hme6x0cu"]
 
 [ext_resource type="AudioStream" uid="uid://dqfhr6ppjdlji" path="res://Assets/Audio/Background music.wav" id="1_7elu1"]
 [ext_resource type="Script" uid="uid://c40oovy5c0jxb" path="res://Scenes/bgm_player.gd" id="2_ogd1w"]

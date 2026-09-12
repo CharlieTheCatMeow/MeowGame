@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d7ham8x1unr5" path="res://Scenes/pause_menu.gd" id="1_emv3i"]
 [ext_resource type="AudioStream" uid="uid://dpnlj86u04ml8" path="res://Assets/Audio/click.wav" id="2_k0w1u"]
+[ext_resource type="Script" uid="uid://b3jum7x1byn4m" path="res://Scenes/volume.gd" id="3_1och7"]
 
 [node name="Pause Menu" type="CanvasLayer" unique_id=401104467]
 process_mode = 3
@@ -12,21 +13,28 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 0.27100003)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=83105576]
+[node name="PauseMenu" type="VBoxContainer" parent="." unique_id=83105576]
 offset_left = 416.0
 offset_top = 160.0
 offset_right = 736.0
 offset_bottom = 440.0
 alignment = 1
 
-[node name="Resume" type="Button" parent="VBoxContainer" unique_id=1837252101]
+[node name="Resume" type="Button" parent="PauseMenu" unique_id=1837252101]
 custom_minimum_size = Vector2(0.335, 104.25)
 layout_mode = 2
 theme_override_font_sizes/font_size = 74
 text = "Resume"
 icon_alignment = 1
 
-[node name="Menu" type="Button" parent="VBoxContainer" unique_id=2072341849]
+[node name="Settings" type="Button" parent="PauseMenu" unique_id=505343783]
+custom_minimum_size = Vector2(0.335, 104.25)
+layout_mode = 2
+theme_override_font_sizes/font_size = 74
+text = "Settings"
+icon_alignment = 1
+
+[node name="Menu" type="Button" parent="PauseMenu" unique_id=2072341849]
 custom_minimum_size = Vector2(0.335, 104.25)
 layout_mode = 2
 theme_override_font_sizes/font_size = 74
@@ -37,5 +45,38 @@ icon_alignment = 1
 stream = ExtResource("2_k0w1u")
 volume_db = 10.0
 
-[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[node name="Settings" type="VBoxContainer" parent="." unique_id=128231432]
+offset_left = 368.0
+offset_top = 136.0
+offset_right = 784.0
+offset_bottom = 396.0
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Meow" type="Button" parent="Settings" unique_id=430519402]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 48
+text = "Toggle Music"
+
+[node name="Volume" type="HSlider" parent="Settings" unique_id=1073105284]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.5
+script = ExtResource("3_1och7")
+
+[node name="Return" type="Button" parent="Settings" unique_id=591609027]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 48
+text = "Return"
+
+[connection signal="pressed" from="PauseMenu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="PauseMenu/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Settings/Meow" to="." method="_on_meow_pressed"]
+[connection signal="value_changed" from="Settings/Volume" to="Settings/Volume" method="_on_value_changed"]
+[connection signal="pressed" from="Settings/Return" to="." method="_on_return_pressed"]

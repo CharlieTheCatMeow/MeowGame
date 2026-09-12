@@ -122,7 +122,7 @@ text = "Toggle Music"
 layout_mode = 2
 max_value = 1.0
 step = 0.05
-value = 0.5
+value = 1.0
 script = ExtResource("3_lhmql")
 
 [node name="Return" type="Button" parent="VBoxContainer" unique_id=1626810917]

@@ -123,7 +123,7 @@ normal_texture = ExtResource("9_4kkxe")
 specular_texture = ExtResource("10_cbts5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8u25l"]
-size = Vector2(296, 32)
+size = Vector2(288, 32)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xuuwq"]
 closed = false
@@ -381,7 +381,7 @@ texture = SubResource("CanvasTexture_sdao7")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1231328572]
-position = Vector2(148, 18)
+position = Vector2(144, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
@@ -421,7 +421,7 @@ texture = SubResource("CanvasTexture_sdao7")
 stretch_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1843619091]
-position = Vector2(148, 18)
+position = Vector2(144, 18)
 shape = SubResource("RectangleShape2D_8u25l")
 one_way_collision = true
 
